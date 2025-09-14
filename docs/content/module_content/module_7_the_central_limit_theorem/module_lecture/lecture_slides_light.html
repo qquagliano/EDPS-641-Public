@@ -1574,7 +1574,10 @@ Quinton Quagliano, M.S., C.S.P
 <h2 id="toc-title">Table of contents</h2>
 <ul>
 <li class="fragment"><a href="#/sec-overview" id="/toc-sec-overview"><span class="header-section-number">1</span> Overview and Introduction</a></li>
-<li class="fragment"><a href="#/sec-conclusion" id="/toc-sec-conclusion"><span class="header-section-number">2</span> Conclusion</a></li>
+<li class="fragment"><a href="#/sec-clt-means" id="/toc-sec-clt-means"><span class="header-section-number">2</span> The Central Limit Theorem for Sample Means</a></li>
+<li class="fragment"><a href="#/sec-clt-sums" id="/toc-sec-clt-sums"><span class="header-section-number">3</span> The Central Limit Theorem for Sums</a></li>
+<li class="fragment"><a href="#/sec-use" id="/toc-sec-use"><span class="header-section-number">4</span> Use of the Central Limit Theorem</a></li>
+<li class="fragment"><a href="#/sec-conclusion" id="/toc-sec-conclusion"><span class="header-section-number">5</span> Conclusion</a></li>
 </ul>
 </nav>
 </section>
@@ -1589,23 +1592,229 @@ Quinton Quagliano, M.S., C.S.P
 </section>
 <section id="sec-text-learn-objs" class="slide level2" data-number="1.1">
 <h2><span class="header-section-number">1.1</span> Textbook Learning Objectives</h2>
+<ul>
+<li class="fragment">Recognize central limit theorem problems.</li>
+<li class="fragment">Classify continuous word problems by their distributions.</li>
+<li class="fragment">Apply and interpret the central limit theorem for means.</li>
+<li class="fragment">Apply and interpret the central limit theorem for sums.</li>
+</ul>
 </section>
 <section id="sec-instructor-learn-objs" class="slide level2" data-number="1.2">
 <h2><span class="header-section-number">1.2</span> Instructor Learning Objectives</h2>
+<ul>
+<li class="fragment">Recognize the prevalence and importance of the mean</li>
+<li class="fragment">Understand how the central limit theorem contributes to the accuracy of statistics in representing/estimating parameters.</li>
+</ul>
 </section>
-<section id="sec-introduction" class="slide level2" data-number="1.3">
+<section id="sec-introduction" class="slide level2 scrollable" data-number="1.3">
 <h2><span class="header-section-number">1.3</span> Introduction</h2>
+<ul>
+<li class="fragment"><p>The concept of the mean <span class="fragment highlight-current-custom"><u>average</u></span> has come up a lot in our previous lectures, from discussions on descriptive statistics through probability and random variables</p></li>
+<li class="fragment"><p>We are going to connect <span class="fragment highlight-current-custom"><u>means</u></span> (and sums) with the <strong>central limit theorem (CLT)</strong>, which is critical in understanding how our sample statistics connect with our population parameters</p>
+<ul>
+<li class="fragment">Thus, the central limit theorem is closely related to the law of <span class="fragment highlight-current-custom"><u>large</u></span> numbers - this will be touched on towards the end of lecture</li>
+</ul></li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Important: Much like the prior &#39;ideal&#39; distributions we&#39;ve discussed, the CLT is a conceptual idea used as an assumption for practical application. It is not often &#39;calculated&#39; in sample data.</b></li></ul>
+<ul>
+<li class="fragment">The central limit theorem has two <span class="fragment highlight-current-custom"><u>versions</u></span>, both which converge on roughly the same concept:
+<ol type="1">
+<li class="fragment">If we collect infinitely many samples of size <span class="math inline">\(n\)</span> that are “<span class="fragment highlight-current-custom"><u>large</u></span> enough” calculate means from each of those samples on some continuous variable of interest, and plot the means as a histogram, it will be roughly <span class="fragment highlight-current-custom"><u>normal</u></span></li>
+<li class="fragment">Roughly the same idea, but instead of taking the mean of each sample, we take the <span class="fragment highlight-current-custom"><u>sum</u></span> of the continuous variable and plot those as a <span class="fragment highlight-current-custom"><u>histogram</u></span>. Similar to before, theoretically results in a normal distribution.</li>
+</ol></li>
+<li class="fragment">Put more succinctly: if we take enough large samples, the sample statistic estimates are normally distributed <span class="fragment highlight-current-custom"><u>across</u></span> the samples.</li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: Quick Review: What two notations are used to represent a sample mean statistic and a population mean parameter? What about sample and population standard deviation? What greek letter is associated with summation?</b></li></ul>
+<ul>
+<li class="fragment">As a rule of thumb, <span class="math inline">\(n = 30\)</span> is often said to be sufficiently large if it is believed that the distribution of a variable is <span class="fragment highlight-current-custom"><u>normal</u></span> in the population, but more is necessary if normality cannot be assumed.
+<ul>
+<li class="fragment">A nuance to this is that the <span class="math inline">\(n = 30\)</span> rule applied to separate <span class="fragment highlight-current-custom"><u>groups</u></span>, e.g., if I wanted to compare men and women in my analysis, I would want at least 30 of each of those genders</li>
+<li class="fragment">Some analyses like <span class="fragment highlight-current-custom"><u>multi-level</u></span> modeling benefit from much larger samples</li>
+<li class="fragment">This is also done under the assumption that sampling of a sample from a population is done <span class="fragment highlight-current-custom"><u>with</u></span> replacement.</li>
+</ul></li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: Try to recall and describe the difference between sampling done with and without replacement. How does this connect to (in)dependence?</b></li></ul>
+<ul><li class="fragment highlight-current-custom"><b>Important: There is some controversy on just how much larger your samples need to be to overcome non-normality in the sample; some even say we shouldn&#39;t bother!</b></li></ul>
+<ul>
+<li class="fragment">The following two sections we cover will describe and investigate the two <span class="fragment highlight-current-custom"><u>alternative</u></span> versions of the CLT: Focusing on means and sums</li>
+</ul>
 </section></section>
 <section>
-<section id="sec-conclusion" class="title-slide slide level1 center" data-number="2">
-<h1><span class="header-section-number">2</span> Conclusion</h1>
+<section id="sec-clt-means" class="title-slide slide level1 center" data-number="2">
+<h1><span class="header-section-number">2</span> The Central Limit Theorem for Sample Means</h1>
 
 </section>
-<section id="sec-recap" class="slide level2" data-number="2.1">
-<h2><span class="header-section-number">2.1</span> Recap</h2>
+<section id="sec-introduction-clt-means" class="slide level2" data-number="2.1">
+<h2><span class="header-section-number">2.1</span> Introduction</h2>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: Prior to this next part, try writing notation to represent a continuous variable </b></li></ul>
+<ul>
+<li class="fragment">The central limit theorem around means can be represented in a similar <span class="fragment highlight-current-custom"><u>notation</u></span> to distribution like we used previously in Modules 4 and 5
+<ul>
+<li class="fragment">This is because the central limit theorem hinges around a <span class="fragment highlight-current-custom"><u>distribution</u></span> of sample means</li>
+</ul></li>
+<li class="fragment">The formula to represent the central limit theorem of means is: <span class="math inline">\(\bar{X} \sim
+N(\mu_X, \frac{\sigma_X}{\sqrt{n}})\)</span></li>
+<li class="fragment">Where:
+<ul>
+<li class="fragment"><span class="math inline">\(\bar{X}\)</span> is a random continuous variable consisting of many <span class="fragment highlight-current-custom"><u>sample</u></span> means of variable <span class="math inline">\(X\)</span></li>
+<li class="fragment"><span class="math inline">\(\mu_X\)</span> is the mean of random <span class="fragment highlight-current-custom"><u>continuous</u></span> variable <span class="math inline">\(X\)</span></li>
+<li class="fragment"><span class="math inline">\(\sigma_X\)</span> is the standard deviation of random continuous variable <span class="math inline">\(X\)</span></li>
+<li class="fragment"><span class="math inline">\(n\)</span> is the size of the <span class="fragment highlight-current-custom"><u>individual</u></span> samples taken to from the sampling distribution (this is consistent across all theoretical samples)</li>
+</ul></li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Important: All of the above Xs are uppercase! This is because we are using it to describe a variable, not the possible values that the variable could take, which would be lowercase x.</b></li></ul>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: Try interpreting the above notation like you would any other normal distribution, like the one you wrote in the last &#39;Discuss&#39; question. Effectively, try to write out what each part of the notation means.</b></li></ul>
 </section>
-<section id="sec-lecture-check-in" class="slide level2" data-number="2.2">
-<h2><span class="header-section-number">2.2</span> Lecture Check-in</h2>
+<section id="sec-sampling-dists" class="slide level2" data-number="2.2">
+<h2><span class="header-section-number">2.2</span> Sampling Distributions</h2>
+<ul>
+<li class="fragment">When we represent <span class="fragment highlight-current-custom"><u>many</u></span> sample means as a distribution, we call this the <strong>sampling distribution</strong> of means, which is really what is shown in the prior notation
+<ul>
+<li class="fragment">A <span class="fragment highlight-current-custom"><u>high</u></span> standard deviation in this sampling distribution would suggest that the individual sample means are <span class="fragment highlight-current-custom"><u>more</u></span> spread out, i.e., each sample is more different from one another</li>
+<li class="fragment">Thus, a small standard deviation in the sampling distribution is <span class="fragment highlight-current-custom"><u>ideal</u></span>, as it indicates that each individual sample is relative close in its mean estimate</li>
+</ul></li>
+<li class="fragment">The CLT holds that the larger a sample size, the more its sampling distribution will <span class="fragment highlight-current-custom"><u>resemble</u></span> a normal distribution
+<ul>
+<li class="fragment">This hinges on <span class="math inline">\(n\)</span> being large enough</li>
+<li class="fragment">Consider the formula again: <span class="math inline">\(\bar{X} \sim N(\mu_X,
+\frac{\sigma_X}{\sqrt{n}})\)</span></li>
+<li class="fragment"><span class="math inline">\(n\)</span> being in the <span class="fragment highlight-current-custom"><u>denominator</u></span> means that a larger <span class="math inline">\(n\)</span> will result in a smaller overall standard deviation for the distribution</li>
+<li class="fragment">This <span class="math inline">\(\frac{\sigma_X}{\sqrt{n}}\)</span> is referred to as the <strong>standard error of the mean</strong></li>
+</ul></li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Important: You can think of the standard error as being the standard deviation of the sampling distribution, or how far away, on average sample means are away from the mean of sample means.</b></li></ul>
+<ul class="fragment highlight-current-custom"><li><b>Question: Earlier, what was the rule-of-thumb number for what is &#39;large enough&#39; sample?</b></li><ul><li>A) 20</li><li>B) 10</li><li>C) 100</li><li>D) 30</li></ul></ul>
+</section>
+<section id="sec-z-scores-for-sampling-dists" class="slide level2" data-number="2.3">
+<h2><span class="header-section-number">2.3</span> Z-scores for Sampling Distributions</h2>
+<ul>
+<li class="fragment">We can conceptualize the mean of a <span class="fragment highlight-current-custom"><u>single</u></span> sample as a z-score for how far away it is from the theoretical mean of the sampling distribution with:</li>
+</ul>
+<p><span class="math display">\[
+z = \frac{\bar{x} - \mu_X}{(\frac{\sigma_X}{\sqrt{n}})}
+\]</span></p>
+<ul>
+<li class="fragment">Where:
+<ul>
+<li class="fragment"><span class="math inline">\(\bar{x}\)</span> is the mean for a single sample</li>
+<li class="fragment"><span class="math inline">\(\mu_X\)</span> is the mean of both <span class="math inline">\(X\)</span> and <span class="math inline">\(\bar{X}\)</span></li>
+<li class="fragment"><span class="math inline">\(\sigma\)</span> same as before</li>
+</ul></li>
+</ul>
+</section>
+<section id="sec-conn-prob" class="slide level2" data-number="2.4">
+<h2><span class="header-section-number">2.4</span> Connection to Finding Probability in the Normal Distribution</h2>
+<ul>
+<li class="fragment">Because the sampling distribution is theorized as a <span class="fragment highlight-current-custom"><u>normal</u></span> distribution, we can estimate the probability that a certain event regarding an individual sample mean occurs
+<ul>
+<li class="fragment">In order to do so, we need some information about the believed mean (<span class="math inline">\(\mu_X\)</span>), standard deviation (or standard <span class="fragment highlight-current-custom"><u>error</u></span>; <span class="math inline">\(\sigma_X\)</span>), and sample size (<span class="math inline">\(n\)</span>) of the particular sampling distribution</li>
+</ul></li>
+</ul>
+</section>
+<section id="sec-edu-example" class="slide level2" data-number="2.5">
+<h2><span class="header-section-number">2.5</span> Educational Example</h2>
+<ul>
+<li class="fragment">A standardized elementary reading test for children produces scores that range from 0 to 500, which represent student ability in reading for that grade level
+<ul>
+<li class="fragment">Treat <span class="math inline">\(R\)</span> as representing the continuous random variable of score on the reading test</li>
+</ul></li>
+<li class="fragment">Based on the test manufacturers specifications, this test has a mean sampling distribution mean of 250, and standard deviation of 50. In my scenario, let’s assume I take samples of <span class="math inline">\(n = 40\)</span>.
+<ul>
+<li class="fragment">My sampling distribution could be represented as:</li>
+</ul></li>
+</ul>
+<p><span class="math display">\[
+\bar{R} \sim N(250, \frac{50}{\sqrt{40}})
+\]</span></p>
+<ul>
+<li class="fragment">Where:
+<ul>
+<li class="fragment"><span class="math inline">\(\bar{R}\)</span> is the mean of sample means of the reading scores</li>
+</ul></li>
+<li class="fragment">The z-score formula then could be shown as:</li>
+</ul>
+<p><span class="math display">\[
+z = \frac{\bar{r} - 250}{(\frac{50}{\sqrt{40}})}
+\]</span></p>
+<ul>
+<li class="fragment">Where:
+<ul>
+<li class="fragment"><span class="math inline">\(\bar{r}\)</span> is a single sample mean</li>
+</ul></li>
+</ul>
+</section></section>
+<section>
+<section id="sec-clt-sums" class="title-slide slide level1 center" data-number="3">
+<h1><span class="header-section-number">3</span> The Central Limit Theorem for Sums</h1>
+
+</section>
+<section id="sec-overview-clt-sums" class="slide level2" data-number="3.1">
+<h2><span class="header-section-number">3.1</span> Brief Overview</h2>
+<ul><li class="fragment highlight-current-custom"><b>Important: I am going to focus less on this one, only because it ends up following a very similar idea and logic to the mean CLT.</b></li></ul>
+<ul>
+<li class="fragment">The central limit theorem for <span class="fragment highlight-current-custom"><u>sums</u></span> functions on a very similar logic to the CLT for means, just with a different formula to represent the distribution:</li>
+</ul>
+<p><span class="math display">\[
+\sum{X} ~ N((n)(\mu_X), (\sqrt{n})(\sigma_X))
+\]</span></p>
+<ul>
+<li class="fragment">Where:
+<ul>
+<li class="fragment"><span class="math inline">\(\sigma{X}\)</span> is the continuous variable of sums of <span class="math inline">\(X\)</span></li>
+<li class="fragment"><span class="math inline">\(\mu_X\)</span> is the mean of <span class="math inline">\(X\)</span></li>
+<li class="fragment"><span class="math inline">\(\sigma_X\)</span> is the standard deviation of <span class="math inline">\(X\)</span></li>
+</ul></li>
+<li class="fragment">The z-score formula:</li>
+</ul>
+<p><span class="math display">\[
+z = \frac{\sum{x}-(n)(\mu_X)}{(\sqrt(n)(\sigma_X))}
+\]</span></p>
+<ul>
+<li class="fragment">The end idea of this version has a similar gist: larger <span class="math inline">\(n\)</span> narrows the standard error of the distribution of sums.</li>
+</ul>
+</section></section>
+<section>
+<section id="sec-use" class="title-slide slide level1 center" data-number="4">
+<h1><span class="header-section-number">4</span> Use of the Central Limit Theorem</h1>
+
+</section>
+<section id="sec-intro-use" class="slide level2" data-number="4.1">
+<h2><span class="header-section-number">4.1</span> Introduction</h2>
+<ul>
+<li class="fragment">In practice, the central limit theorem is not often <span class="fragment highlight-current-custom"><u>directly</u></span> used, but is often appealed to as part of statistical <span class="fragment highlight-current-custom"><u>inference</u></span>
+<ul>
+<li class="fragment">Most classic, <span class="fragment highlight-current-custom"><u>parametric</u></span> tests rely upon the implications of the central limit theorem</li>
+</ul></li>
+<li class="fragment">The central limit theorem is best applied to <span class="fragment highlight-current-custom"><u>aggregate</u></span> values, such as mean and sums, <em>not</em> individual points
+<ul>
+<li class="fragment">E.g., I don’t need to use the CLT to make sense of a single test score in a sample I take</li>
+</ul></li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Important: Much like the normal distribution in general, CLT is sometimes misused as providing an easy appeal, but it&#39;s not perfect!</b></li></ul>
+</section>
+<section id="sec-conn-to-law" class="slide level2" data-number="4.2">
+<h2><span class="header-section-number">4.2</span> Connection to the Law of Large Numbers</h2>
+<ul>
+<li class="fragment">If the central limit theorem implies that the <span class="fragment highlight-current-custom"><u>center</u></span> of the distribution of sample means is the population mean parameter, then a larger <span class="math inline">\(n\)</span> allows our <span class="math inline">\(\bar{x}\)</span> to better estimate the <span class="math inline">\(\mu\)</span>.</li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Important: Remember that this is assuming that our sample is representative of the population of interest!</b></li></ul>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: What are some example of randomness-based sampling techniques that result in representative samples?</b></li></ul>
+</section></section>
+<section>
+<section id="sec-conclusion" class="title-slide slide level1 center" data-number="5">
+<h1><span class="header-section-number">5</span> Conclusion</h1>
+
+</section>
+<section id="sec-recap" class="slide level2" data-number="5.1">
+<h2><span class="header-section-number">5.1</span> Recap</h2>
+<ul>
+<li class="fragment"><p>The CLT serves as a critical concept building on probability and continuous, normal distributions</p></li>
+<li class="fragment"><p>The CLT underlies why larger samples result in more accurate estimates of our population parameters in our sample statistics</p></li>
+<li class="fragment"><p>The CLT implications and characteristics are useful in making sense of results from statistical hypothesis testing (more on this later!)</p></li>
+</ul>
+</section>
+<section id="sec-lecture-check-in" class="slide level2" data-number="5.2">
+<h2><span class="header-section-number">5.2</span> Lecture Check-in</h2>
 <ul>
 <li class="fragment">Make sure to complete and submit the lecture check-in</li>
 </ul>
