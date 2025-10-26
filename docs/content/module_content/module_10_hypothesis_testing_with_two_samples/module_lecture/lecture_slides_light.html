@@ -1548,7 +1548,11 @@ Quinton Quagliano, M.S., C.S.P
 <h2 id="toc-title">Table of contents</h2>
 <ul>
 <li class="fragment"><a href="#/sec-overview" id="/toc-sec-overview"><span class="header-section-number">1</span> Overview and Introduction</a></li>
-<li class="fragment"><a href="#/sec-conclusion" id="/toc-sec-conclusion"><span class="header-section-number">2</span> Conclusion</a></li>
+<li class="fragment"><a href="#/sec-review-one" id="/toc-sec-review-one"><span class="header-section-number">2</span> Review of One-Sample Cases (Module 9) and Computation</a></li>
+<li class="fragment"><a href="#/sec-compare-one-two" id="/toc-sec-compare-one-two"><span class="header-section-number">3</span> Comparing One- and Two-Sample Cases</a></li>
+<li class="fragment"><a href="#/sec-two-means-unknown-std-dev" id="/toc-sec-two-means-unknown-std-dev"><span class="header-section-number">4</span> Two Population Means with Unknown Standard Deviations</a></li>
+<li class="fragment"><a href="#/sec-matched-pairs" id="/toc-sec-matched-pairs"><span class="header-section-number">5</span> Matched or Paired Samples</a></li>
+<li class="fragment"><a href="#/sec-conclusion" id="/toc-sec-conclusion"><span class="header-section-number">6</span> Conclusion</a></li>
 </ul>
 </nav>
 </section>
@@ -1567,22 +1571,73 @@ Quinton Quagliano, M.S., C.S.P
 <p><span class="header-section-number">1</span> Overview and Introduction</p>
 </div>
 <div class="agenda-inactive agenda-post-active">
-<p><span class="header-section-number">2</span> Conclusion</p>
+<p><span class="header-section-number">2</span> Review of One-Sample Cases (Module 9) and Computation</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">3</span> Comparing One- and Two-Sample Cases</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">4</span> Two Population Means with Unknown Standard Deviations</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">5</span> Matched or Paired Samples</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">6</span> Conclusion</p>
 </div>
 </div>
 </section>
 <section id="sec-text-learn-objs" class="slide level2" data-number="1.1">
 <h2><span class="header-section-number">1.1</span> Textbook Learning Objectives</h2>
+<ul>
+<li class="fragment">Classify hypothesis tests by type.</li>
+<li class="fragment">Conduct and interpret hypothesis tests for two population means, population standard deviations known.</li>
+<li class="fragment">Conduct and interpret hypothesis tests for matched or paired samples.</li>
+</ul>
 </section>
 <section id="sec-instructor-learn-objs" class="slide level2" data-number="1.2">
 <h2><span class="header-section-number">1.2</span> Instructor Learning Objectives</h2>
+<ul>
+<li class="fragment">Understand when it is appropriate to test with “two-sample” tests vs “one-sample” tests, as described in Module 9</li>
+<li class="fragment">Appreciate the different conditions and assumptions that must be met for each of the two-sample tests</li>
+<li class="fragment">Be able to correctly choose an appropriate test, when reading a narrative/anecdotal example of “real variables”</li>
+<li class="fragment">Understand the difference between “paired” and “independent samples”</li>
+</ul>
 </section>
 <section id="sec-introduction" class="slide level2" data-number="1.3">
 <h2><span class="header-section-number">1.3</span> Introduction</h2>
+<ul>
+<li class="fragment">Last module we focused on <span class="fragment highlight-current-custom"><u>hypothesis</u></span> testing, and how one can build a structure for <span class="fragment highlight-current-custom"><u>inferential</u></span> testing by creating paired null and alternative hypotheses
+<ul>
+<li class="fragment">E.g., Those in a new math curriculum will perform better on an exam than those in the traditional curriculum</li>
+<li class="fragment"><span class="fragment highlight-current-custom"><u>Alternative</u></span> hypothesis: <span class="math inline">\(H_A: Exam_{New} &gt; Exam_{Old}\)</span>
+<ul>
+<li class="fragment">Remember that the alternative hypothesis is usually something along the lines of our <span class="fragment highlight-current-custom"><u>study</u></span> hypothesis</li>
+</ul></li>
+<li class="fragment"><span class="fragment highlight-current-custom"><u>Null</u></span> hypothesis: <span class="math inline">\(H_0: Exam_{New} = Exam_{Old}\)</span></li>
+<li class="fragment">This example is technically for a <span class="fragment highlight-current-custom"><u>two</u></span>-sample case, where we are comparing two or <span class="fragment highlight-current-custom"><u>more</u></span> groups</li>
+</ul></li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: Review from Module 9: Is saying &#39;Those in a new math curriculum will perform better than or *equal to* on an exam than those in the traditional curriculum&#39; a valid alternative hypothesis? Why or why not?</b></li></ul>
+<ul>
+<li class="fragment">Compare this to a one-sample hypothesis, which was more a focus of last module: E.g., I hypothesize that my class average on the midterm exam will be less than 60.
+<ul>
+<li class="fragment"><span class="fragment highlight-current-custom"><u>Alternative</u></span> hypothesis: <span class="math inline">\(H_A: Exam &lt; 60\)</span> lines of our <span class="fragment highlight-current-custom"><u>study</u></span> hypothesis</li>
+<li class="fragment"><span class="fragment highlight-current-custom"><u>Null</u></span> hypothesis: <span class="math inline">\(H_0: Exam \geq 60\)</span></li>
+</ul></li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: Review from Module 9: Will the prior one-sample example be more accurately classified as a one-tailed or two-tailed test?</b></li></ul>
+<ul>
+<li class="fragment">This module, we’ll review <span class="fragment highlight-current-custom"><u>one</u></span>-sample cases from module 9, scenarios, and computations, before we move into discussing how to conduct two-sample tests, like the type you’d use for the prior example
+<ul>
+<li class="fragment">This will also help us demonstrate how the <span class="fragment highlight-current-custom"><u>writing</u></span> of our alternative and null hypothesis is <span class="fragment highlight-current-custom"><u>variable</u></span> depending on the situation</li>
+</ul></li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Important: The two-sample scenario is very common and more often used than one-sample cases in real research - many educational intervention research is likely to look familiar to this!</b></li></ul>
 </section></section>
 <section>
-<section id="sec-conclusion" class="title-slide slide level1 agenda-slide center" data-number="2">
-<h1><span class="header-section-number">2</span> Conclusion</h1>
+<section id="sec-review-one" class="title-slide slide level1 agenda-slide center" data-number="2">
+<h1><span class="header-section-number">2</span> Review of One-Sample Cases (Module 9) and Computation</h1>
 <div class="agenda-heading">
 <p>Agenda</p>
 </div>
@@ -1591,15 +1646,463 @@ Quinton Quagliano, M.S., C.S.P
 <p><span class="header-section-number">1</span> Overview and Introduction</p>
 </div>
 <div class="agenda-active">
-<p><span class="header-section-number">2</span> Conclusion</p>
+<p><span class="header-section-number">2</span> Review of One-Sample Cases (Module 9) and Computation</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">3</span> Comparing One- and Two-Sample Cases</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">4</span> Two Population Means with Unknown Standard Deviations</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">5</span> Matched or Paired Samples</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">6</span> Conclusion</p>
 </div>
 </div>
 </section>
-<section id="sec-recap" class="slide level2" data-number="2.1">
-<h2><span class="header-section-number">2.1</span> Recap</h2>
+<section id="sec-introduction1" class="slide level2" data-number="2.1">
+<h2><span class="header-section-number">2.1</span> Introduction</h2>
+<ul>
+<li class="fragment">Regardless of the scenario, our hypothesis testing is in service of determining whether we have <span class="fragment highlight-current-custom"><u>evidence</u></span> that our results are such a rare event under the null hypothesis that there is compelling evidence that it is incorrect
+<ul>
+<li class="fragment">Refresher example: If a person said that there are 100 $200 bills in a bag, and 1 $10 bill, I’d call BS if I somehow grabbed the $10</li>
+<li class="fragment">If we do have <span class="fragment highlight-current-custom"><u>enough</u></span> evidence, by virtue of our p-value being less than <span class="math inline">\(\alpha\)</span>, then we can reject the null hypothesis</li>
+</ul></li>
+</ul>
+<ul class="fragment highlight-current-custom"><li><b>Question: Making a poor decision on rejecting or retaining a null hypothesis can lead to errors! What is it called if I reject the null hypothesis, when it is actually true?</b></li><ul><li>A) Type I</li><li>B) Type II</li><li>C) Type III</li><li>D) Not an error</li></ul></ul>
+<ul>
+<li class="fragment">The one-sample case is when we compare a <span class="fragment highlight-current-custom"><u>variable</u></span> against some pre-set standard or <span class="fragment highlight-current-custom"><u>expectation</u></span>
+<ul>
+<li class="fragment">E.g. The prior exam with the midterm graded tested against 60</li>
+</ul></li>
+</ul>
 </section>
-<section id="sec-lecture-check-in" class="slide level2" data-number="2.2">
-<h2><span class="header-section-number">2.2</span> Lecture Check-in</h2>
+<section id="sec-pre-one" class="slide level2" data-number="2.2">
+<h2><span class="header-section-number">2.2</span> Prerequisites to Using the One-Sample Tests</h2>
+<ul><li class="fragment highlight-current-custom"><b>Important: Remember that choosing the &#39;right&#39; test for the scenario is perhaps the most valuable skill a good statistician can have!</b></li></ul>
+<ul>
+<li class="fragment">Realistically, this is used when we want to understand if a <span class="fragment highlight-current-custom"><u>group</u></span> we have differs from an arbitrary expectation on results, and there are several tests we can use for it
+<ul>
+<li class="fragment">One-sample <span class="fragment highlight-current-custom"><u>z</u></span>-test, using the <span class="fragment highlight-current-custom"><u>normal</u></span> distribution</li>
+<li class="fragment">One-sample <span class="fragment highlight-current-custom"><u>t</u></span>-test, using the t-distribution</li>
+<li class="fragment">One-sample test of <span class="fragment highlight-current-custom"><u>proportion</u></span>, e.g., like a percentage</li>
+</ul></li>
+<li class="fragment">Both the z-test and t-test are appropriate to variables that are <span class="fragment highlight-current-custom"><u>normally</u></span> distributed in the sample and the population</li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: If a variable is &#39;normally distributed&#39;, then must it be continuous, discrete, or categorical? Explain why</b></li></ul>
+<ul>
+<li class="fragment">The z-test and t-test differ in what <span class="fragment highlight-current-custom"><u>prior</u></span> information we must have about the population
+<ul>
+<li class="fragment">The z-test uses the base normal distribution, and thus requires that we know the population <span class="fragment highlight-current-custom"><u>standard</u></span> deviation parameter (<span class="math inline">\(\sigma\)</span>)</li>
+<li class="fragment">The t-test allows us to use the <span class="fragment highlight-current-custom"><u>sample</u></span> standard deviation statistic instead, by virtue of using the t-distribution</li>
+</ul></li>
+</ul>
+</section>
+<section id="sec-steps-one" class="slide level2 scrollable" data-number="2.3">
+<h2><span class="header-section-number">2.3</span> Steps in a One-sample Hypothesis Test</h2>
+<ol type="1">
+<li class="fragment"><p>Set up an appropriate alternative hypothesis comparing some variable against some set value, and then write the corresponding <span class="fragment highlight-current-custom"><u>null</u></span> hypothesis.</p></li>
+<li class="fragment"><p>Set <span class="math inline">\(\alpha\)</span> at an appropriate level to minimize risk and balance Type I and Type II error chances</p></li>
+</ol>
+<ul class="fragment highlight-current-custom"><li><b>Question: What is the value that alpha is most often set to, out of tradition?</b></li><ul><li>A) 0.01</li><li>B) 0.03</li><li>C) 0.05</li><li>D) 0.10</li></ul></ul>
+<ol start="3" type="1">
+<li class="fragment"><p>Ensure variable is normally distributed (and also, <span class="fragment highlight-current-custom"><u>continuous</u></span>)</p></li>
+<li class="fragment"><p>Determine whether you have the population standard deviation or not</p></li>
+</ol>
+<ul>
+<li class="fragment">If you <span class="fragment highlight-current-custom"><u>do</u></span> <span class="math inline">\(\rightarrow\)</span> one-sample z-test</li>
+<li class="fragment">If you <span class="fragment highlight-current-custom"><u>don&#39;t</u></span> <span class="math inline">\(\rightarrow\)</span> one-sample t-test</li>
+</ul>
+<ol start="5" type="1">
+<li class="fragment">Compute the p-value and <span class="fragment highlight-current-custom"><u>compare</u></span> against <span class="math inline">\(\alpha\)</span></li>
+</ol>
+<ul>
+<li class="fragment">If p-value is <span class="fragment highlight-current-custom"><u>lower</u></span> than <span class="math inline">\(\alpha \rightarrow\)</span> reject null</li>
+<li class="fragment">If p-value is <span class="fragment highlight-current-custom"><u>higher</u></span> or equal to than <span class="math inline">\(\alpha \rightarrow\)</span> retain null</li>
+<li class="fragment">This is now done with calculators and computers (see practical assignment walkthrough this week with SPSS), but was historically done by determining whether test statistics (z or t) was greater than a critical value corresponding to the sample size and degrees of <span class="fragment highlight-current-custom"><u>freedom</u></span></li>
+</ul>
+<ol start="6" type="1">
+<li class="fragment">Make <span class="fragment highlight-current-custom"><u>decision</u></span> and conclusion based upon results</li>
+</ol>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: What might we say about our &#39;confidence level&#39; (CL) given our chosen alpha value? How are they related?</b></li></ul>
+</section>
+<section id="sec-example-one-sample" class="slide level2" data-number="2.4">
+<h2><span class="header-section-number">2.4</span> Example of an Applied One-Sample Scenario</h2>
+<ul>
+<li class="fragment"><p>(Set hypotheses) I predict that professors will spend more than 40 hours this week working on teaching classes</p>
+<ul>
+<li class="fragment"><span class="math inline">\(H_A: Hours &gt; 40\)</span></li>
+<li class="fragment"><span class="math inline">\(H_0: Hours \leq 40\)</span></li>
+</ul></li>
+<li class="fragment"><p>(Set alpha) I decide to set <span class="math inline">\(\alpha = 0.10\)</span>, saying that I am not particularly concerned about Type I errors</p></li>
+<li class="fragment"><p>(Ensure normality and continuous nature) I’ll assume the hours worked by professor is normally-distributed, and this is a continuous variable because hours worked is continuous</p></li>
+<li class="fragment"><p>(Do I have population standard deviation?) No, I don’t know what the population standard deviation, thus I know I need to rely on the t-distribution</p></li>
+<li class="fragment"><p>(Compute p-value to make decision against alpha) I find a p-value of 0.09, which is less than <span class="math inline">\(\alpha = 0.10\)</span>, thus I reject the null hypothesis</p></li>
+<li class="fragment"><p>(Make decision) I have evidence that professors spend more 40 hours this week working on teaching classes</p></li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: Why do I say &#39;have evidence&#39; rather than prove?</b></li></ul>
+</section>
+<section id="section" class="slide level2 unnumbered unlisted" data-background-color="white">
+<h2></h2>
+</section></section>
+<section>
+<section id="sec-compare-one-two" class="title-slide slide level1 agenda-slide center" data-number="3">
+<h1><span class="header-section-number">3</span> Comparing One- and Two-Sample Cases</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">1</span> Overview and Introduction</p>
+</div>
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">2</span> Review of One-Sample Cases (Module 9) and Computation</p>
+</div>
+<div class="agenda-active">
+<p><span class="header-section-number">3</span> Comparing One- and Two-Sample Cases</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">4</span> Two Population Means with Unknown Standard Deviations</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">5</span> Matched or Paired Samples</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">6</span> Conclusion</p>
+</div>
+</div>
+</section>
+<section id="sec-introduction2" class="slide level2" data-number="3.1">
+<h2><span class="header-section-number">3.1</span> Introduction</h2>
+<ul>
+<li class="fragment">While <b>one-sample tests</b> cases do exists, we often want to test groups against <span class="fragment highlight-current-custom"><u>each other</u></span> when we believe they <span class="fragment highlight-current-custom"><u>differ</u></span> in some meaningful way
+<ul>
+<li class="fragment">E.g., students who got a new intervention or tool, patients who got a new medication vs. an already established medication, the same group of children before and after a new after-school program (called a “paired” sample, we’ll come back to this later!)</li>
+</ul></li>
+<li class="fragment">The focus of the later part of this unit will be on these <b>two-sample tests</b></li>
+</ul>
+</section>
+<section id="sec-diff-notation" class="slide level2" data-number="3.2">
+<h2><span class="header-section-number">3.2</span> Differences in Notation and Hypotheses</h2>
+<ul>
+<li class="fragment">One-sample cases are written to compare against a certain <span class="fragment highlight-current-custom"><u>value</u></span>:
+<ul>
+<li class="fragment">E.g., <span class="math inline">\(H_A: Hours &gt; 40\)</span>, <span class="math inline">\(H_A: Exam &lt; 60\)</span></li>
+</ul></li>
+<li class="fragment">Two-sample cases are written to compare against two groups or <span class="fragment highlight-current-custom"><u>samples</u></span> :
+<ul>
+<li class="fragment">E.g., <span class="math inline">\(H_A: Exam_{New} &gt; Exam_{Old}\)</span>, <span class="math inline">\(Hours_{NonTenure} &lt; Hours_{Tenure}\)</span></li>
+</ul></li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: Try writing one example each of a one-sample and a two-sample hypothesis</b></li></ul>
+</section>
+<section id="sec-diff-tests" class="slide level2" data-number="3.3">
+<h2><span class="header-section-number">3.3</span> Differences in Tests</h2>
+<ul>
+<li class="fragment">One-sample:
+<ul>
+<li class="fragment"><b>One-sample z-test</b></li>
+<li class="fragment"><b>One-sample t-test</b></li>
+</ul></li>
+<li class="fragment">Two-samples (<span class="fragment highlight-current-custom"><u>application</u></span> of these tests to be discussed soon):
+<ul>
+<li class="fragment"><b>Independent-samples t-test</b></li>
+<li class="fragment"><b>Dependent-samples/paired t-test</b></li>
+<li class="fragment">z-test (but very <span class="fragment highlight-current-custom"><u>rare</u></span> - won’t be something we cover)</li>
+</ul></li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: Try to explain, why do you think the two-sample z-test would be so rare in practice?</b></li></ul>
+<ul><li class="fragment highlight-current-custom"><b>Important: Make sure you feel comfortable in the differences in these scenarios before moving on!</b></li></ul>
+</section>
+<section id="section-1" class="slide level2 unnumbered unlisted" data-background-color="white">
+<h2></h2>
+</section></section>
+<section>
+<section id="sec-two-means-unknown-std-dev" class="title-slide slide level1 agenda-slide center" data-number="4">
+<h1><span class="header-section-number">4</span> Two Population Means with Unknown Standard Deviations</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">1</span> Overview and Introduction</p>
+</div>
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">2</span> Review of One-Sample Cases (Module 9) and Computation</p>
+</div>
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">3</span> Comparing One- and Two-Sample Cases</p>
+</div>
+<div class="agenda-active">
+<p><span class="header-section-number">4</span> Two Population Means with Unknown Standard Deviations</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">5</span> Matched or Paired Samples</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">6</span> Conclusion</p>
+</div>
+</div>
+</section>
+<section id="sec-introduction3" class="slide level2" data-number="4.1">
+<h2><span class="header-section-number">4.1</span> Introduction</h2>
+<ul><li class="fragment highlight-current-custom"><b>Important: In the following sections, we consider the scenario that we have two separate groups with no shared members - we&#39;ll talk about comparing people to themselves in a future section</b></li></ul>
+<ul>
+<li class="fragment">The most common two-sample problem to run into for real research will be when you <span class="fragment highlight-current-custom"><u>don&#39;t</u></span> know the <span class="fragment highlight-current-custom"><u>two</u></span> population standard deviations of our two fully separate groups
+<ul>
+<li class="fragment">Just like the one-sample, we love our t-distribution!</li>
+</ul></li>
+<li class="fragment">To compare our two groups, we have to consider both their <span class="fragment highlight-current-custom"><u>means</u></span> and <span class="fragment highlight-current-custom"><u>standard deviations</u></span>
+<ul>
+<li class="fragment">We have to have a measure of <span class="fragment highlight-current-custom"><u>dispersion</u></span> here, because otherwise large variance alone could <span class="fragment highlight-current-custom"><u>account</u></span> for a perceived difference</li>
+</ul></li>
+</ul>
+</section>
+<section id="sec-id" class="slide level2" data-number="4.2">
+<h2><span class="header-section-number">4.2</span> Formula for (Welch’s) Independent-Samples t-test</h2>
+<ul><li class="fragment highlight-current-custom"><b>Important: A common misconception is that we &#39;test&#39; using the two groups, but we actually calculate the p-value using the *difference* between them!</b></li></ul>
+<ul>
+<li class="fragment">Thus, we need to get the <span class="fragment highlight-current-custom"><u>standard</u></span> error (SE) of the difference between our means with the following equation:</li>
+</ul>
+<p><span class="math display">\[
+SE_{diff} = \sqrt{\frac{(s_1)^2}{n_1} + \frac{(s_2)^2}{n_2}}
+\]</span></p>
+<ul>
+<li class="fragment">Then, our full t-statistic formula for <b>Welch&#39;s independent-samples t-test</b> with <span class="fragment highlight-current-custom"><u>un-pooled</u></span> variances is:</li>
+</ul>
+<p><span class="math display">\[
+t = \frac{(\bar{x}_1 - \bar{x}_2)}{SE_{diff}}
+\]</span></p>
+<ul>
+<li class="fragment">Associated degrees of freedom:</li>
+</ul>
+<p><span class="math display">\[
+df = \frac{(\frac{(s_1)^2}{n_1} + \frac{(s_2)^2}{n_2})^2}{(\frac{1}{n_1 -
+1})(\frac{(s_1)^2}{n_1})^2 + (\frac{1}{n_2 - 1})(\frac{(s_2)^2}{n_2})^2}
+\]</span></p>
+<ul>
+<li class="fragment"><p>Where:</p>
+<ul>
+<li class="fragment"><span class="math inline">\(s_1\)</span> and <span class="math inline">\(s_2\)</span>, the <span class="fragment highlight-current-custom"><u>sample</u></span> standard deviations, are estimates of <span class="math inline">\(\sigma_1\)</span> and <span class="math inline">\(\sigma_2\)</span>, respectively.</li>
+<li class="fragment"><span class="math inline">\(\sigma_1\)</span> and <span class="math inline">\(\sigma_2\)</span> are the <span class="fragment highlight-current-custom"><u>unknown</u></span> population standard deviations.</li>
+<li class="fragment"><span class="math inline">\(\bar{x}_1\)</span> and <span class="math inline">\(\bar{x}_2\)</span> are the <span class="fragment highlight-current-custom"><u>sample</u></span> means.</li>
+<li class="fragment">Notice that all of these values are <span class="fragment highlight-current-custom"><u>statistics</u></span> that we can calculate from a data sample!</li>
+</ul></li>
+<li class="fragment"><p>Calculation of p-value is done with calculator or computer</p></li>
+<li class="fragment"><p>Wait - who’s Welch?</p>
+<ul>
+<li class="fragment">Student originally developed a version of this two-sample test that assumes that the <span class="fragment highlight-current-custom"><u>variances</u></span> between the two group are <span class="fragment highlight-current-custom"><u>equal</u></span>, and “pools” the variances in the formula (see <b>pooling</b> )</li>
+<li class="fragment">The Welch version does not make this same assumption, and thus is a bit more <span class="fragment highlight-current-custom"><u>conservative</u></span></li>
+</ul></li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Important: Your book recommends Welch-version at baseline and a lot of people forget to report which one they used! Be careful of looking at which specific test they used and know which one you used!</b></li></ul>
+</section>
+<section id="sec-worked-example-ind-samps-t-test" class="slide level2" data-number="4.3">
+<h2><span class="header-section-number">4.3</span> Worked Example of Independent-Samples t-test</h2>
+<h3 id="sec-formulas-ex1">Formulas</h3>
+<p><span class="math display">\[
+SE_{diff} = \sqrt{\frac{(s_1)^2}{n_1} + \frac{(s_2)^2}{n_2}}
+\]</span></p>
+<p><span class="math display">\[
+t = \frac{(\bar{x}_1 - \bar{x}_2)}{SE_{diff}}
+\]</span></p>
+<p><span class="math display">\[
+df = \frac{(\frac{(s_1)^2}{n_1} + \frac{(s_2)^2}{n_2})^2}{(\frac{1}{n_1 -
+1})(\frac{(s_1)^2}{n_1})^2 + (\frac{1}{n_2 - 1})(\frac{(s_2)^2}{n_2})^2}
+\]</span></p>
+<h3 id="sec-scenario-ex1">Scenario</h3>
+<ul>
+<li class="fragment">Given two hypothetical groups measured on IQ:
+<ul>
+<li class="fragment">I hypothesize that group 2 will have a greater IQ then group 1
+<ul>
+<li class="fragment"><span class="math inline">\(H_A: IQ_1 &lt; IQ_2\)</span></li>
+<li class="fragment"><span class="math inline">\(H_0: IQ_1 \geq IQ_2\)</span></li>
+</ul></li>
+<li class="fragment">Group 1
+<ul>
+<li class="fragment"><span class="math inline">\(\bar{x}_1 = 100\)</span></li>
+<li class="fragment"><span class="math inline">\(s_1 = 15\)</span></li>
+<li class="fragment"><span class="math inline">\(n_1 = 50\)</span></li>
+</ul></li>
+<li class="fragment">Group 2
+<ul>
+<li class="fragment"><span class="math inline">\(\bar{x}_2 = 120\)</span></li>
+<li class="fragment"><span class="math inline">\(s_2 = 10\)</span></li>
+<li class="fragment"><span class="math inline">\(n_2 = 50\)</span></li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="sec-sub-forms-ex1">Substituted Formulas</h3>
+<p><span class="math display">\[
+SE_{diff} = \sqrt{\frac{(15)^2}{50} + \frac{(10)^2}{50}} = 2.55
+\]</span></p>
+<p><span class="math display">\[
+t = \frac{(100 - 120)}{2.55} = -7.84
+\]</span></p>
+<p><span class="math display">\[
+df = \frac{(\frac{(15)^2}{50} + \frac{(10)^2}{50})^2}{(\frac{1}{50 -
+1})(\frac{(15)^2}{50})^2 + (\frac{1}{50 - 1})(\frac{(10)^2}{50})^2} = 84.9
+\]</span></p>
+<ul>
+<li class="fragment">From computer: <span class="math inline">\(p &lt; 0.0001\)</span>, thus I reject the null hypothesis and conclude that group 2 is significantly higher than group 1.</li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: Now you try the same process to calculate SE, t, and df with these two groups. Group 1) mean = 50, sd = 12, n = 40, group 2) mean = 45, sd = 30, n = 40</b></li></ul>
+</section></section>
+<section>
+<section id="sec-matched-pairs" class="title-slide slide level1 agenda-slide center" data-number="5">
+<h1><span class="header-section-number">5</span> Matched or Paired Samples</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">1</span> Overview and Introduction</p>
+</div>
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">2</span> Review of One-Sample Cases (Module 9) and Computation</p>
+</div>
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">3</span> Comparing One- and Two-Sample Cases</p>
+</div>
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">4</span> Two Population Means with Unknown Standard Deviations</p>
+</div>
+<div class="agenda-active">
+<p><span class="header-section-number">5</span> Matched or Paired Samples</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">6</span> Conclusion</p>
+</div>
+</div>
+</section>
+<section id="sec-introduction6" class="slide level2" data-number="5.1">
+<h2><span class="header-section-number">5.1</span> Introduction</h2>
+<ul>
+<li class="fragment"><b>Paired samples</b> are (usually) those which have two sample measurements are drawn from the <span class="fragment highlight-current-custom"><u>same</u></span> people at two different <span class="fragment highlight-current-custom"><u>time</u></span> points
+<ul>
+<li class="fragment">E.g., before and after an intervention; maybe I want to see if a lesson changes student’s knowledge on biopsychology, quiz before and after and test if there is a change</li>
+</ul></li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: Come up with another example of a time you may see a paired sample</b></li></ul>
+<ul><li class="fragment highlight-current-custom"><b>Important: There are a lot of good methodological reasons to use paired samples in research designs, so they show up often!</b></li></ul>
+</section>
+<section id="sec-formulas-paired" class="slide level2" data-number="5.2">
+<h2><span class="header-section-number">5.2</span> Formulas</h2>
+<ul><li class="fragment highlight-current-custom"><b>Important: In the following equations, n is the number of pairs/people</b></li></ul>
+<ul>
+<li class="fragment">Unlike with the previous formulas, we have to first calculate the mean and standard deviation of the <span class="fragment highlight-current-custom"><u>differences</u></span> between each pair of scores with:</li>
+</ul>
+<p><span class="math display">\[
+\bar{d} = \frac{d_1 + d_2 + ... + d_n}{n}
+\]</span></p>
+<p><span class="math display">\[
+s_d = \sqrt{(d_1 - \bar{d})^2 + (d_2 - \bar{d})^2 + ... + (d_n -
+\bar{d})^2}{n - 1}
+\]</span></p>
+<ul>
+<li class="fragment">We then use those values to find t-statistic and degrees of freedom with:</li>
+</ul>
+<p><span class="math display">\[
+SE_d = \frac{s_d}{\sqrt{n}}
+\]</span></p>
+<p><span class="math display">\[
+t = \frac{\bar{d}}{SE}
+\]</span></p>
+<p><span class="math display">\[
+df = n - 1
+\]</span></p>
+</section>
+<section id="sec-worked-example-pair-samps-t-test" class="slide level2" data-number="5.3">
+<h2><span class="header-section-number">5.3</span> Worked Example of Paired-Samples t-test</h2>
+<h3 id="sec-formulas-ex2">Formulas</h3>
+<p><span class="math display">\[
+\bar{d} = \frac{d_1 + d_2 + ... + d_n}{n}
+\]</span></p>
+<p><span class="math display">\[
+s_d = \sqrt{(d_1 - \bar{d})^2 + (d_2 - \bar{d})^2 + ... + (d_n -
+\bar{d})^2}{n - 1}
+\]</span></p>
+<p><span class="math display">\[
+SE_d = \frac{s_d}{\sqrt{n}}
+\]</span></p>
+<p><span class="math display">\[
+t = \frac{\bar{d}}{SE}
+\]</span></p>
+<p><span class="math display">\[
+df = n - 1
+\]</span></p>
+<h3 id="sec-scenario-ex2">Scenario</h3>
+<ul>
+<li class="fragment">Given one group of students given a 10pt pre-test and post-test on content from a biology lecture
+<ul>
+<li class="fragment"><span class="math inline">\(X_{pre} = \{0, 1, 2, 3, 2, 1\}\)</span></li>
+<li class="fragment"><span class="math inline">\(X_{post} = \{5, 6, 8, 8, 3, 7\}\)</span></li>
+<li class="fragment"><span class="math inline">\(d = \{5, 5, 6, 5, 1, 6\}\)</span></li>
+</ul></li>
+</ul>
+<h3 id="sec-sub-forms-ex2">Substituted Formulas</h3>
+<ul>
+<li class="fragment">Statistics:
+<ul>
+<li class="fragment"><span class="math inline">\(\bar{d} = 4.67\)</span></li>
+<li class="fragment"><span class="math inline">\(s_d = 1.86\)</span></li>
+</ul></li>
+</ul>
+<p><span class="math display">\[
+SE_d = \frac{1.86}{\sqrt{6}} = 0.760
+\]</span></p>
+<p><span class="math display">\[
+t = \frac{4.67}{0.760} = 6.14
+\]</span></p>
+<p><span class="math display">\[
+df = 6 - 1 = 5
+\]</span></p>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: Now you try with groups of paired data: (1, 1, 2, 2, 3) and (5, 9, 8, 7, 6) - calculate df, SE, and t</b></li></ul>
+</section>
+<section id="section-2" class="slide level2 unnumbered unlisted" data-background-color="white">
+<h2></h2>
+</section></section>
+<section>
+<section id="sec-conclusion" class="title-slide slide level1 agenda-slide center" data-number="6">
+<h1><span class="header-section-number">6</span> Conclusion</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">1</span> Overview and Introduction</p>
+</div>
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">2</span> Review of One-Sample Cases (Module 9) and Computation</p>
+</div>
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">3</span> Comparing One- and Two-Sample Cases</p>
+</div>
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">4</span> Two Population Means with Unknown Standard Deviations</p>
+</div>
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">5</span> Matched or Paired Samples</p>
+</div>
+<div class="agenda-active">
+<p><span class="header-section-number">6</span> Conclusion</p>
+</div>
+</div>
+</section>
+<section id="sec-recap" class="slide level2" data-number="6.1">
+<h2><span class="header-section-number">6.1</span> Recap</h2>
+<ul>
+<li class="fragment"><p>Hypothesis testing with two-samples follows the same process as with one-samples, but introduces comparisons between groups, rather than just testing against some value</p></li>
+<li class="fragment"><p>When testing two samples, they may be independent or paired, depending on the design of the study, and that changes what computation process we use</p></li>
+<li class="fragment"><p>The independent-samples test may either assume equal variance’s (Student’s) or not (Welch’s)</p></li>
+<li class="fragment"><p>While there are two-sample tests for proportions and when the population standard deviation is known, it is far more common to use the t-distribution</p></li>
+</ul>
+</section>
+<section id="sec-lecture-check-in" class="slide level2" data-number="6.2">
+<h2><span class="header-section-number">6.2</span> Lecture Check-in</h2>
 <ul>
 <li class="fragment">Make sure to complete any lecture check-in tasks associated with this lecture!</li>
 </ul>
