@@ -1591,7 +1591,7 @@ Quinton Quagliano, M.S., C.S.P
 <h2><span class="header-section-number">1.1</span> Textbook Learning Objectives</h2>
 <ul>
 <li class="fragment">Classify hypothesis tests by type.</li>
-<li class="fragment">Conduct and interpret hypothesis tests for two population means, population standard deviations known.</li>
+<li class="fragment">Conduct and interpret hypothesis tests for two population means, population standard deviations unknown.</li>
 <li class="fragment">Conduct and interpret hypothesis tests for matched or paired samples.</li>
 </ul>
 </section>
@@ -1614,7 +1614,7 @@ Quinton Quagliano, M.S., C.S.P
 <ul>
 <li class="fragment">Remember that the alternative hypothesis is usually something along the lines of our <span class="fragment highlight-current-custom"><u>study</u></span> hypothesis</li>
 </ul></li>
-<li class="fragment"><span class="fragment highlight-current-custom"><u>Null</u></span> hypothesis: <span class="math inline">\(H_0: Exam_{New} = Exam_{Old}\)</span></li>
+<li class="fragment"><span class="fragment highlight-current-custom"><u>Null</u></span> hypothesis: <span class="math inline">\(H_0: Exam_{New} \leq Exam_{Old}\)</span></li>
 <li class="fragment">This example is technically for a <span class="fragment highlight-current-custom"><u>two</u></span>-sample case, where we are comparing two or <span class="fragment highlight-current-custom"><u>more</u></span> groups</li>
 </ul></li>
 </ul>
@@ -1999,8 +1999,8 @@ df = \frac{(\frac{(15)^2}{50} + \frac{(10)^2}{50})^2}{(\frac{1}{50 -
 \bar{d} = \frac{d_1 + d_2 + ... + d_n}{n}
 \]</span></p>
 <p><span class="math display">\[
-s_d = \sqrt{(d_1 - \bar{d})^2 + (d_2 - \bar{d})^2 + ... + (d_n -
-\bar{d})^2}{n - 1}
+s_d = \frac{\sqrt{(d_1 - \bar{d})^2 + (d_2 - \bar{d})^2 + ... + (d_n -
+\bar{d})^2}}{n - 1}
 \]</span></p>
 <ul>
 <li class="fragment">We then use those values to find t-statistic and degrees of freedom with:</li>
@@ -2022,8 +2022,8 @@ df = n - 1
 \bar{d} = \frac{d_1 + d_2 + ... + d_n}{n}
 \]</span></p>
 <p><span class="math display">\[
-s_d = \sqrt{(d_1 - \bar{d})^2 + (d_2 - \bar{d})^2 + ... + (d_n -
-\bar{d})^2}{n - 1}
+s_d = \frac{\sqrt{(d_1 - \bar{d})^2 + (d_2 - \bar{d})^2 + ... + (d_n -
+\bar{d})^2}}{n - 1}
 \]</span></p>
 <p><span class="math display">\[
 SE_d = \frac{s_d}{\sqrt{n}}
