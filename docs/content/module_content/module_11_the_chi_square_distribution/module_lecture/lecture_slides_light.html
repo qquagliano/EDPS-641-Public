@@ -728,7 +728,7 @@ opacity: 0.7;
 
 }
 </style><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.4">
+  <meta name="generator" content="quarto-1.9.9">
 
   <meta name="author" content="Quinton Quagliano, M.S., C.S.P">
   <meta name="dcterms.date" content="today">
@@ -1548,7 +1548,11 @@ Quinton Quagliano, M.S., C.S.P
 <h2 id="toc-title">Table of contents</h2>
 <ul>
 <li class="fragment"><a href="#/sec-overview" id="/toc-sec-overview"><span class="header-section-number">1</span> Overview and Introduction</a></li>
-<li class="fragment"><a href="#/sec-conclusion" id="/toc-sec-conclusion"><span class="header-section-number">2</span> Conclusion</a></li>
+<li class="fragment"><a href="#/sec-basics" id="/toc-sec-basics"><span class="header-section-number">2</span> Basics of the Chi-Square Distribution</a></li>
+<li class="fragment"><a href="#/sec-goodness-of-fit-test" id="/toc-sec-goodness-of-fit-test"><span class="header-section-number">3</span> Goodness-of-Fit Test</a></li>
+<li class="fragment"><a href="#/sec-test-of-ind" id="/toc-sec-test-of-ind"><span class="header-section-number">4</span> Test of Independence</a></li>
+<li class="fragment"><a href="#/sec-test-of-homo" id="/toc-sec-test-of-homo"><span class="header-section-number">5</span> Test of Homogeneity</a></li>
+<li class="fragment"><a href="#/sec-conclusion" id="/toc-sec-conclusion"><span class="header-section-number">6</span> Conclusion</a></li>
 </ul>
 </nav>
 </section>
@@ -1567,22 +1571,58 @@ Quinton Quagliano, M.S., C.S.P
 <p><span class="header-section-number">1</span> Overview and Introduction</p>
 </div>
 <div class="agenda-inactive agenda-post-active">
-<p><span class="header-section-number">2</span> Conclusion</p>
+<p><span class="header-section-number">2</span> Basics of the Chi-Square Distribution</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">3</span> Goodness-of-Fit Test</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">4</span> Test of Independence</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">5</span> Test of Homogeneity</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">6</span> Conclusion</p>
 </div>
 </div>
 </section>
 <section id="sec-text-learn-objs" class="slide level2" data-number="1.1">
 <h2><span class="header-section-number">1.1</span> Textbook Learning Objectives</h2>
+<ul>
+<li class="fragment">Interpret the chi-square probability distribution as the sample size changes.</li>
+<li class="fragment">Conduct and interpret chi-square goodness-of-fit hypothesis tests.</li>
+<li class="fragment">Conduct and interpret chi-square test of independence hypothesis tests.</li>
+<li class="fragment">Conduct and interpret chi-square homogeneity hypothesis tests.</li>
+</ul>
 </section>
 <section id="sec-instructor-learn-objs" class="slide level2" data-number="1.2">
 <h2><span class="header-section-number">1.2</span> Instructor Learning Objectives</h2>
+<ul>
+<li class="fragment">Appreciate how the chi-square family of tests largely depart from the previous mean-based testing in t-tests</li>
+<li class="fragment">Understand what scenarios each form of the chi-square test may be appropriate to</li>
+<li class="fragment">See how the chi-square family of tests add to our toolbox of inferential tests</li>
+</ul>
 </section>
 <section id="sec-introduction" class="slide level2" data-number="1.3">
 <h2><span class="header-section-number">1.3</span> Introduction</h2>
+<ul>
+<li class="fragment">The <span class="math inline">\(\chi^2\)</span> distribution, also known as <b>chi-square distribution</b>, or chi-squared distribution is a unique tool that can be <span class="fragment highlight-current-custom"><u>applied</u></span> in inferential testing
+<ul>
+<li class="fragment">Much like the <span class="fragment highlight-current-custom"><u>t-distribution</u></span>, the chi-square distribution serves a purpose of <span class="fragment highlight-current-custom"><u>comparison</u></span></li>
+</ul></li>
+<li class="fragment">There are 3 primary <span class="fragment highlight-current-custom"><u>uses</u></span> for the chi-square distribution:
+<ul>
+<li class="fragment">Goodness-of-fit: to compare if data is distributed as <span class="fragment highlight-current-custom"><u>expected</u></span></li>
+<li class="fragment">Test of independence: to compare if two <span class="fragment highlight-current-custom"><u>events</u></span> are independent</li>
+<li class="fragment">Test of homogeneity: to test if two distribution are the <span class="fragment highlight-current-custom"><u>same</u></span> as one another</li>
+</ul></li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Important: Though not explicitly mentioned in the book, the chi-square distribution is particularly well-suited to helping us make sense of categorical data - but that is not the ONLY way it can be used</b></li></ul>
 </section></section>
 <section>
-<section id="sec-conclusion" class="title-slide slide level1 agenda-slide center" data-number="2">
-<h1><span class="header-section-number">2</span> Conclusion</h1>
+<section id="sec-basics" class="title-slide slide level1 agenda-slide center" data-number="2">
+<h1><span class="header-section-number">2</span> Basics of the Chi-Square Distribution</h1>
 <div class="agenda-heading">
 <p>Agenda</p>
 </div>
@@ -1591,17 +1631,723 @@ Quinton Quagliano, M.S., C.S.P
 <p><span class="header-section-number">1</span> Overview and Introduction</p>
 </div>
 <div class="agenda-active">
-<p><span class="header-section-number">2</span> Conclusion</p>
+<p><span class="header-section-number">2</span> Basics of the Chi-Square Distribution</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">3</span> Goodness-of-Fit Test</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">4</span> Test of Independence</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">5</span> Test of Homogeneity</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">6</span> Conclusion</p>
 </div>
 </div>
 </section>
-<section id="sec-recap" class="slide level2" data-number="2.1">
-<h2><span class="header-section-number">2.1</span> Recap</h2>
-</section>
-<section id="sec-lecture-check-in" class="slide level2" data-number="2.2">
-<h2><span class="header-section-number">2.2</span> Lecture Check-in</h2>
+<section id="sec-formula-notation" class="slide level2" data-number="2.1">
+<h2><span class="header-section-number">2.1</span> Formula &amp; Notation</h2>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: Review: Write out the notation for Student&#39;s t-distribution</b></li></ul>
 <ul>
-<li class="fragment">Make sure to complete and submit the lecture check-in</li>
+<li class="fragment">Formula for <span class="math inline">\(\chi^2\)</span> distribution:
+<ul>
+<li class="fragment"><span class="math inline">\(X \sim \chi^2_{df}\)</span></li>
+<li class="fragment">Where:
+<ul>
+<li class="fragment"><span class="math inline">\(df\)</span>: degrees of <span class="fragment highlight-current-custom"><u>freedom</u></span></li>
+<li class="fragment"><span class="math inline">\(X\)</span>: a <span class="fragment highlight-current-custom"><u>random</u></span> variable (much like other distributions, this can really be any <span class="fragment highlight-current-custom"><u>uppercase</u></span> letter, X is just convention)</li>
+<li class="fragment"><span class="math inline">\(\chi^2\)</span>: arbitrary notation for the chi-square distribution</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="sec-chars" class="slide level2" data-number="2.2">
+<h2><span class="header-section-number">2.2</span> Distribution Characteristics</h2>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: Review: Think back to our initial discussions on the uniform and exponential distributions - write out the formulas for the find long-term mean and standard deviation in those distributions?</b></li></ul>
+<ul>
+<li class="fragment">Characteristics of the distribution:
+<ul>
+<li class="fragment"><span class="math inline">\(\mu = df\)</span></li>
+<li class="fragment"><span class="math inline">\(\sigma = \sqrt{2(df)}\)</span></li>
+<li class="fragment">The curve is <span class="fragment highlight-current-custom"><u>nonsymmetrical</u></span> and skewed to the right</li>
+<li class="fragment">The chi-square <span class="fragment highlight-current-custom"><u>curve</u></span> for each <span class="math inline">\(df\)</span></li>
+<li class="fragment">The test statistic for any test is always <span class="fragment highlight-current-custom"><u>greater</u></span> than or equal to 0</li>
+<li class="fragment">When <span class="math inline">\(df &gt; 90\)</span>, the chi-square distribution is approximately normal</li>
+<li class="fragment">The <span class="math inline">\(\mu\)</span> is located to the near right of the “peak” of the curve</li>
+</ul></li>
+</ul>
+<p><img role="img" data-src="data:image/png;base64,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"></p>
+<ul>
+<li class="fragment">The <span class="math inline">\(\chi^2\)</span> distribution thus <span class="fragment highlight-current-custom"><u>changes</u></span> dependent on the degrees of freedom</li>
+</ul>
+<p><img role="img" data-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAf0AAADkCAIAAAAdAGo4AAAgAElEQVR4nO3deVxUVRsH8Oece2dhXxREBBfcRRGRVNwyczeXLLXSzJZXzbLFMpfKJZfMrSy3SvM1tWwxM1cwc0E0d8UNUDaVRURkZ5Z7z3n/ODCRWa8aMMPM8/3DD+Awc4Fzf/Pc55x7L+GcA0IIIYdBrb0BCCGEqhTmPkIIORbMfYQQciyY+wgh5Fgw9xFCyLFg7iOEkGPB3EcIIceCuY8QQo4Fcx8hhBwL5j5CCDkWzH2EEHIsmPsIIeRYMPcRQsixYO4jhJBjwdxHCCHHgrmPEEKOBXMfIYQci/3kvrhx2MmTJ9s+NrDLuHcGvfF+QXGxtTcKVQOqqgLA+vXrP/74Y8unCNkx2dobUGE454SQ/Pz8+JQUatR7yxqxA4uvW3vrkO0SFUN6enp6errlU4TsmP3U+yLcKaUylbiq6PW68l9H6O+IESLLskajARwwyAHYT+6LMo1zzjlnnFuO1rF8Q/+s/MgBHDDIAdhP7v+BAGOcAVZtCCF0F3aY+4QBJYQDs/aGIISQLbLD3AfOAaDYYLidX2DtTUEIIZtjh7lvMpkIISrjjDHAaTqEEPozO8x94EAACCWiw4/TdAghVJ79rN+3kCmllBpVc0FRibW3BSGEbI4d5j4lRGVMVVWzYrb2tiCEkM2xwz4PZ4wQIJQYjCbAPg9CCP2ZHea+TECSCAdWZCgBzH2EEPozO8x9AkAJcIACgwFwPQ9CCP2ZveU+IUQDBIAQwnPyCwHrfYQQ+jN7y33GmJNOp9PKFCC3oMjam4MQQjbH3nJfVVUXJye9VkeA5BYUWntzEELI5tjbOk5VVV2dnbleD5zm5OYD9vcRQujP7DD33V1dVCcnQmh2fgFgfx8hhP7MDvs8Hm5uep2WAIjrskmSZO2NQgghG2J3uc9UN2e9m7MTB1ZQWGw0may9RQghZFvsLfc545SCX01PAJ5fUFxQVAzY6kEIoXLsLveBS5JUy9uLc8grLCosMVp7ixBCyLbYW+4DgCRJvt5ejEBJifFWXp61NwchhGyLveU+Z1ySpNq+3lySTDK5fvMmYJ8HIYTKsbfcJ5QoilK7Rg2mMELItaxswNxHCKFy7C73gSiKUsfbW8cAqHQ1M6v0ywghhADADnOfEEVR6vj4aPUaBvxG5i0AwDN2EULIwj5zXy9LLq7OlJO0W7c455Ta24+JEEIPzN4CkXPOGAOABrX9GKGJWTeLDQZrbxRCCNkQe8t9QoiqqgDQoLYPI5BbUJB5KwdwahchhMrYYe6Ler+hny8FbjKxlIwswNxHCKEy9pb7nHOJUgAIquMPqsIISUrLAACMfYQQEuwt9wFA/FBN6tdlTAEJkq+nAQAABj9CCAHYZ+5TAAC/Gt5eXh4ceGLyNcCrMSOEUBk7zH0ZKAD4ens1ruUrA1zOyDQrirU3CiGEbIW95T4BkAgFAI0s1/XzJQQy8nJTb+DULkIIlbK33OcAJq6Kj4Mb1VOBFxQbktMzAXMfIYQAwP5yHwAsU7htgoIkhVGJXLySBJj7CCEEAHaa+6Wa1K3rrNNzoKfjLgMAwcv0IISQHec+5zywVk0/7xrAyZXrGYqq4lV6EEII7Dj3VVXVabXB9QMAIOl6ZtpNvBA/QggB2HHui6s1hDRpyDkUGAyXklIBcx8hhOw490U3v3XTRhIwmWhOnI8DvFoDQgjZce6Lbn6bJkEuThqzJJ1NSAQASnFqFyHk6Ow29wW/Gt6NggIVYKevpOYXFeGSHoQQstvct1yIP7xJEw2naXkFpy8nQVnfHyGEHJbd5j7nXFT3HVs048zMgR49fxFwahch5PDsNvehbGo3PLipXkcpgcOxF6Cs748QQg7LnkNQ5H6gj2+TxvWMGohNSM4rKMAWP0LIwdlz7gOAqqqSJHUIbi6rPCs372RCAmCLHyHk2Ow890V136t1iMakcJD3njgL2OJHCDk2O8990c1/qEUzXy93QmnMiQsqXqgHIeTY7D8BOec1PD1aN20EnMclp6SmpxNCsORHCDks+8990c3v26GNQlgeM/166hRgix8h5MDsP/dFV+eRtqEaGcyytPvoGcDVnAghB2b/8SemdhvVDWhfL0jD+OGz57Jv5+FqToSQw7L/3AcAVVUJIY+2b0sYKyos/O0EtnoQQo7LIXJfdHX6dG0ncwaytDX6d8DbLiKEHJVD5L6I+FZBDVoHNTBTeuTkuewcbPUghByUQ+Q+AKiqKstSr4j2CidpxUW7jhwVX7T2diGEUFVzlNwXrZ6B3To6SYRp6M8HogFX9SCEHJKjBF/pbRcbNXwoqIHeDNFnLqSkZ+IJXAghB+QouQ9lXZ0nuz/COS82qT/vjwZc1YMQcjwOlPuiqzOga0cXvcwpbPp1v6oySZKsvV0IIVSlHCj3RVcnsJbPI+1CSzT8dErKkXMXAEt+hJCDcaDch7IrMI/q3VNrUkGCr3dEWXuLEEKoqjlW7otWT/e2oU39a1NGdsacyszOoZTi7C5CyHE4Vu4DAGNMr9eN6NOLKs63ipVv9+wDbPUghByJw+W+WNA5ond3dycdo3xdZKTBaMTZXYSQ43DE3GeM1fGt2b9TSwLmuKtpkb8fByz5EUIOw+Fy32LMkAESUQihy7f8AniZNoSQw3DE3BcTue2CW3Rt1UJmJObspejYC+I4wNqbhlBl4ZwzxhRFVVRVUVVVVXHAOyxHzH0o6+q8OmQgZ5xy/bIffgYs+ZGd4pyrKiOEUEplWZIlSZYkSZLE8jZVVXE9m6ORrb0B1iFJEue8d8f2rRo1unj5ZtSRYyfjEto2a8IYw4u1IXsihrQkkfyiotiEK2cuxefk50sSDfTzC2naODiovkbWWB5m7Y1FVcRBcx8AOOeyLL8ydMD4eSsUk+7j77ZsmDHZ2huFUEUSaZ6RfWvl1u0/7j1wOTNDIpKOUzPhnHECvFnjeiN7PPp8715eHm6i6sejXkfguO/woss/tHvnZvV8KaG7Dh+7mJSM53Ah+yCGMaV0/fbITi+8seTrrWnXbmu4nqgSJRogspnKZqo/fyVjyudfd37pja9/iSKE4CyXg3Dceh8AOOc6rfb1EUPHzP/EbFLmrFn3zdyZnHMseVC1JsawoqivL16+dvdeWeFcIt4+bsO7devUOrhBQG0zYxdTr+49dnL3kRMF+SVJWVkvL1mx5+iJxW+N8/X2VlUVz2ixbw6d+6Ul/6OdF3/3Xfy1q1t/P3YiLj68WVPsdaLqS4R+XmHhCzMX7D5xCUAG2TRh+MCJTz3p6+lpeVibxkEjenRLzcz69Jsfv/rl12JQfo45FJt0ec3MqeFNm2D02zdHTzfOuVajeeuZoQrnCkjTV28AbHGias5gND317rzIk7HAzd5eLt/Nnz5/3Eu+np6qylSVCeKDen6+iyeO37JoZuOAABMlVzJu9J70XtTRE5Ik4V1I7Zij574o+Yc/0q1t40YA8oHjF/YeO4VdTlRNMcYIIS/OXRR99iJhvEEdn91LZvVt/5BYrClJVJKoID7gnKuq2i08ZN+yeX3Dwwihxvyip2fM23MMo9+eOXruQ+nCHmn6C6OAyRSkGV+sxeGOqiNVVSmlM1at+/ngKQKkhpfrT/NntGzQQFFUSZLuehRLCBH57uPp+eO8GSP79TDL1GxSnp4+D6t+O4a5X1ry92n30ICHWpupcjw5af2OSEoplvyoGmGMSZK0Zd/Bj77fTKmkcXLaNPfdJnUDVFWV5f/TqRens8iyvGrSGy/16mUi1GhQn5wxf//ZWIx+u4S5/4eZY59xlhUdI/O+Wp+Tl49dflRdcM4ppanpma8tWq7noEDJson/6RDc4t6nZ8Xd6Djny9+Z8EL/Rxkh3KiMnDHnQnKSJElYA9kZzH2Asot0tmwY9OKA3irwjNy8Wf/9L3b5UXXBOVeZ+vLipbmFxWaA8YP7PNPzkftdkyMKHcbYiokTnu31iJlAzu2Cp96bk34zG89rsTOY+6VEvTP5uVE1vbw0jK7ZvvNYXBx2e5DtE8uOl/3404HT52SVhDQKmvfyf0Tb536fSlzDh3O+YvKE/u3CGdUmpt0cNWN+idGIuW9PMPdLidyv6eE+56VnGXBVld9eulxl2NlENk10eJKuZ364Zgvlsk4rr3jrFZ1G8y+fllK67t2JbRoEqkQ5cin+1Y8/pZRio99uYO7/QVT3I/v26hLe0kTJsfjUFd/9jCU/smWiDJ/82fJco9lA6RujhrRp1vhfnngoaiBXN+eNs6fWcfckwL6LPPDZt5txjtduYO7/ibhEycLXxnsSmRBp7trNV1KvY3MT2SaR7z8fOLj9xDFKeFhgwJvPDKuQs83F5FZQnTpr350kaagqyVNXfrv391M4x2sfMPf/RAz3ZvXrTR41XCVKgSn/5U+WihtWWHvTELoTIaTYaJz2+dcS06nENP/10TqttqKeXDR2Hm4XtmDMi0Shioa/MG9JWmYWlkF2AHP/TqKx89aIoRFNGgKww2fPfbxpEx7hIlsjTs39bNPma2k3CaPPPNLlkTZhFXtpKTHsxz45eHSvjjJTsvMKnpu1UMH7tFR/mPt3QQiRqLRy4msuOh2j8uyvvj91MUGc22LtTUMIoGw6Ny0r+9PvtzGZeuh1s196rjIuJSvKoMVvvdq6aRAHiE5ImLJyNc7xVneY+3chuj0tGgVNe2EEA1Ki8P8s/KTYYBAntlh76xAqnc79cN2m7GJV5dKrwx8PqO1bGbkvZrycdPq1097ydfWQufzZTzu27D+Ijf5qDXP/7kSZ8/qwJ/q0aU2I+WJq6uRPP8e1PcgWiGbOxeTkDVG/ysAbeNUYP2ygOAKojJcTZVCTugGfvT2OqIoGpNcXLktOS8NGf/WFuf+3RKWz4p03/DzdNUC+2hX19e49WOYgqxNF/az/bihRGWXqO6OGuLs6V2oEi8bOgEc6vja0v8ohL984dvYSk9mMuV9NYe7/LVHm1PGp+emk140cJCJNXLYi9koCVv3IisR07pm4K1EHTxEqNaxfe2T/Ryuv2LcQFc+MMaPbNQ4ySjQ6IWXGqnXY6K+mMPf/SWmZE9Fh6tNPMs4N+crzsz/OKyzEI1xkXQs3fGvmjKrKlGef0Mhy1YxGQohOq1393kRvV73E2ac/bd0RcwiPgKsjzP3/QyxlmzlmdK+2IUySElIyX529BCd4kVWIzv7JuPhdh09zoB0a1hvWvVsVFPuCOAJuXLfOJ6+9qFGNjPDXFi/NyMartlU/mPv/n9ipvnzvnYa+vgzo1t/PvrtiHaVUURRrbxpyLKKzv/jrnxSzngN/89nhVZy54gh4WK8eIx7rAUAzbhtenbMUytYXoeoCc///E2VODU+PDbPecdZpFJku/WHb2p93ybKMzU1UZURn/+SluB1HjgOFNs2D+nXuWGXFvoVo7Hw0YXzz+nUUwvecOb9gw3fY6K9eMPfviRjWrZs1WjVlvN5k0ACf8Nnnu48cxfN4UZURxf6iDRs4UzgveWfEUCueS+jipP9y8pvOWg0n6uy1G2Jiz+GJjdUI5v69EhH/RPeus8aNYpwQTp6fs/DYhUsY/agKiHOyYhOubD9yghDSol6dfh0egrImZBUTZVDbpk3mPf8c56CqfPzcpbfzCgAbPtUE5v59EBE/YcTQMUN6Mc7yitWh7390MTEVlzSgqvHFTzuJqjVQ9fVRj2tk2YqjTuwL44cPHtgxXJHkuKz8t5Z+gbeoqy4w9++PiPhFr4994pEOBHj2rfxBU2dfu5GFi/pR5RHFflpW9pb9h4GQhoG1hzzcueo7+3cQr7500oRGXt4arm7ad2jd1t14+FstYO7fN3FXii+nvNUrrJkESurNnIGTZ1zPwuhHlUWMqw079xiKjMDhP31667U6q3dURHXv4+W1YsorEhTrOJ+8Yu35xBRs9Ns+zP37JqbXdFrtN/NmRYS2kDjEpaYNmDzz2o2buKoBVQZJkopKStbsjjJpiLer84ie3cFKnf07iAHfLbzthJHDTAQKDIZR8z4sKinG3Ldx1h861ZEo+Z10ug2zJoc1rUUZjUvKGPT2rLSsbOz1o4olKoktew+nZd5WOTze/WHfmt62M8ZEY2f2i88/3Lo5ISwhKf3NpSuwALJxmPsPSES/j6fX1vkfhjeq46IoCanX+7z1XlxKKg56VIEkSVIUZeWPv0hEdiLwn8f7QdlBp42glBICX05708/LlTK6aVf0f7ftxEa/LcPcf3Civ1nTy/OnxXNat2hAQUq8mvbYW9POxF/BQY8qhKjrfz1+/FTKZRVo3w6hLYLqihO4rL1pfyi9gqGv74rJb1IChEpvL11z5tJlPPa1WZj7/4qYy63h6bXl43mPRrSglKbdKu7/9gfiDtSqioMe/Ssi3z/e9BNIEoA6btjj1t6iuxPHuL06tHt71FATEIOJvzBzye28Arx0j23C3P+3xMh2d3X95oNp/Tu11XJekF/w5PsfbtgVJUmUMYbjHj0YUdfHnL0QE5tIuNypVeNOrVtaffnm3xHV/bvPj+jfLoQCi7tx4/k5iznnWPLbIFscQNVO2TSv06bZ74/u15VyABN/dd7SOV+to5TiySzowZRemGH9JsY4V+HNp54QI83a2/W3xK2KVk55rVFtb8pZ5MnT761agz1PG4S5XzHEDkkIWTp54tujh5pBUSRp1safXpy9sKikBGd60f0Sxf7puIS9p85zibVpUrdnuzCbLfaF0sUOXl5rZ091ctLogH78/da1OyIx+m2N7Y6hakdUZ4yx9154Ztnkl7WyRm+CTXuP9Hrj3YvJKTj00QNYsmGLiWlUorw98klZrgbnQxFCVFVt3aTxsrdfKSJmmcCrn6zcc+Ikjn+bgrlfwURpP7pf722LZvrX8uIczsQlP/bKpJ/3HZAkCcpWaCD0D8T9Vc7EX/7l0HEC9KGgRoO7dLLxYt9CRPzwHt1mPveMClxSzaNnzz+fmIjLe2xHNRhG1Y4Y951CW+1Z9lH34BaE0OwC08gZS97/7L8mowl7Puj/EseOH/z3KyNRKWPvjHiqei2MEbvAu6OeebZnNyMhOQXFT7z7AV7GynZg7lcKUdrU9au1ZenM8U/0M8tEIWTR5h09X592LiFRXMAEdwB0V6XLeM6c23M0VgIe2jTwsS7tqkuxbyF2gc8mvd63dRuJaVNv3BwydcaN27cx+m1BdRpJ1Yso0DQaecGEF9e/N7GWuxsB09H4hD4Tpn7x/TZCCBb+6K7E7OiHX31LVA1lbPKzT1TTK50RQjSyZuMH09o2qQ+EXEy+Ovz9DwqKi6vXsYtdwtyvROJoXVXVJx/t+utn87qFBFOgOYaS11euHvL2jEspKdjxR3cQxf72g4cPnj1HCHRu1XxAl4hqV+wL4g3MxdXpu3nvhQbWBc6PXYgfMmV6XmEhLm62ruo3mKod0etsXD9wx9K5059/ykUrM+CRJ073eOWdjzf9aDYr4sgXKyAEAIQQo8k046uNjGqAwbQXRtr4mv1/JvLdr2aN7+ZNr1u7lgpyzLn4J9+dlVtQgMe7VoS5XxXEcTohZMqopyI/+fDhps0pkPz8kvdXbew9YVr0mVhxehfuBg5OFPtf/bLr0tVMM8j9OnboEtaqmhb7FqKsqVen9rb5HzT18VMIP3z2Qp+3p6XdzMbFndZSjcdT9WLp+bQNbrZz2dzpzw/z0kmSCofjLg95ddqEeYuuZmSKtg/uCY5JVAY3cnI+WvetnhEXDZk+doS1N6piiOhvVC9wy+LpTWv5ECDn4hMfmzQ1PvUqRr9VYO5XKbHIQZblSc+N2Pn54p4RbWRGDET+evehh8dOWbThx/yiIkx/xySK/XlfbMgqNBgJHzu4T/MGgbZ26c0HJqK/YWDA3mWLWzdqYJZpXEpGn4lTDp4+g+v6qx7mflUTx+yqqrZs2PDHBdPXvDehbt1aZkrT8vPe+2p9xxdfWb7lF4PRVJb+2Pd3CIwxSZKiz5xdu3svUFLL1/XtEUPEEYC1N63CiOj3reH9y+K5vVq1IUR3I6dw0ORZX+2KEjsFDvUqg7lvHZYaZ3ivR37/fMn7o4fXdNUT4Knp2ZM+XdP95Ukbf92rqqoklfb9cZewe0aTceLHy02UADcvGDO6hoeHneU+WK5b7uGxef77T/fszImkmtj4BcveWbZKVVWc4qoymPtWYyn83Vxdpo4eHrNqydjePfU6LSP8ZEryC/M+7jTu9S+37iosLpEkSayLwMNhu6SqKqV0wX83XU66zbncO7z10B7dxaUarL1pFU8s3tfptGumvTlj1DAFQAK+YvMv/d9858rVa6Ldj1VOZbPDgVW9WLr5DQJqfzJ5wv7PPx7Zt5uTRtYw+ezltFc+WdPhpTfnr9t4NSuLUlr2VoHNH/shOjy/x15YuGkro9oaeuclb04AG7uTYsUSK1M551NGP/31zLdc3WTO6cHYhEdffWfT3t9ElYOFf6XC3LcJlis3BAfVWz1pYvTyxSN6POxMZCD8cmbG7LXftx3z2suLPzl2/iIAiOYPYwz3DTtACCksKhn34acmUDkYPhw3okFtP7uZzv074kr9qqo+2a3rvk8Xt2kRxCnJyC96bu6SsfMWZt26hdcyqVTSzJkzrb0NFUM0Q+Pj4y9cuPDEE09Uu1XPYk8QJ3D51fAe0DWiX6eHtIRfS8ssNikmgxqbkLJ+52/7T10wmUx1fGq4uThbOkXiZ7fvpKg8oqNy+PDhwsLC3r17V2WDRXR4Xl746cGzFyiH/hEhc159yV47PH8lTt2q5V3jmZ7dCwxFpy4myCrEJl376cBhHy/Plg3ri/cGHNsVDnPftvwp/Wt6944IH/ZoVw8P1/Ts7OyCghINSbtxY8/ho5v2/HY+6aos09o1PfVaneWuXqJOxJ3kvlgr91VVlSRpxeatH/2wRcMkHx+PHz6c7ubsDHbd5LmDmOnVyJreD4U/1KTx0fMXcosMRbfZtgMnzyQmNK9fx69GDUKIqjJCHOjXUtkw921R+fT3cHPt0jp4VN9HWzVqYCwx3MjKNHNTnqn4VGrypr37f47an3z9BgNey8tTryt9AwA8CLgfVsl9EfqRR46OWfAZByox8s30SSFNGjpOsW9hGbGN6wUM7/VIkaHoVPwFs6zEXb++aWfkreLi1kFBbi5OmP4VCHPfdonU5pwzxnVabXD9uk/3eHhA5whvd4/87Lxbt3MVWS7KN56KT/x+z771e387FXfFVGx0dtZ5ubuJSeCyPUrMA3NwpELy3lV97ovQP5uQMHLa7BIzV4B9OGbk0317iK9X6kvbLFH4uzg59enQLqJ1i8up1zOzc5iZHb1weeveQ0Zmal6vrrNeb6mHcCT/G5j7to4QQmlpfBMCPl6eD7cJeX5A325hrd1lKS+/IDe/AKicZTacT722Pfr3tTsjdx85mnI9w2wyOTvr3JydKSWUEkvtrygq5wDAxaIg3H+qOPcVRZVlKeHatSenfHDzVqFJos/3fWT22BccOfQFyzqfIH//kb0freXqFpuUnGcsyS0sPnAy9oc9+4xmtX7tWu6uLpaCBsv/B1ONL/V3B7G7bt269fvvv9+4caO97kWi2LH8aAVFJUfPX/j12PGdp87Ep99gqqJRJZlLnEsqB29Pt4a1a3YMbtyqUb3WTRsH+vm6u7j83XMClO4/Yj8Su5Mj7FSKosiyvGjRooyMjMWLF4tPK+m1xLCMvZI07L2519LzFI15cIewjbPeo5TYR5lSISxvvZm3cj7ZvHntlihDkaICmCXJx003uEu74X0e7dwyWAxOcUBMCOAv8N5h7ldXjDHOQZJKx7qqqmcvJx08c3bfydiLl9Ou3b7FZEq4RuJAwES4UStJNb1qNAqs0yygdpO6dZsG1fP38a7p4VHDw926P4jVVU3uW7Is6sjvL81deivfDFTp3Cpoy8J5zno9Ni7+yrILX7mW9sXm7d9ERt80lgAoGkZMktqhWcNhXbr07RzRMMC/3LcwAG7pcKK/g7lfvfFSf7wBAEB2Tu6F5OQD58+dPH8pLvFqek6uCpQSKto6AACMAWdcR/y8atRz9/bx9gys5VO7hrefT40aHh5eHq5uzi7uLs5OOo27s7NGI4NdF/6Vmvviz2OZqlm0ftP8NRsZpyUa0rdty69nTnNzdsHQ/zvityfeL1PTb2yK2v/DrwcuXUsHQgE4A3DRyuEtG/bvEtGzTWiz+vXKf694DyDkjw4nsqis41lUNcqPaXEEQCmp6e35sHebh9u2AYDcvPzEjMxjFxMSUq5euHwlOSPjdmGxkXFCiZFBcm7O9du3pSQgZe8JnHEKTKfVOGudNJJWqyUayrUEfDw9tZKmkBW8MLDvyL4D7e9tVeSyqjJVZYT8y9OFuOU5LbVn9Jmzs9f+EH02jnINk+jzPTt/9vYEWZYx9P+B5f2Sc17Pv9bk0cNff2pw5PHT3+75be/JM9lmI1PNMafiok/FzdHomgXV7dq2ZZeQ4PBmjb09PcpXQlD2FgLV8+pvFb6vYe7bD0t/s+wggFNKPT3c23q4t23WRPxXflFRSkZm4vX05LSMxLSMhMzM7Ny827n5+fkFRrMChBBOOCVGRTGqhSohrJirFLQKuZx5mzBqdKURaTfAEmx2hDHm5OQkSVSStBX4tLfy8g+eO7d2x87fYk4YZT0lsoteO2vMyFeeHABlixEq8OXsUvmFbXq9blCXDoO6dEjJvLH9yO87omPOXkgqLqKFHI7GXz8Wn7Fow1YfD13zoIDgoAZtmjRpXj+wtpdXTS9PnU6Lv2qL6p375U/jFh+LKUrLGUzW2zQrE4EifhtlhQ7IsuTu4hLSqGFIo4aWR5rN5qzbeTn5BbkFBVm3bmffzr15Oze/oOhmXq5ZUW8XFBlkohhNRflFWo2uiJvr1vBljImquGK3tirn5cRZoOJjMVo0Gs2lK1e2HTpkLjHJkoZbanYg4m2OcyAE/pj+vgMHTq37iiwAABTmSURBVMRhE6iU3SrMu3Yj78Llq2cvJ6bl5BDCgei0jD/cqtmc8aPDmjdWFMVyloYjD9R7JwaxqqriJOf6frVefXzQq48Pik+5Gn3ifNTxI4fjL2XfLgSNlFVcfPNCXPT5eM52Esa8nPS1vL29PTx8vL1qerh7uLlYLvwm2tyEcyDiT1f6ZyQEgBPKOSdE/OVL17+V/aXEhDIQQoAQzhkhnFiGCCdljxSrp4nlkcABCOHACedlxzHi1UjZ9kDpZ5wD4aT0KeePf6lif5n2098X9u7du3Hjxq+++sraG2LTxN/8vtKGlQ0TaqcZ9d13342eNAWCQ4hJ7HiEAycABAjlnDMgwImIgbtHf9mKKM4Vys2SKqs6sywRzlyJ5OKh79QyePyg/l3DWlb1D2a/yuUwAICZw4UriTGx547GJ55LuZqdk5ubn88Z54xRAMIJJ6X5rRLCCANCKeecA+UcOGEUGAAAo0AJAcoJ5ZyJAw1CGHDGGRAKHAgBwoEwJrp4wDkjRCXAxXQC48AYAcoBGBW5zyihhBDKuNjtGOGcEMY544wQSjiUjjnGCKUECAfOCFFp6WAz/Lq1Yn911bveX7duneVjxphOpzt27FhcXNw333xjNBpxXde9uKPvWX5BJ0DpdHH5YvyPw4cKImpevV4/ePBgvV5fgc/8d27cuLFz505x5S8AUFXVyclp7969wCXZJKsqUAJEVIAiKzgHDvzOnClP7M8cgAElEqdUpRpmokXFakmxX42aXYMadm4ckHP1yrpzJx3wjNxKxRhnjFMKOp1Op9PV1Wq9G/i393aNT7l65er1tJvZafm3DAoHqgEic4lKkpZSwkWics556ciXCBBR7IuzHMuO+HjZO71MCedcrG7mXBzdcXFlRCbeCQgQBuIBUHbcwIFTIMDKzpwsRyIgEWI5SgAADqR0qBGAsqtmVkahVb1z/8iRI5aPxar2pKSk7OzsQ4cOlT+QRw/sTxEvfp28gtf2iGtvubm59e/fv7JzXzSU8vPzY2JitFqtpTeo0WouXLgQXDfg4W4RiqJIMuViBy5t3pT+FjgRP/7dpjc4J6T0+TkwWSIyY6ykRDUaZVlSVSU6OkZVzeJaqpX6MzokwvkfLU1ZopIs6/X61vX8WwX6McYYB5AkAAqUSJIGSnswpPTPBiA+Lnv75mUflz29+JjQckfKHEozmpc1Ass9q3ikeObSWGd3HieK17LkPpR1noBZHkCBMM5cnJ0r4/dlV32effv2rV+/Hvs86H6tXLny+vXrc+fOtfaGIFTpqne9X/4C9OLwOTc312AwiMkfO1toaPeq8u9VfuSIBfuFhYUlhhJVVcvW75cd3VjKOYSsBNdx/kn5X4foQYvl0uLrmPvo75QfG6JDSAghQETTH0cOsm/2M79kuZ6M41xYBlUIHDnI0dhP7lvgfosQQv/AfnLfsibPaDTCHQtREPp7YqgoimI2mwFHDnIA9raeJzMzMz09PSwszNobgqoNsfgyMTHRYDAEBwfjtROQ3bO33EcIIfTP7KfPY1H+oj0I3aMKPw8ZIZuF9T5CCDkWO6z3q52y2xyW4pyL887wLRlZXfkT3KDc4LTW9qAKgfW+bfn3k4riXaTsMoJ411ZUYf794BRvGP88OMVlsSvvFscIMPdtwa+//urv79+iRQuxM2RnZ2/fvt1kMvXr1y8gIOBfPjmuTkEPzGw2R0ZGhoWF+fv7i4GUlJS0e/dud3f3AQMGeHh4/Mvn/+vgxOFaNfBN1WrEEM/Ly+vZs+eSJUtatGgBAAkJCd26dZMkydnZ2cPDY/jw4fd72d7IyMh169alpaXVqFFj9OjRAwcOxH0J3S8x6mJjYwcMGHDw4EF/f39CyO7duwcPHhwYGEgIadmyZWho6H0NLcbYxo0bf/jhh7y8vHr16r3yyivt27f/64tu27bt22+//eijjwIDA3HoVhJsAliBONoV9wU7d+4cIaRbt25iGdL06dMppZcuXYqPjx86dCiUu3vivRg7dmy/fv2KioratGlTXFw8aNCgpUuXEoJHdeieiPY9lHULY2JiXF1dQ0NDGWNms/m1117r3Lnz5cuX4+PjQ0ND4X7OjTcajd26dRs/frx4wkuXLkVERERFRUHZAjxxW9CUlJRnnnlm06ZNWVlZgOfQVR6OrGrJkiV6vb6wsFB86uXltWjRIs55uVsk3hPx+J07dx4/ftzyxdGjR+v1+qKioorbXmS3/jrknnrqKdF+5Jynp6cDQExMDOdcLDq4L6qqbtq0KTU11fKV0NDQsLAwy+sqisI579y5c/fu3f39/Y8dO3bXTUIVAuv9qmY0GmfMmNGqVavQ0NB9+/adP3++WbNmLi4uO3fuHDZsWG5u7tdff/34449nZmZCWb1jNpuNf2YwGBRFKf+0ovLq27dveHg4Y8xoNKqq2qVLF4PBkJOTA1g6of+HEJKVlTV27NjmzZt37dr1woULCQkJERERALBmzZqnn34aACZPnjx27NjyY09VVYPBcMf4NJlMdzw5pXT48OF169YVV1JhjIWHh6elpYnbC4urps+ePTs9PX3hwoW3b98Wh7k4aCsJ9verDudcUZSBAwfu27dvzpw5Wq32vffeS0xMFHtUYWFhYWGhJEmDBw/28vLy9PSEsjmAF198cf/+/RqNRuxvsiybzebHHntsxYoV/M8NUHHITCmVZVmSpOPHj/v4+Pj7+wNerg79PRGvN2/e7NSpU2Fh4cyZM9PT00ePHh0fH//mm28CgMlkunXrVq1atfr16+fn56fVagFAhPWKFSsWLFig0+nE1Y0opYyxevXqRUVF3XH3NBHx4pLXlNKzZ8+2atWKUipueHDy5Mnp06efPXuWMVZSUoKXwq5UmPtVRMxZff7551FRUYcPHxZllIuLy5gxYzp16gQAw4YNi42NPXXq1KxZsyzfJaqecePGDRo0yHI/WFEfBQYGwl/SXDyeMSZJUmJi4qpVq5YuXSp2RVzQif4O55xS+vbbb6enp6ekpPj4+ABAenr6iRMn2rRpAwAvv/zyjz/+6O/vP3XqVMt3iRHVq1ev2rVrazQay3nynHNXV1eNRnPHq4jHi5TfsWPH8ePH9+3bJ/7LYDAMGTJkypQpISEhv/32G85IVTor9ZcckdlsDgwM7NOnD+dcNGq+++47SZLi4+M554yxsLCwxx9/XFVVk8n0wK8ieq85OTn169cXr4VNUvR/ZWZmEkLef/99znlxcbGiKJMnT3Z3dzcYDJzzgoICDw+PuXPnKopiNBof+FVEE//s2bOyLE+ePNnylTFjxoSEhIjHREdHA8CZM2c4Dt1Kg/V+VeCcE0KuXr167dq1OXPmcM4BQJKkU6dOeXt7N2jQAAAKCwvPnTs3fPhwSikvK3ZEnT5lypSYmBgnJyex1kKSpJKSkh49esyYMYP/uc/DOaeU5uXlRURE+Pn5bd68meNKOPSPRLvm999/B4AhQ4Zwzi1NwrCwMJ1OBwCJiYl5eXkdOnQQXZry37hhw4aVK1e6urqKJiSl1Gw2BwQErFmzRnzvHS90/vz59u3bjxo1av78+WazWaPR7Nq169tvvz19+rTlNveEEEVRxKc4eisD5n5V4GXnvFBKGzVqxMvu5PfDDz+EhISII+KEhASz2dyuXTsoN9bFBxEREb6+vlqt1tK+N5lMzZo1gz/vFeJVCgsLO3TooNfrIyMjdTqdOKzGnQf9s7i4OEJInTp1RO7n5OQcOnRo4sSJ4n9PnDih1WqDg4Oh3JATfZumTZsOGTJEp9NZYlpVVS8vrzsa9JbeY/v27Z988sk1a9aYzWZRe3700UcFBQXh4eHFxcWEEJH7ERERwcHBJ06cqNLfgsPA3K86YqDrdDpxH+BPPvkkKSlpzJgx4n+PHj0qSZK4c4ClFy/2sUGDBt3L8xNCSkpKBgwYEBQUtGPHDvFFnB9D98JkMlFKnZycxNh76623TCZT165dxf9GR0cHBATUqlUL/lKUPPTQQw899NA/P7k4DE1KSurRo8e4ceMWL14MAJYJgHnz5l2/fl30Niml8fHx8+bNmzlzZkhICNYrlQRzvyqI4du6dWsAWLhw4bRp077//vtdu3ZRSkNCQsRjDh8+3KhRI3d3979++x0XbrM8Z/mpWs55UVFRr169jhw5snTp0tWrVyuKIkkSY6xt27bh4eHY8EF3JUZF586dVVVdvHjxwIEDly9ffuzYMY1GI84hB4ATJ06Eh4dDWeOx/Ldzzu965fPyBQchJDU1NSIiQlGU4ODgVatWidHLGOvVq1fHjh3Lf+OZM2dmz549fPjwhg0b/nXYo4pRdVMJjk1k97Jlyzw9PevUqTNq1KhTp06FhoYmJyeLBzRu3PjZZ5/lZTNdDyAxMTEwMLBBgwYeHh4uLi5ubm6enp6urq5z587lD3SuDXIQ4lJob7zxhpubW2Bg4AcffLBt27aOHTuKoXj79m1ZlpctW8YfaHCKkb97925/f/+goCA3NzdXV1c3NzcPDw9XV9ctW7aIFf2KophMJkVRjhw5Uq9evbNnz4oWf4X/sIhzjuulqlp+fr7BYPD19YVy9wTOz88PCAhYsmTJuHHjxPTXAz8/x7oePajs7GxKqbe3t/hUURRCyNGjRzt16vT777+3b9/+Xy4IvsfBiWO4smGfp0oxxtzd3d3d3cXIFoNbluUjR46UlJR069YN7vOCPH+FOwx6MJzzmjVrQrlmjrgY8u7du52dnUVDsmoGJ47hyoa5X6UsazQtlyA/cODAnj17li1b1rt372bNmmGlg6zFcraUZZRu3rz56NGjixYtmjp1qpOTE579Zzfwr1jVLGW+2LVyc3O3bds2dOjQ9evXW3vTkKOzDE7xcUpKSlRU1Pvvvz99+nTOOYa+3cD+PkIIORbs81iZZYadUoodHmRTLIMTzwKxM1jvI4SQY8GGHUIIORbMfYQQciyY+wgh5Fgw9xFCyLFg7iOEkGPB3EcIIceCuY8QQo4Fcx8hVDH431yLH9kazH0bde/n0+GZd8hG3HEvoL/CsWojMPdtlLhmg8Fg+IfHiP/FqzsgqysuLgaAH374YerUqXcNdxyrNgVz3+aI3eb69ett27Y9fPgwAIhjZ1526yLLY+Li4kJDQ2NjYwErKWQlubm5ERERP/30EwD89ttvX3zxBdxtrJ45c6ZNmzbx8fGAY9UGYO7bqP/85z+U0m7dulmuyC8Ooi0VE2MsNDS0Tp06zz//vFW3FDkoUY5MmjQpLS1tyJAhACBu7ckYs4xV8TFjrEOHDp6eni+++KK1txoBYO7bGrGfnD59OjIycsGCBeIOGCLrU1NTo6OjExISoNzx8oIFC06dOhUVFSX2LmtuOnIk4gqyV69eXb169bx585ydnQFA1PiSJGVkZBw8eDA9Pb18u3/hwoUxMTGHDh3CsWp1mPu2aPXq1d7e3l26dBF7V3JycuvWrcPDw0eMGNGmTZuePXtmZmaKuyMFBwc3a9Zs5cqV1t5k5FhEr+abb77RarUDBgywfJ0QMmnSpPDw8OHDhwcFBb366quqqoqxGh4eXr9+fRyrtgBz37aI+mjv3r29evWSZVmURc7OziNHjtyzZ8/p06d//vnnX3/9ddGiRYQQs9kMAP379z9w4ICiKHg7JFTFdu/e3aFDBw8PD0VRAMDV1TU5OTkhISEyMvLcuXOrV69evnz5hx9+aBmrffr02bdvH966y+rwt29zCgsLk5KSWrdubflKrVq1Jk2aFBoaWqNGjZ49e/bv3z8mJsbyvyEhIbm5uZmZmYAzZqiqiA7kpUuXWrZsCQCqqgKAoiiEkNWrV7ds2bJmzZojR44cNWrUp59+ajabNRoNAISEhGRnZ2dnZ1t56x0e3m/LhohWfk5Ojqqq/v7+UC7HT5w4sWvXrtTUVMbYmTNnmjdvDmVd/tq1awPAjRs3AgICrLftyOEUFhYWFRWVH3VGo9HPz8/b25sxpqqqJEmdO3fesGFDdna2GKV16tRRVfXmzZs+Pj6WiStU9bDetzmiH6rX6y1fmTx5cteuXc+cOePr69u0aVOtVlt+WszJyQnKCi6s91EVEMNMDFQx/Cxf1+v1tBxJkjjnJpNJPMDJyUm8JQCOVavCet+GiPLH1dWVc56RkQEAsizHxsYuWLBgxYoVL7/8snjY/v378/LyoGzPycjI4Jx7eHgAnheDqoQYZs7OzpTS69evQ9lQlCQpOztbTDWZzWZJkrKysiRJcnd3F9+YlpZGCBGf4li1Iqz3bU7NmjV9fX0vXbokPhWN+7CwMPFpUlLS/v37vby8LI+Pj4/X6XR16tQB3JdQVeGca7Xa+vXrx8XFAYC48bqrq2t+fv6OHTskSRIHrF9//XVYWJiXl5eY+I2Pj3d1dfXz8wMcq1aF9b5tYYxRSjt37rx3717RAA0PDw8ICHjiiSdee+21GzduxMTE+Pv7i5kxsSgiMjKybdu24igB9yVUNRhjkiR17959/fr1orQHgKysLC8vr5kzZ27fvj0oKOinn35KTk4+cOAAlKX8nj172rdvr9PpxDi38s/gwPBXb4tGjhx55cqVixcvcs69vb2joqJ69uy5e/fupKSk5cuXb9q0adiwYQAgTpA5dOjQs88+C2XnTyJUBUSOP/3007du3YqOjhbLezp37rxmzZoff/wxPz9/7969TZs2PXz4cLt27cSbREpKysmTJ5977jnA5r61EfwD2CDGWLNmzdq2bfvtt9+KdRF3fQyldOLEievXr7969Wr56TWEqoA4vuzSpQsh5ODBg393uMk5Fwv2x44du3379uTkZK1WW/Vbi8rDet/miED/8ssvN2/efPjwYUmSVFVVVZVzLv7lnIups/j4+BUrVixfvlwsk7D2hiPHIkrGVatWHT16dMuWLYQQRVHEpRosw1UMS0rpuXPn1q5d+8UXX9yxGg1ZBdb7tuvKlStOTk5iwvausrOzb9261bRp06rcKoTukJqayjmvX7/+Pzzmxo0b+fn5jRs3rqqNQv8Ec99G3fskLU7nIiu6r+GHY9VGYO7bLvGn+ef9BNdFIKu7l4EKGPq2BHMfIYQcC5aKCCHkWDD3EULIsWDuI4SQY8HcRwghx4K5jxBCjgVzHyGEHAvmPkIIORbMfYQQciz/A2EpnT0JUOYhAAAAAElFTkSuQmCC"></p>
+</section>
+<section id="sec-df-for-chi" class="slide level2" data-number="2.3">
+<h2><span class="header-section-number">2.3</span> The df for Chi-square Distribution</h2>
+<ul>
+<li class="fragment">So how does one <span class="fragment highlight-current-custom"><u>calculate</u></span> the important <span class="math inline">\(df\)</span> for this distribution?
+<ul>
+<li class="fragment">Depends on which of the 3 use cases we are <span class="fragment highlight-current-custom"><u>implementing</u></span></li>
+</ul></li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: Try explaining, in your own words, what degrees of freedom are again?</b></li></ul>
+<ul><li class="fragment highlight-current-custom"><b>Important: The fact that the chi-square distribution changes dependent on the df is a unique change compared to the normal or t-distributions!</b></li></ul>
+</section>
+<section id="section" class="slide level2 unnumbered unlisted" data-background-color="white">
+<h2></h2>
+</section></section>
+<section>
+<section id="sec-goodness-of-fit-test" class="title-slide slide level1 agenda-slide center" data-number="3">
+<h1><span class="header-section-number">3</span> Goodness-of-Fit Test</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">1</span> Overview and Introduction</p>
+</div>
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">2</span> Basics of the Chi-Square Distribution</p>
+</div>
+<div class="agenda-active">
+<p><span class="header-section-number">3</span> Goodness-of-Fit Test</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">4</span> Test of Independence</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">5</span> Test of Homogeneity</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">6</span> Conclusion</p>
+</div>
+</div>
+</section>
+<section id="sec-intro-goodness-of-fit-test" class="slide level2" data-number="3.1">
+<h2><span class="header-section-number">3.1</span> Introduction</h2>
+<ul>
+<li class="fragment">The <b>goodness-of-fit test</b> is an application where the <span class="fragment highlight-current-custom"><u>chi-square</u></span> distribution is used to determine whether data “fits” a certain distribution</li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: Why might we want to know if the data we have fit a certain distribution? hint: think about &#39;assumptions&#39;</b></li></ul>
+</section>
+<section id="sec-formula-gof" class="slide level2" data-number="3.2">
+<h2><span class="header-section-number">3.2</span> Formula</h2>
+<p><span class="math display">\[
+\chi^2 = \sum_k\frac{(O - E)^2}{E}
+\]</span></p>
+<p><span class="math display">\[
+df = k - 1
+\]</span></p>
+<ul>
+<li class="fragment">Where:
+<ul>
+<li class="fragment">O = <b>observed values</b> are those that we actually <span class="fragment highlight-current-custom"><u>measure</u></span> from our sample</li>
+<li class="fragment">E = <b>expected values</b> are those that we <span class="fragment highlight-current-custom"><u>expect</u></span> our observed values to be if they follow the same distribution, i.e., if the <span class="fragment highlight-current-custom"><u>null</u></span> hypothesis is true</li>
+<li class="fragment"><span class="math inline">\(k\)</span> = the number of different <span class="fragment highlight-current-custom"><u>categories</u></span>, you can think of this as the “pairs” of observed and expected data points</li>
+</ul></li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: A chi-square statistic characteristic is always equal to or greater than 0; explain why this characteristic is true by looking at the formula</b></li></ul>
+<ul><li class="fragment highlight-current-custom"><b>Important: Due to some mathematical oddities, don&#39;t use this unless expected values are at least 5 or greater in each category - can inflate type I error</b></li></ul>
+</section>
+<section id="sec-null-and-alt-hypotheses" class="slide level2" data-number="3.3">
+<h2><span class="header-section-number">3.3</span> Null and Alternative Hypotheses Testing</h2>
+<ul><li class="fragment highlight-current-custom"><b>Important: Null and alternative hypotheses can and should be stated when doing any and all inferential testing! Still applies here</b></li></ul>
+<ul>
+<li class="fragment">Hypothesis pair:
+<ul>
+<li class="fragment">Null hypothesis: The <span class="fragment highlight-current-custom"><u>observed</u></span> values/proportions are the same as the <span class="fragment highlight-current-custom"><u>expected</u></span> values</li>
+<li class="fragment">Alternative hypothesis: The <span class="fragment highlight-current-custom"><u>observed</u></span> values/proportions are different than the <span class="fragment highlight-current-custom"><u>expected</u></span> values</li>
+</ul></li>
+<li class="fragment">Goodness-fit-tests are usually done in <span class="fragment highlight-current-custom"><u>right-tailed</u></span> manner, as a greater statistic suggest a greater divergence from expected distribution</li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: Draw a normal curve and shade it in such a manner to show a right-tailed test</b></li></ul>
+</section>
+<section id="sec-application" class="slide level2" data-number="3.4">
+<h2><span class="header-section-number">3.4</span> Application Example</h2>
+<ul>
+<li class="fragment">I have a class of 20 students, who I expect will have a uniform distribution of As, Bs, Cs, Ds, and Fs
+<ul>
+<li class="fragment"><span class="math inline">\(E: \{4, 4, 4, 4, 4\}\)</span></li>
+<li class="fragment"><span class="math inline">\(O: \{2, 4, 12, 1, 1\}\)</span></li>
+</ul></li>
+<li class="fragment">Hypothesis pair:
+<ul>
+<li class="fragment"><span class="math inline">\(H_0:\)</span> the observed letter grades fits the expected distribution of 4 of each A, B, C, D, F</li>
+<li class="fragment"><span class="math inline">\(H_A:\)</span> the observed letter grades do not fit the expected distribution of 4 of each A, B, C, D, F</li>
+</ul></li>
+</ul>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Grade</th>
+<th style="text-align: center;">Expected (E)</th>
+<th style="text-align: center;">Observed (O)</th>
+<th style="text-align: center;">(O − E)</th>
+<th style="text-align: center;">’’ / E</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">-2</td>
+<td style="text-align: center;">(−2)² / 4 = 1.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">8² / 4 = 16.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">D</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">-3</td>
+<td style="text-align: center;">(−3)² / 4 = 2.25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">F</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">-3</td>
+<td style="text-align: center;">(−3)² / 4 = 2.25</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Total</strong></td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;"><strong>21.50</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li class="fragment"><span class="math inline">\(\chi^2 = 21.50\)</span>, <span class="math inline">\(df = 5 - 1 = 4\)</span>
+<ul>
+<li class="fragment"><span class="math inline">\(p\)</span> to be determined by computer and compared against arbitrary <span class="math inline">\(\alpha\)</span></li>
+</ul></li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: Do the same process as demonstrated above, but now using 1,1,1,2,15 as the observed data</b></li></ul>
+</section>
+<section id="section-1" class="slide level2 unnumbered unlisted" data-background-color="white">
+<h2></h2>
+</section></section>
+<section>
+<section id="sec-test-of-ind" class="title-slide slide level1 agenda-slide center" data-number="4">
+<h1><span class="header-section-number">4</span> Test of Independence</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">1</span> Overview and Introduction</p>
+</div>
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">2</span> Basics of the Chi-Square Distribution</p>
+</div>
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">3</span> Goodness-of-Fit Test</p>
+</div>
+<div class="agenda-active">
+<p><span class="header-section-number">4</span> Test of Independence</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">5</span> Test of Homogeneity</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">6</span> Conclusion</p>
+</div>
+</div>
+</section>
+<section id="sec-intro-test-of-ind" class="slide level2" data-number="4.1">
+<h2><span class="header-section-number">4.1</span> Introduction</h2>
+<ul>
+<li class="fragment">The <b>test of independence test</b> is used when we want to determine if two factors or <span class="fragment highlight-current-custom"><u>variables</u></span> are independent or not
+<ul>
+<li class="fragment">This test will use a <b>contingency table</b> that shows <span class="fragment highlight-current-custom"><u>frequencies</u></span> of two variable in data</li>
+</ul></li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: Think back to our probability units, what did &#39;independent&#39; mean in that context and how did it relate to sampling?</b></li></ul>
+<ul><li class="fragment highlight-current-custom"><b>Important: Much like goodness-of-fit, don&#39;t use this unless expected values are at least 5 or greater in each category - can inflate type I error</b></li></ul>
+</section>
+<section id="sec-formula-toi" class="slide level2" data-number="4.2">
+<h2><span class="header-section-number">4.2</span> Formula</h2>
+<p><span class="math display">\[
+\chi^2 = \sum_{i * j}\frac{(O - E)^2}{E}
+\]</span></p>
+<p><span class="math display">\[
+df = (i - 1) * (j - 1)
+\]</span></p>
+<ul>
+<li class="fragment">Where:
+<ul>
+<li class="fragment"><span class="math inline">\(O:\)</span> observed values</li>
+<li class="fragment"><span class="math inline">\(E:\)</span> expected values*</li>
+<li class="fragment"><span class="math inline">\(i:\)</span> number of <span class="fragment highlight-current-custom"><u>rows</u></span> in the data</li>
+<li class="fragment"><span class="math inline">\(j:\)</span> number of <span class="fragment highlight-current-custom"><u>columns</u></span> in the data</li>
+</ul></li>
+<li class="fragment">Expected value (<span class="math inline">\(E\)</span>) for each cell of the table is calculated as:
+<ul>
+<li class="fragment"><span class="math inline">\(E = \frac{\sum_{row} * \sum_{column}}{{\sum_{total}}}\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="sec-null-and-alt-hypotheses-toi" class="slide level2" data-number="4.3">
+<h2><span class="header-section-number">4.3</span> Null and Alternative Hypotheses Testing</h2>
+<ul>
+<li class="fragment">Hypothesis pair:
+<ul>
+<li class="fragment">Null hypothesis: The two factors are <span class="fragment highlight-current-custom"><u>independent</u></span></li>
+<li class="fragment">Alternative hypothesis: The two factors are <span class="fragment highlight-current-custom"><u>dependent</u></span></li>
+</ul></li>
+</ul>
+</section>
+<section id="sec-application2" class="slide level2" data-number="4.4">
+<h2><span class="header-section-number">4.4</span> Application Example</h2>
+<ul>
+<li class="fragment">I have a class of 40 students, half of whom are female and half are male, and below are their counts of of As, Bs, Cs, Ds, and Fs
+<ul>
+<li class="fragment"><span class="math inline">\(F: \{6, 5, 3, 5, 1\}\)</span></li>
+<li class="fragment"><span class="math inline">\(M: \{3, 4, 4, 7, 2\}\)</span></li>
+</ul></li>
+<li class="fragment">Hypothesis pair:
+<ul>
+<li class="fragment"><span class="math inline">\(H_0:\)</span> The two factors of sex and grade are independent</li>
+<li class="fragment"><span class="math inline">\(H_A:\)</span> The two factors of sex and grade are dependent</li>
+</ul></li>
+<li class="fragment">Contingency Table:</li>
+</ul>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Grade</th>
+<th style="text-align: center;">Female (F)</th>
+<th style="text-align: center;">Male (M)</th>
+<th style="text-align: center;">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">D</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">F</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Total</strong></td>
+<td style="text-align: center;"><strong>20</strong></td>
+<td style="text-align: center;"><strong>20</strong></td>
+<td style="text-align: center;"><strong>40</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li class="fragment">Expected Counts:</li>
+</ul>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Grade</th>
+<th style="text-align: center;">Female (E)</th>
+<th style="text-align: center;">Male (E)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: center;">9×20/40 = 4.5</td>
+<td style="text-align: center;">4.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: center;">9×20/40 = 4.5</td>
+<td style="text-align: center;">4.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C</td>
+<td style="text-align: center;">7×20/40 = 3.5</td>
+<td style="text-align: center;">3.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">D</td>
+<td style="text-align: center;">12×20/40 = 6.0</td>
+<td style="text-align: center;">6.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">F</td>
+<td style="text-align: center;">3×20/40 = 1.5</td>
+<td style="text-align: center;">1.5</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li class="fragment">Chi-square statistic:</li>
+</ul>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Grade</th>
+<th style="text-align: center;">Female (O−E)²/E</th>
+<th style="text-align: center;">Male (O−E)²/E</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: center;">(6−4.5)²/4.5 = 0.50</td>
+<td style="text-align: center;">(3−4.5)²/4.5 = 0.50</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: center;">(5−4.5)²/4.5 = 0.06</td>
+<td style="text-align: center;">(4−4.5)²/4.5 = 0.06</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C</td>
+<td style="text-align: center;">(3−3.5)²/3.5 = 0.07</td>
+<td style="text-align: center;">(4−3.5)²/3.5 = 0.07</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">D</td>
+<td style="text-align: center;">(5−6.0)²/6.0 = 0.17</td>
+<td style="text-align: center;">(7−6.0)²/6.0 = 0.17</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">F</td>
+<td style="text-align: center;">(1−1.5)²/1.5 = 0.17</td>
+<td style="text-align: center;">(2−1.5)²/1.5 = 0.17</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Total χ² = 1.94</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li class="fragment"><span class="math inline">\(df = (5 - 1)(2 - 1) = 4\)</span>, <span class="math inline">\(p\)</span> to be calculated by computer</li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: Do the same process as demonstrated above, but now using F: 1,1,1,2,15 and M: 2,2,2,10,4 as the observed data</b></li></ul>
+</section>
+<section id="section-2" class="slide level2 unnumbered unlisted" data-background-color="white">
+<h2></h2>
+</section></section>
+<section>
+<section id="sec-test-of-homo" class="title-slide slide level1 agenda-slide center" data-number="5">
+<h1><span class="header-section-number">5</span> Test of Homogeneity</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">1</span> Overview and Introduction</p>
+</div>
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">2</span> Basics of the Chi-Square Distribution</p>
+</div>
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">3</span> Goodness-of-Fit Test</p>
+</div>
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">4</span> Test of Independence</p>
+</div>
+<div class="agenda-active">
+<p><span class="header-section-number">5</span> Test of Homogeneity</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">6</span> Conclusion</p>
+</div>
+</div>
+</section>
+<section id="sec-intro-test-of-homo" class="slide level2" data-number="5.1">
+<h2><span class="header-section-number">5.1</span> Introduction</h2>
+<ul>
+<li class="fragment">Whereas the <span class="fragment highlight-current-custom"><u>goodness-of-fit</u></span> test can tell us whether data matches a specified, <span class="fragment highlight-current-custom"><u>known</u></span> distribution, we have a different test for testing whether two different sets of data follow the same, unknown distribution
+<ul>
+<li class="fragment">We call these are <b>test for homogeneity</b></li>
+</ul></li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: In what hypothesis testing scenarios might we want to know whether two sets of data seem to have equal distributions? hint: think independent-samples t-test</b></li></ul>
+</section>
+<section id="sec-formula-homo" class="slide level2" data-number="5.2">
+<h2><span class="header-section-number">5.2</span> Formula</h2>
+<ul><li class="fragment highlight-current-custom"><b>Important: The chi-square statistic here is calculated the same as with the test of independence, but the df is different!</b></li></ul>
+<p><span class="math display">\[
+\chi^2 = \sum_{i * j}\frac{(O - E)^2}{E}
+\]</span></p>
+<p><span class="math display">\[
+df = (i - 1) * (j - 1)
+\]</span></p>
+<ul>
+<li class="fragment">Where:
+<ul>
+<li class="fragment"><span class="math inline">\(O:\)</span> observed values</li>
+<li class="fragment"><span class="math inline">\(E:\)</span> expected values*</li>
+<li class="fragment"><span class="math inline">\(i:\)</span> number of <span class="fragment highlight-current-custom"><u>rows</u></span> in the data</li>
+<li class="fragment"><span class="math inline">\(j:\)</span> number of <span class="fragment highlight-current-custom"><u>columns</u></span> in the data</li>
+<li class="fragment">The <span class="fragment highlight-current-custom"><u>columns</u></span> in this setup should be the categorical variable whose <span class="fragment highlight-current-custom"><u>distribution</u></span> we are interested in</li>
+<li class="fragment">The <span class="fragment highlight-current-custom"><u>rows</u></span> should be the <span class="fragment highlight-current-custom"><u>grouping</u></span> categorical variable, or the two groups we compare against one another</li>
+</ul></li>
+</ul>
+</section>
+<section id="sec-null-and-alt-hypotheses-homo" class="slide level2" data-number="5.3">
+<h2><span class="header-section-number">5.3</span> Null and Alternative Hypotheses Testing</h2>
+<ul>
+<li class="fragment">Hypothesis pair:
+<ul>
+<li class="fragment">Null hypothesis: The <span class="fragment highlight-current-custom"><u>distributions</u></span> of the two populations are the same</li>
+<li class="fragment">Alternative hypothesis: The distributions of the two populations are <span class="fragment highlight-current-custom"><u>not</u></span> the same</li>
+</ul></li>
+</ul>
+</section>
+<section id="sec-app-ex-homo" class="slide level2" data-number="5.4">
+<h2><span class="header-section-number">5.4</span> Application Example</h2>
+<ul>
+<li class="fragment">I have a group of students, half of whom are female and half are male, and below are their counts of what class they are in:
+<ul>
+<li class="fragment">Freshman, Sophomore, Junior, Senior</li>
+<li class="fragment"><span class="math inline">\(F: \{6, 14, 8, 12\}\)</span></li>
+<li class="fragment"><span class="math inline">\(M: \{5, 7, 7, 8\}\)</span></li>
+</ul></li>
+<li class="fragment">Hypothesis pair:
+<ul>
+<li class="fragment"><span class="math inline">\(H_0:\)</span> The distributions of class between male and female students are the same</li>
+<li class="fragment"><span class="math inline">\(H_A:\)</span> The distributions of class between male and female students are not the same</li>
+</ul></li>
+<li class="fragment">Data setup</li>
+</ul>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Class</th>
+<th>Female (F)</th>
+<th>Male (M)</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Freshman</td>
+<td>6</td>
+<td>5</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td>Sophomore</td>
+<td>14</td>
+<td>7</td>
+<td>21</td>
+</tr>
+<tr class="odd">
+<td>Junior</td>
+<td>8</td>
+<td>7</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td>Senior</td>
+<td>12</td>
+<td>8</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td><strong>40</strong></td>
+<td><strong>27</strong></td>
+<td><strong>67</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li class="fragment">Expected counts</li>
+</ul>
+<table class="caption-top">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 44%">
+<col style="width: 43%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Class</th>
+<th>Expected F</th>
+<th>Expected M</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Freshman</td>
+<td>6.57</td>
+<td>4.43</td>
+</tr>
+<tr class="even">
+<td>Sophomore</td>
+<td>12.54</td>
+<td>8.46</td>
+</tr>
+<tr class="odd">
+<td>Junior</td>
+<td>8.96</td>
+<td>6.04</td>
+</tr>
+<tr class="even">
+<td>Senior</td>
+<td>11.94</td>
+<td>8.06</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li class="fragment">Chi-square calculation</li>
+</ul>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Class</th>
+<th>Group</th>
+<th>(O)</th>
+<th>(E)</th>
+<th>((O-E)^2/E)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Freshman</td>
+<td>F</td>
+<td>6</td>
+<td>6.57</td>
+<td>0.049</td>
+</tr>
+<tr class="even">
+<td>Freshman</td>
+<td>M</td>
+<td>5</td>
+<td>4.43</td>
+<td>0.074</td>
+</tr>
+<tr class="odd">
+<td>Sophomore</td>
+<td>F</td>
+<td>14</td>
+<td>12.54</td>
+<td>0.170</td>
+</tr>
+<tr class="even">
+<td>Sophomore</td>
+<td>M</td>
+<td>7</td>
+<td>8.46</td>
+<td>0.252</td>
+</tr>
+<tr class="odd">
+<td>Junior</td>
+<td>F</td>
+<td>8</td>
+<td>8.96</td>
+<td>0.103</td>
+</tr>
+<tr class="even">
+<td>Junior</td>
+<td>M</td>
+<td>7</td>
+<td>6.04</td>
+<td>0.151</td>
+</tr>
+<tr class="odd">
+<td>Senior</td>
+<td>F</td>
+<td>12</td>
+<td>11.94</td>
+<td>0.0003</td>
+</tr>
+<tr class="even">
+<td>Senior</td>
+<td>M</td>
+<td>8</td>
+<td>8.06</td>
+<td>0.0004</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section-3" class="slide level2 unnumbered unlisted" data-background-color="white">
+<h2></h2>
+</section></section>
+<section>
+<section id="sec-conclusion" class="title-slide slide level1 agenda-slide center" data-number="6">
+<h1><span class="header-section-number">6</span> Conclusion</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">1</span> Overview and Introduction</p>
+</div>
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">2</span> Basics of the Chi-Square Distribution</p>
+</div>
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">3</span> Goodness-of-Fit Test</p>
+</div>
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">4</span> Test of Independence</p>
+</div>
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">5</span> Test of Homogeneity</p>
+</div>
+<div class="agenda-active">
+<p><span class="header-section-number">6</span> Conclusion</p>
+</div>
+</div>
+</section>
+<section id="sec-recap" class="slide level2" data-number="6.1">
+<h2><span class="header-section-number">6.1</span> Recap</h2>
+<ul>
+<li class="fragment"><p>The chi-squared distribution is well suited to dealing with categorical counts and proportions, but the 3 forms of the chi-square distribution have somewhat different application and formulas</p></li>
+<li class="fragment"><p>The shape of the chi-square distribution changes based upon the dfs, and the hypothesis testing done with it is usually right-tailed, among other consistent characteristics</p></li>
+<li class="fragment"><p>Like with the other distributions we have discussed, be mindful of how the null and alternative hypotheses change</p></li>
+</ul>
+</section>
+<section id="sec-lecture-check-in" class="slide level2" data-number="6.2">
+<h2><span class="header-section-number">6.2</span> Lecture Check-in</h2>
+<ul>
+<li class="fragment">Make sure to complete any lecture check-in tasks associated with this lecture!</li>
 </ul>
 
 
