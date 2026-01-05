@@ -732,7 +732,7 @@ opacity: 0.7;
 
   <meta name="author" content="Quinton Quagliano, M.S., C.S.P">
   <meta name="dcterms.date" content="today">
-  <meta name="keywords" content="EDPS-641 Module 1 Lecture - Sampling and Data">
+  <meta name="keywords" content="EDPS-641 Module 1 Lecture - Basics of Sampling and Data">
   <title>Undergraduate Research Methods in Psychology – EDPS-641 Module 1 Lecture - </title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -1529,7 +1529,7 @@ margin-right: 0; }
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Module 1 Lecture - Sampling and Data</h1>
+  <h1 class="title">Module 1 Lecture - Basics of Sampling and Data</h1>
   <p class="subtitle">Introduction to Statistical Methods</p>
 
 <div class="quarto-title-authors">
@@ -1549,9 +1549,10 @@ Quinton Quagliano, M.S., C.S.P
 <ul>
 <li class="fragment"><a href="#/sec-overview" id="/toc-sec-overview"><span class="header-section-number">1</span> Overview and Introduction</a></li>
 <li class="fragment"><a href="#/sec-defs" id="/toc-sec-defs"><span class="header-section-number">2</span> Definitions of Statistics, Probability, and Key Terms</a></li>
-<li class="fragment"><a href="#/sec-data-sample-var" id="/toc-sec-data-sample-var"><span class="header-section-number">3</span> Data, Sampling, and Variation</a></li>
-<li class="fragment"><a href="#/sec-freqs" id="/toc-sec-freqs"><span class="header-section-number">4</span> Frequency, Frequency Tables, and Levels of Measurement</a></li>
-<li class="fragment"><a href="#/sec-conclusion" id="/toc-sec-conclusion"><span class="header-section-number">5</span> Conclusion</a></li>
+<li class="fragment"><a href="#/sec-sampling" id="/toc-sec-sampling"><span class="header-section-number">3</span> Sampling</a></li>
+<li class="fragment"><a href="#/sec-desc-of-data" id="/toc-sec-desc-of-data"><span class="header-section-number">4</span> Descriptions of Data</a></li>
+<li class="fragment"><a href="#/sec-measurement" id="/toc-sec-measurement"><span class="header-section-number">5</span> Levels/Scales of Measurement</a></li>
+<li class="fragment"><a href="#/sec-conclusion" id="/toc-sec-conclusion"><span class="header-section-number">6</span> Conclusion</a></li>
 </ul>
 </nav>
 </section>
@@ -1573,58 +1574,65 @@ Quinton Quagliano, M.S., C.S.P
 <p><span class="header-section-number">2</span> Definitions of Statistics, Probability, and Key Terms</p>
 </div>
 <div class="agenda-inactive agenda-post-active">
-<p><span class="header-section-number">3</span> Data, Sampling, and Variation</p>
+<p><span class="header-section-number">3</span> Sampling</p>
 </div>
 <div class="agenda-inactive agenda-post-active">
-<p><span class="header-section-number">4</span> Frequency, Frequency Tables, and Levels of Measurement</p>
+<p><span class="header-section-number">4</span> Descriptions of Data</p>
 </div>
 <div class="agenda-inactive agenda-post-active">
-<p><span class="header-section-number">5</span> Conclusion</p>
+<p><span class="header-section-number">5</span> Levels/Scales of Measurement</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">6</span> Conclusion</p>
 </div>
 </div>
 </section>
 <section id="sec-text-learn-objs" class="slide level2" data-number="1.1">
 <h2><span class="header-section-number">1.1</span> Textbook Learning Objectives</h2>
 <ul>
-<li class="fragment">Recognize and differentiate between key terms.</li>
-<li class="fragment">Apply various types of sampling methods to data collection.</li>
-<li class="fragment">Create and interpret frequency tables.</li>
+<li class="fragment">Recognize and differentiate between key terms used often in statistics, probability, and data</li>
+<li class="fragment">Apply and identify various types of sampling methods, and how they impact the broader meaning of the data</li>
+<li class="fragment">Create and interpret frequency/contingency tables.</li>
 </ul>
 </section>
 <section id="sec-instructor-learn-objs" class="slide level2" data-number="1.2">
 <h2><span class="header-section-number">1.2</span> Instructor Learning Objectives</h2>
 <ul>
-<li class="fragment">Understand how variables can be described and represented in several different ways</li>
-<li class="fragment">Appreciate the basic of how data comes to be, and how the collection method implies the scale of measurement</li>
+<li class="fragment">Understand how variables can be described and represented with different scales</li>
+<li class="fragment">Appreciate the basic of how data is collected, and how the collection method implies the scale of measurement</li>
 </ul>
 </section>
 <section id="sec-introduction" class="slide level2" data-number="1.3">
 <h2><span class="header-section-number">1.3</span> Introduction</h2>
 <ul>
-<li class="fragment">“Statistics” comprises various quantitative methods to <span class="fragment highlight-current-custom"><u>describe</u></span> and analyze numeric data
+<li class="fragment"><b>Statistics</b> comprises various quantitative methods to <span class="fragment highlight-current-custom"><u>describe</u></span> and analyze numeric and categorical data
 <ul>
-<li class="fragment">I like to think of statistics as a <span class="fragment highlight-current-custom"><u>support</u></span> methods to various sciences - biology, psychology, education, economics, etc.</li>
+<li class="fragment">First and foremost, it is technically a subfield of <span class="fragment highlight-current-custom"><u>math</u></span></li>
+<li class="fragment">I like to think of statistics as a set of <span class="fragment highlight-current-custom"><u>support</u></span> methods to research various sciences - biology, psychology, education, economics, etc.</li>
 </ul></li>
-<li class="fragment">At the core of statistics is <span class="fragment highlight-current-custom"><u>probability</u></span>, or how we describe the likelihood of certain events occurring
+<li class="fragment">At the core of statistics is <b>probability</b>, or how we describe the <span class="fragment highlight-current-custom"><u>likelihood</u></span> of certain events occurring
 <ul>
-<li class="fragment">We’ll briefly dive into the <span class="fragment highlight-current-custom"><u>nuances</u></span> of probability in module 3</li>
+<li class="fragment">We’ll briefly dive into the <span class="fragment highlight-current-custom"><u>nuances</u></span> of probability in module 3 and later expand on that with <span class="fragment highlight-current-custom"><u>inferential</u></span> statistics</li>
 </ul></li>
 <li class="fragment">In the modern age, statistics often tends to be closely associated with fields like <span class="fragment highlight-current-custom"><u>data</u></span> science and computer science
 <ul>
-<li class="fragment">It’s important to understand that how we gather and transform data has a <span class="fragment highlight-current-custom"><u>massive</u></span> impact on the end result or our analyses</li>
+<li class="fragment">It’s important to understand that how we gather and transform data has a <span class="fragment highlight-current-custom"><u>massive</u></span> impact on the end result on our analyses</li>
+<li class="fragment">Our analyses are both <span class="fragment highlight-current-custom"><u>limited</u></span> and <span class="fragment highlight-current-custom"><u>expanded</u></span> by what we do to gather and transform our data</li>
 </ul></li>
 <li class="fragment">Statistics are just one part of the total research process, but are affected greatly by how we <span class="fragment highlight-current-custom"><u>design</u></span> our studies
 <ul>
-<li class="fragment">In fact, statisticians are often involved with the entire research process, not just analysis - because they need to advise on the “best” way to gather data so that it is useful</li>
+<li class="fragment">In fact, statisticians are often involved with the entire research process, not just <span class="fragment highlight-current-custom"><u>analysis</u></span> - because they need to advise on the “best” way to gather data so that it is useful</li>
 </ul></li>
 </ul>
-<ul><li class="fragment highlight-current-custom"><b>Important: While this is not a research design class, we will talk about design as it is relevant to analysis.</b></li></ul>
+<ul><li class="fragment highlight-current-custom"><b>Important: While this is not a research design class, we will talk about design as it is relevant to analysis; problems in design can be very problematic for the meaning of the statistics!</b></li></ul>
 <ul>
 <li class="fragment">As we progress through this class, we’ll also touch on how to <span class="fragment highlight-current-custom"><u>visualize</u></span> and show-off data and results
 <ul>
 <li class="fragment">Especially as we use more complicated methods, using the right graphical techniques can help us make our results <span class="fragment highlight-current-custom"><u>accessible</u></span> to non-statistical audiences.</li>
 </ul></li>
+<li class="fragment">To start we need to establish many of the words we often use in statistics, across the topics we’ll be covering in this semester</li>
 </ul>
+<ul><li class="fragment highlight-current-custom"><b>Important: Many terms in statistics have alternative names (which can be frustrating on occasion), I&#39;ll try to highlight when a term may sometimes be called something else.</b></li></ul>
 </section></section>
 <section>
 <section id="sec-defs" class="title-slide slide level1 agenda-slide center" data-number="2">
@@ -1640,13 +1648,16 @@ Quinton Quagliano, M.S., C.S.P
 <p><span class="header-section-number">2</span> Definitions of Statistics, Probability, and Key Terms</p>
 </div>
 <div class="agenda-inactive agenda-post-active">
-<p><span class="header-section-number">3</span> Data, Sampling, and Variation</p>
+<p><span class="header-section-number">3</span> Sampling</p>
 </div>
 <div class="agenda-inactive agenda-post-active">
-<p><span class="header-section-number">4</span> Frequency, Frequency Tables, and Levels of Measurement</p>
+<p><span class="header-section-number">4</span> Descriptions of Data</p>
 </div>
 <div class="agenda-inactive agenda-post-active">
-<p><span class="header-section-number">5</span> Conclusion</p>
+<p><span class="header-section-number">5</span> Levels/Scales of Measurement</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">6</span> Conclusion</p>
 </div>
 </div>
 </section>
@@ -1655,20 +1666,35 @@ Quinton Quagliano, M.S., C.S.P
 <ul>
 <li class="fragment">Statistics starts with data, which is some <span class="fragment highlight-current-custom"><u>measured</u></span> amount of a phenomenon
 <ul>
-<li class="fragment">In <span class="fragment highlight-current-custom"><u>educational</u></span> research, our data may be grades, measures of student well being, measures of student engagement, etc.</li>
+<li class="fragment">In <span class="fragment highlight-current-custom"><u>educational</u></span> research, our data may be grades, <span class="fragment highlight-current-custom"><u>measures</u></span> of student well being, measures of student engagement, etc.</li>
 <li class="fragment">At a more macro-scale, universities use measures like enrollment, class size, financial cost, etc for analysis</li>
+<li class="fragment">The word “measure” is important here - we’ll come back to that</li>
 </ul></li>
 </ul>
 <ul><li class="fragment highlight-current-custom"><b>Discuss: What are other examples of common data we would gather in education?</b></li></ul>
 <ul>
-<li class="fragment">We can treat this data via <span class="fragment highlight-current-custom"><u>descriptive</u></span> statistics, where we summarize, describe, and demonstrate various components and structure of the data
+<li class="fragment">We can treat this data via <b>descriptive statistics</b>, where we summarize, describe, and demonstrate various components and structure of the data
 <ul>
-<li class="fragment">E.g., <span class="fragment highlight-current-custom"><u>mean</u></span>, mode, standard deviation, etc. - well describe all of these in more detail later</li>
+<li class="fragment">Examples of use:
+<ul>
+<li class="fragment">What is the most commonly occurring letter grade in a course?</li>
+<li class="fragment">What is the average student GPA in each major?</li>
+<li class="fragment">Is the family income of students at this university skewed lower or higher?</li>
 </ul></li>
-<li class="fragment">Usually in addition to descriptives, we would also do some type of <span class="fragment highlight-current-custom"><u>inferential</u></span> statistics, which helps draw probabilistic conclusions from the data
+<li class="fragment">Types of descriptive statistics: <span class="fragment highlight-current-custom"><u>mean</u></span>, mode, skew, standard deviation, etc. - we’ll describe all of these in more detail later</li>
+</ul></li>
+<li class="fragment">Usually in addition to descriptives, we would also do some type of <b>inferential statistics</b>, which helps draw probabilistic conclusions from the data
 <ul>
+<li class="fragment">Examples of use:
+<ul>
+<li class="fragment">Are students in these two classrooms significantly different in their standardized test scores?</li>
+<li class="fragment">Has there been a significant improvement in self-reported teacher well-being in the last 3 years?</li>
+</ul></li>
 <li class="fragment">E.g., T-tests, ANOVA, anything that gives us <span class="fragment highlight-current-custom"><u>p-values</u></span> - once again, we’ll be revisiting what exactly these are later in the course</li>
 </ul></li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: Take the example of this question: What are the counts of parents who approve or disapprove of their gifted child&#39;s treatment in school? Does this seem like a question to address with descriptive or inferential statistics?</b></li></ul>
+<ul>
 <li class="fragment">Crucially, statistics should always be <span class="fragment highlight-current-custom"><u>driven</u></span> by a desire theoretically understand and investigate data
 <ul>
 <li class="fragment">As researchers, our goal is to not <span class="fragment highlight-current-custom"><u>fish</u></span> for conclusions from data, it is to carefully and responsibly treat it for analysis</li>
@@ -1679,39 +1705,72 @@ Quinton Quagliano, M.S., C.S.P
 <section id="sec-prob" class="slide level2" data-number="2.2">
 <h2><span class="header-section-number">2.2</span> Probability</h2>
 <ul>
-<li class="fragment"><p><strong>Probability</strong> helps us contextualize inferential statistical <span class="fragment highlight-current-custom"><u>results</u></span> as having some amount of <span class="fragment highlight-current-custom"><u>confidence</u></span> that our results occurred not simply due to chance</p></li>
-<li class="fragment"><p>Probability underlies many <span class="fragment highlight-current-custom"><u>decisions</u></span> we make intuitively</p>
+<li class="fragment">Probability helps us contextualize inferential statistical <span class="fragment highlight-current-custom"><u>results</u></span> as having some amount of <span class="fragment highlight-current-custom"><u>confidence</u></span> that our results occurred not simply due to chance
+<ul>
+<li class="fragment">Really, we want good, statistical evidence that our results represent something <em>real</em></li>
+</ul></li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Important: This is why we spend nearly the first half of this semester just establishing the role of probability and distributions before introducing inferential tests!</b></li></ul>
+<ul>
+<li class="fragment">Probability underlies many <span class="fragment highlight-current-custom"><u>decisions</u></span> we make intuitively
 <ul>
 <li class="fragment">E.g., What are the chances the car I buy will be low maintenance costs? How likely am I to really use this new device I buy? If I get this degree, I think I should have a higher likelihood of getting my desired job</li>
 </ul></li>
 </ul>
-<ul><li class="fragment highlight-current-custom"><b>Discuss: Give another example of considering probablility of a certain event occurring in your personal life</b></li></ul>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: Give another example of considering probability of a certain event occurring in your personal life</b></li></ul>
 <ul>
-<li class="fragment">Just like with our personal life, probability can be a useful way to understand a certain <span class="fragment highlight-current-custom"><u>trend</u></span> in our data and research, and measure our confidence</li>
+<li class="fragment">Just like with our personal life, probability can be a useful way to understand a certain <span class="fragment highlight-current-custom"><u>trend</u></span> in our data and research, and measure our confidence
+<ul>
+<li class="fragment">E.g., What are the chances that if I took a new sample of students, I’d see this same average GPA? If I compare these two schools in resulting annual income of graduates, what are the chances my results would be the same if replicated?</li>
+</ul></li>
 </ul>
+</section></section>
+<section>
+<section id="sec-sampling" class="title-slide slide level1 agenda-slide center" data-number="3">
+<h1><span class="header-section-number">3</span> Sampling</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">1</span> Overview and Introduction</p>
+</div>
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">2</span> Definitions of Statistics, Probability, and Key Terms</p>
+</div>
+<div class="agenda-active">
+<p><span class="header-section-number">3</span> Sampling</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">4</span> Descriptions of Data</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">5</span> Levels/Scales of Measurement</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">6</span> Conclusion</p>
+</div>
+</div>
 </section>
-<section id="sec-key-terms" class="slide level2" data-number="2.3">
-<h2><span class="header-section-number">2.3</span> Key Terms</h2>
+<section id="sec-start-with-sampling" class="slide level2" data-number="3.1">
+<h2><span class="header-section-number">3.1</span> Start with Sampling</h2>
 <ul>
-<li class="fragment">To start we need to establish many of the words we often use in statistics</li>
-</ul>
-<ul><li class="fragment highlight-current-custom"><b>Important: Many terms in statistics have alternative names (which can be frustrating on occasion), I&#39;ll try to highlight when a term may sometimes be called something else.</b></li></ul>
-<ul>
-<li class="fragment">First, the group we desire to <span class="fragment highlight-current-custom"><u>study</u></span> and understand is our <strong>population/population of interest</strong>.
+<li class="fragment">When we do research, the group we desire to <span class="fragment highlight-current-custom"><u>study</u></span> and understand is our <b>population of interest</b>
 <ul>
 <li class="fragment">E.g., <em>All</em> high school students, <em>all</em> teachers</li>
-<li class="fragment">The population is a group we can’t practically, <span class="fragment highlight-current-custom"><u>directly</u></span> study (as they are usually too large or dispersed!)</li>
-<li class="fragment">In the case that we did somehow gather data about <span class="fragment highlight-current-custom"><u>all</u></span> members of a population, we would call this a <strong>census</strong></li>
+<li class="fragment">The population is usually a group we can’t practically, <span class="fragment highlight-current-custom"><u>directly</u></span> study (as they are usually too large or dispersed!)</li>
+<li class="fragment">In the case that we did somehow gather data about <span class="fragment highlight-current-custom"><u>all</u></span> members of a population, we would call this a <b>census</b></li>
 </ul></li>
 </ul>
-<ul><li class="fragment highlight-current-custom"><b>Discuss: Given this definition of a census, I just provided, explain why we would call the periodic counting of all individuals in the US a &#39;census&#39;</b></li></ul>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: Given this definition of a census, I just provided, explain why would we call the periodic counting of all individuals in the US a &#39;census&#39;</b></li></ul>
 <ul>
-<li class="fragment">Instead of gather data on the population as a whole, we take a <span class="fragment highlight-current-custom"><u>smaller</u></span> subset of individuals that are meant to represent the population, which we would call a <strong>sample</strong>.
+<li class="fragment">Instead of gather data on the population as a whole, we take a <span class="fragment highlight-current-custom"><u>smaller</u></span> subset of individuals that are meant to represent the population, which we would call a <b>sample</b>
 <ul>
-<li class="fragment">We get our sample via some method of <strong>sampling</strong>, which is exactly how we get our subset - it can be done in a “good” or “bad” way, more on this later</li>
+<li class="fragment">We get our sample via some method of <b>sampling</b>, which is exactly how we get our subset - it can be done in a “good” or “bad” way, more on this later</li>
 </ul></li>
-<li class="fragment">The numeric values that we use to calculate and describe on our <span class="fragment highlight-current-custom"><u>sample</u></span> is called a <strong>statistic</strong>, which, in turn, is meant to represent the <strong>parameter</strong> of the population
+<li class="fragment">The numeric values that we use to calculate and describe on our <span class="fragment highlight-current-custom"><u>sample</u></span> is called a <b>statistic</b>, which, in turn, is meant to represent the <b>parameter</b> of the population
 <ul>
+<li class="fragment">Another way to say this is that the sample statistic is an <span class="fragment highlight-current-custom"><u>estimate</u></span> of the population parameter</li>
 <li class="fragment">A mnemonic to remember this:
 <ul>
 <li class="fragment"><strong>P</strong>oulation <span class="math inline">\(\rightarrow\)</span> Parameter</li>
@@ -1720,101 +1779,48 @@ Quinton Quagliano, M.S., C.S.P
 </ul></li>
 <li class="fragment">But, remember our goal is often to study the <span class="fragment highlight-current-custom"><u>population</u></span>, not just the subset we gather data for!
 <ul>
-<li class="fragment">Thus, we want to have great <span class="fragment highlight-current-custom"><u>certainty</u></span> that whatever statistics we have, accurately represent their respective parameters</li>
-<li class="fragment">One part of ensuring this accuracy is to use a sampling method that results in a <strong>representative sample</strong></li>
-</ul></li>
-<li class="fragment"><strong>Variables</strong> are some defined measure/observation with variance in the data
-<ul>
-<li class="fragment">I.e., there needs to be <span class="fragment highlight-current-custom"><u>different</u></span> numbers in the data - otherwise it is a <strong>constant</strong></li>
-<li class="fragment">Variables can be either <strong>numeric</strong> or <strong>categorical</strong>, that is, they produce data of a specified type</li>
-<li class="fragment">E.g., Age in years <span class="math inline">\(\rightarrow\)</span> <span class="fragment highlight-current-custom"><u>numeric</u></span></li>
-<li class="fragment">E.g., Job title <span class="math inline">\(\rightarrow\)</span> <span class="fragment highlight-current-custom"><u>categorical</u></span></li>
+<li class="fragment">Thus, we want to have great <span class="fragment highlight-current-custom"><u>certainty</u></span> that whatever statistics we have, <span class="fragment highlight-current-custom"><u>accurately</u></span> represent their respective parameters</li>
+<li class="fragment">One part of ensuring this accuracy is to use a sampling method that results in a <b>representative sample</b></li>
 </ul></li>
 </ul>
-<ul class="fragment highlight-current-custom"><li><b>Question: I gather information about all the individuals enrolled at a local college, and all live in the state of Indiana. Is state of residence a constant or variable?</b></li><ul><li>A) Constant</li><li>B) Variable</li><li>C) Neither</li><li>D) Both</li></ul></ul>
-</section></section>
-<section>
-<section id="sec-data-sample-var" class="title-slide slide level1 agenda-slide center" data-number="3">
-<h1><span class="header-section-number">3</span> Data, Sampling, and Variation</h1>
-<div class="agenda-heading">
-<p>Agenda</p>
-</div>
-<div class="agenda">
-<div class="agenda-inactive agenda-pre-active">
-<p><span class="header-section-number">1</span> Overview and Introduction</p>
-</div>
-<div class="agenda-inactive agenda-pre-active">
-<p><span class="header-section-number">2</span> Definitions of Statistics, Probability, and Key Terms</p>
-</div>
-<div class="agenda-active">
-<p><span class="header-section-number">3</span> Data, Sampling, and Variation</p>
-</div>
-<div class="agenda-inactive agenda-post-active">
-<p><span class="header-section-number">4</span> Frequency, Frequency Tables, and Levels of Measurement</p>
-</div>
-<div class="agenda-inactive agenda-post-active">
-<p><span class="header-section-number">5</span> Conclusion</p>
-</div>
-</div>
+<ul><li class="fragment highlight-current-custom"><b>Important: Don&#39;t lose sight of this - our sample is just a practical way for us to try and say something about our population, which is what we are really after.</b></li></ul>
 </section>
-<section id="sec-data-sample-var-intro" class="slide level2" data-number="3.1">
-<h2><span class="header-section-number">3.1</span> Introduction</h2>
-<ul>
-<li class="fragment"><p>Let’s dive more into the different <span class="fragment highlight-current-custom"><u>types</u></span> of data</p></li>
-<li class="fragment"><p><strong>Qualitative data</strong> come from a more descriptive (via words or <span class="fragment highlight-current-custom"><u>classification</u></span>)</p>
-<ul>
-<li class="fragment">E.g., Eye/hair color</li>
-<li class="fragment">Because of it’s nature, it is almost always <span class="fragment highlight-current-custom"><u>categorical</u></span> in nature</li>
-<li class="fragment">Qualitative data is often times represented in counts of occurrences of a certain description</li>
-</ul></li>
-<li class="fragment"><p><strong>Quantitative data</strong> is something represent by an <span class="fragment highlight-current-custom"><u>amount</u></span> or numeric measurement</p>
-<ul>
-<li class="fragment">However, within quantitative data, it can be <strong>discrete</strong> or <strong>continuous</strong></li>
-<li class="fragment">Discrete data is that which is counted, or has no intervals between the integers, e.g., number of phone calls had <span class="math inline">\(\rightarrow\)</span> I can’t have half a phone call</li>
-<li class="fragment">Continuous data does indeed have <span class="fragment highlight-current-custom"><u>intervals</u></span> between integers, e.g., Age <span class="math inline">\(\rightarrow\)</span> I can be half a year of age.</li>
-</ul></li>
-</ul>
-<ul><li class="fragment highlight-current-custom"><b>Important: As a general rule of thumb, quantitative data is easier and more versatile in analysis, but also is more reductive.</b></li></ul>
-</section>
-<section id="sec-qual-data" class="slide level2" data-number="3.2">
-<h2><span class="header-section-number">3.2</span> More on Qualitative Data</h2>
-<ul>
-<li class="fragment">As alluded to early, qualitative data can be represented by <span class="fragment highlight-current-custom"><u>counts</u></span> or <strong>proportions</strong>.
-<ul>
-<li class="fragment">These are often shown in tables or graphs that somehow <span class="fragment highlight-current-custom"><u>capture</u></span> those proportions</li>
-</ul></li>
-</ul>
-</section>
-<section id="sec-better-sampling" class="slide level2" data-number="3.3">
-<h2><span class="header-section-number">3.3</span> Better Sampling</h2>
+<section id="sec-better-sampling" class="slide level2" data-number="3.2">
+<h2><span class="header-section-number">3.2</span> Better Sampling</h2>
 <ul><li class="fragment highlight-current-custom"><b>Important: This section is going to briefly veer into good research design, as it plays an important role in what conclusions we can make from the data. Our statistics are only as valuable as how well they represent their parameters!</b></li></ul>
 <ul>
 <li class="fragment">Ideally, a <span class="fragment highlight-current-custom"><u>representative</u></span> sample will have similar characteristics in similar proportions to the population they are taken from
 <ul>
 <li class="fragment">E.g., veterans in the United States skew more male than female, thus, a representative sample of that population will likely be more men than women</li>
-<li class="fragment">A “good” sampling method, will result in this <span class="fragment highlight-current-custom"><u>congruence</u></span> between the sample and population</li>
+<li class="fragment">A “good” sampling method, should result in this <span class="fragment highlight-current-custom"><u>congruence</u></span> between the sample and population</li>
 </ul></li>
-<li class="fragment">Good sampling methods are those that are <strong>random</strong>, which means that each member of the population has an equal, <span class="fragment highlight-current-custom"><u>unbiased</u></span> chance of being selected into the sample
+<li class="fragment">Good sampling methods are those that are <b>random</b>, which means that each member of the population has an equal, <span class="fragment highlight-current-custom"><u>unbiased</u></span> chance of being selected into the sample
 <ul>
 <li class="fragment">E.g., if my population was veterans, and there are 1000 total veterans, a random sampling technique would mean that each of those 1000 individuals has a 1 in 1000 chance of being in the sample</li>
 </ul></li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: I am interested in studying visitors to the local mall. I catch people entering at one entrance to the mall (there are 4 entrances total) and ask them several questions. Does this meet the definition of a random sample as stated above?</b></li></ul>
+<ul>
 <li class="fragment">Within the broader classification of <span class="fragment highlight-current-custom"><u>random</u></span> sampling methods, there are several subtypes
 <ul>
-<li class="fragment"><strong>Simple random</strong> sampling is when we <span class="fragment highlight-current-custom"><u>list</u></span> all individuals in the population and simply use some random method to select numeric IDs of individuals to be included in the sample</li>
-<li class="fragment"><strong>Systemic</strong> sampling is similar, but uses a process of starting with a specified ID and <span class="fragment highlight-current-custom"><u>iterating</u></span> by a specific number to select the others</li>
-<li class="fragment"><strong>Cluster</strong> sampling is done when we have pre-existing clusters, or <span class="fragment highlight-current-custom"><u>groups</u></span>, in our population, and we randomly select from those clusters to include all individuals from the selected clusters</li>
-<li class="fragment"><strong>Stratified</strong> sampling is similar in concept to cluster sampling, but done with some individualistic <span class="fragment highlight-current-custom"><u>trait</u></span> of the participants</li>
+<li class="fragment"><b>Simple random sampling</b> is when we <span class="fragment highlight-current-custom"><u>list</u></span> all individuals in the population and simply use some random method to select numeric IDs of individuals to be included in the sample</li>
+<li class="fragment"><b>Systemic sampling</b> is similar, but uses a process of starting with a specified ID and <span class="fragment highlight-current-custom"><u>iterating</u></span> by a specific number to select the others</li>
+<li class="fragment"><b>Cluster sampling</b> is done when we have pre-existing clusters, or <span class="fragment highlight-current-custom"><u>groups</u></span>, in our population, and we randomly select from those clusters to include all individuals from the selected clusters</li>
+<li class="fragment"><b>Stratified sampling</b> is similar in concept to cluster sampling, but done with some individualistic <span class="fragment highlight-current-custom"><u>trait</u></span> of the participants</li>
 </ul></li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Important: There are many more types of sampling that can be covered in a research methods class</b></li></ul>
+<ul>
 <li class="fragment">Any <strong>non-random</strong> method that does not follow the above philosophy can not ensure the <span class="fragment highlight-current-custom"><u>representativeness</u></span> of the sample
 <ul>
 <li class="fragment">Our <span class="fragment highlight-current-custom"><u>results</u></span> and interpretation may be swayed or hindered by this non-randomness, thus causing a sampling error</li>
-<li class="fragment">Another way to describe this is by calling this <span class="fragment highlight-current-custom"><u>biased</u></span> process as a <strong>sampling bias</strong></li>
+<li class="fragment">Another way to describe this is by calling this <span class="fragment highlight-current-custom"><u>biased</u></span> process as a <b>sampling bias</b></li>
 </ul></li>
 </ul>
-<ul><li class="fragment highlight-current-custom"><b>Discuss: I put up a poster with a QR code in the physical office for the educational psychology department, and wait for individuals to complete my survey, does this seem like a random or non-random method of sampling?</b></li></ul>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: My population of interest is all education psychology students. I put up a poster with a QR code in the physical office for the educational psychology department, and wait for individuals to complete my survey, does this seem like a random or non-random method of sampling?</b></li></ul>
 </section>
-<section id="sec-nat-variation" class="slide level2" data-number="3.4">
-<h2><span class="header-section-number">3.4</span> Natural Variation</h2>
+<section id="sec-nat-variation" class="slide level2" data-number="3.3">
+<h2><span class="header-section-number">3.3</span> Natural Variation Between Samples</h2>
 <ul>
 <li class="fragment"><p>It is normal and <span class="fragment highlight-current-custom"><u>expected</u></span> that, if we take two different samples of a population, we can and will find that they have somewhat different characteristics</p></li>
 <li class="fragment"><p>However, if these are both believed to be representative samples, they should become <span class="fragment highlight-current-custom"><u>more</u></span> similar as they become larger</p>
@@ -1823,10 +1829,11 @@ Quinton Quagliano, M.S., C.S.P
 </ul></li>
 <li class="fragment"><p>Proper use of statistics will help us <span class="fragment highlight-current-custom"><u>control</u></span> for the fact that our samples naturally vary</p></li>
 </ul>
+<ul><li class="fragment highlight-current-custom"><b>Important: One could say that the entire goal of inferential statistics is in controlling for variation between samples!</b></li></ul>
 </section></section>
 <section>
-<section id="sec-freqs" class="title-slide slide level1 agenda-slide center" data-number="4">
-<h1><span class="header-section-number">4</span> Frequency, Frequency Tables, and Levels of Measurement</h1>
+<section id="sec-desc-of-data" class="title-slide slide level1 agenda-slide center" data-number="4">
+<h1><span class="header-section-number">4</span> Descriptions of Data</h1>
 <div class="agenda-heading">
 <p>Agenda</p>
 </div>
@@ -1838,55 +1845,61 @@ Quinton Quagliano, M.S., C.S.P
 <p><span class="header-section-number">2</span> Definitions of Statistics, Probability, and Key Terms</p>
 </div>
 <div class="agenda-inactive agenda-pre-active">
-<p><span class="header-section-number">3</span> Data, Sampling, and Variation</p>
+<p><span class="header-section-number">3</span> Sampling</p>
 </div>
 <div class="agenda-active">
-<p><span class="header-section-number">4</span> Frequency, Frequency Tables, and Levels of Measurement</p>
+<p><span class="header-section-number">4</span> Descriptions of Data</p>
 </div>
 <div class="agenda-inactive agenda-post-active">
-<p><span class="header-section-number">5</span> Conclusion</p>
+<p><span class="header-section-number">5</span> Levels/Scales of Measurement</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">6</span> Conclusion</p>
 </div>
 </div>
 </section>
-<section id="sec-freqs-intro" class="slide level2" data-number="4.1">
+<section id="sec-data-sample-var-intro" class="slide level2" data-number="4.1">
 <h2><span class="header-section-number">4.1</span> Introduction</h2>
 <ul>
-<li class="fragment"><p>Earlier, we gave some examples of how to <span class="fragment highlight-current-custom"><u>describe</u></span> different variables as qualitative, quantitative, discrete, continuous, etc.</p></li>
-<li class="fragment"><p>We’ll introduce some other terms to help us classify our variables, which will be <span class="fragment highlight-current-custom"><u>essential</u></span> when we treat it</p></li>
-</ul>
-<ul><li class="fragment highlight-current-custom"><b>Important: It cannot be understated how important it is that you can properly describe and classify your variables, as it is crucial in determining what descriptive and inferential statistics can be used.</b></li></ul>
-</section>
-<section id="sec-lvls-of-measure" class="slide level2" data-number="4.2">
-<h2><span class="header-section-number">4.2</span> Levels of Measurement</h2>
+<li class="fragment"><b>Variables</b> are some defined measure/observation with variance in the data
 <ul>
-<li class="fragment"><strong>Nominal scale</strong> variables are qualitative and categorical, with classifying <span class="fragment highlight-current-custom"><u>labels</u></span> and no defined “order”.
-<ul>
-<li class="fragment">E.g., state/country of residence, hair/eye/skin color</li>
-</ul></li>
-<li class="fragment"><strong>Ordinal scale</strong> variables are those that have an order, but there is not a clear <span class="fragment highlight-current-custom"><u>distance</u></span> between each interval or place in the order
-<ul>
-<li class="fragment">Thus, it sort of blurs the line between categorical and <span class="fragment highlight-current-custom"><u>continuous</u></span></li>
-<li class="fragment">E.g., place in a foot race, class rank</li>
-</ul></li>
-<li class="fragment"><strong>Interval scale</strong> variables do have a clear, consistent interval in-between each integer, but no clear starting point
-<ul>
-<li class="fragment">E.g., temperature, height (in inches)</li>
-</ul></li>
-<li class="fragment"><strong>Ratio scale</strong> is the same as interval scale, but does have a clear zero point as well.
-<ul>
-<li class="fragment">E.g., score on an exam</li>
-</ul></li>
-<li class="fragment">Generally, the different levels/scales of measurement are different levels of restrictive for analysis, in this order: Nominal (most restrictive) to Ratio (least restrictive).
-<ul>
-<li class="fragment">Of course, having mostly nominal scale data does not always spell doom, but it can involve more tricky <span class="fragment highlight-current-custom"><u>interpretation</u></span></li>
+<li class="fragment">I.e., there needs to be <span class="fragment highlight-current-custom"><u>different</u></span> numbers in the data, the characteristic can take different values - otherwise it is a <b>statistical constant</b></li>
+<li class="fragment"><span class="fragment highlight-current-custom"><u>Variables</u></span> can also be either <b>numeric</b> or <b>categorical</b>, that is, they produce data of a specified type</li>
+<li class="fragment">E.g., Age in years <span class="math inline">\(\rightarrow\)</span> <span class="fragment highlight-current-custom"><u>numeric</u></span></li>
+<li class="fragment">E.g., Job title <span class="math inline">\(\rightarrow\)</span> <span class="fragment highlight-current-custom"><u>categorical</u></span></li>
 </ul></li>
 </ul>
-<ul><li class="fragment highlight-current-custom"><b>Discuss: I put all the students in my class from shortest to tallest and assign them the number they are from being the shortest in the class, what scale of measurement would this data be and why?</b></li></ul>
-</section>
-<section id="sec-freq" class="slide level2" data-number="4.3">
-<h2><span class="header-section-number">4.3</span> Frequency</h2>
+<ul class="fragment highlight-current-custom"><li><b>Question: I gather information about all the individuals enrolled at a local college, and all live in the state of Indiana. Is state of residence a constant or variable, and is it categorical or numeric?</b></li><ul><li>A) Categorical Constant</li><li>B) Categorical Variable</li><li>C) Numeric Constant</li><li>D) Numeric Variable</li></ul></ul>
 <ul>
-<li class="fragment">When dealing especially with nominal or ordinal scale data, it can be useful to represent the data in terms of how often a certain data type <span class="fragment highlight-current-custom"><u>occurs</u></span> and how often it occurs relative to the other possibilities.</li>
+<li class="fragment">Let’s dive more into the different <span class="fragment highlight-current-custom"><u>descriptors</u></span> of data
+<ul>
+<li class="fragment">These are closely related to the above “categorical” and “numeric” terms</li>
+</ul></li>
+<li class="fragment"><b>qualitative data</b> come from a more descriptive (via words or <span class="fragment highlight-current-custom"><u>classification</u></span>)
+<ul>
+<li class="fragment">E.g., Eye/hair color, more complicated: description of internal feelings</li>
+<li class="fragment">Because of it’s nature, it is almost always <span class="fragment highlight-current-custom"><u>categorical</u></span> in nature</li>
+<li class="fragment">Qualitative data is often times represented in <span class="fragment highlight-current-custom"><u>counts</u></span> of occurrences of a certain description, for the purpose of analysis - e.g., I have 10 people in my sample with brown eyes, and 5 with blue eyes</li>
+</ul></li>
+<li class="fragment"><b>quantitative data</b> is something represent by an <span class="fragment highlight-current-custom"><u>amount</u></span> or numeric measurement
+<ul>
+<li class="fragment">However, within quantitative data, it can be <b>discrete</b> or <b>continuous</b></li>
+<li class="fragment">Discrete data is that which is <span class="fragment highlight-current-custom"><u>counted</u></span>, or has no intervals between the integers, e.g., number of phone calls had <span class="math inline">\(\rightarrow\)</span> I can’t have half a phone call</li>
+<li class="fragment">Continuous data does indeed have <span class="fragment highlight-current-custom"><u>intervals</u></span> between integers, e.g., Age <span class="math inline">\(\rightarrow\)</span> I can be half a year of age.</li>
+<li class="fragment">For better or for worse, these two types are often treated <span class="fragment highlight-current-custom"><u>interchangeably</u></span>, even when that may not be accurate</li>
+</ul></li>
+</ul>
+<ul class="fragment highlight-current-custom"><li><b>Question: Consider this variable: Numbers of children a parent has. What could this be classified as?</b></li><ul><li>A) Qualitative</li><li>B) Discrete Quantitative</li><li>C) Continuous Quantitative</li><li>D) None of the above</li></ul></ul>
+<ul><li class="fragment highlight-current-custom"><b>Important: As a general rule of thumb, quantitative data is easier and more versatile in analysis, but also is more reductive. This class will focus more on quantitative data, but I encourage you to look at other courses that are more qualitative in nature!</b></li></ul>
+</section>
+<section id="sec-qual-data" class="slide level2" data-number="4.2">
+<h2><span class="header-section-number">4.2</span> More on Qualitative Data</h2>
+<ul>
+<li class="fragment">As alluded to early, qualitative data can be represented by <b>counts/proportions</b>
+<ul>
+<li class="fragment">These are often shown in tables or graphs that somehow <span class="fragment highlight-current-custom"><u>capture</u></span> those proportions</li>
+<li class="fragment">When dealing especially with categorical data, it can be useful to represent the data in terms of how often a certain data value <span class="fragment highlight-current-custom"><u>occurs</u></span> and how often it occurs relative to the other possibilities.</li>
+</ul></li>
 </ul>
 <table class="caption-top">
 <thead>
@@ -1914,10 +1927,13 @@ Quinton Quagliano, M.S., C.S.P
 </tr>
 </tbody>
 </table>
+<ul>
+<li class="fragment"><b>Frequency</b> is the raw number of times that a certain characteristic or value occurs, whereas <b>Relative   frequency</b></li>
+</ul>
 </section></section>
 <section>
-<section id="sec-conclusion" class="title-slide slide level1 agenda-slide center" data-number="5">
-<h1><span class="header-section-number">5</span> Conclusion</h1>
+<section id="sec-measurement" class="title-slide slide level1 agenda-slide center" data-number="5">
+<h1><span class="header-section-number">5</span> Levels/Scales of Measurement</h1>
 <div class="agenda-heading">
 <p>Agenda</p>
 </div>
@@ -1929,26 +1945,91 @@ Quinton Quagliano, M.S., C.S.P
 <p><span class="header-section-number">2</span> Definitions of Statistics, Probability, and Key Terms</p>
 </div>
 <div class="agenda-inactive agenda-pre-active">
-<p><span class="header-section-number">3</span> Data, Sampling, and Variation</p>
+<p><span class="header-section-number">3</span> Sampling</p>
 </div>
 <div class="agenda-inactive agenda-pre-active">
-<p><span class="header-section-number">4</span> Frequency, Frequency Tables, and Levels of Measurement</p>
+<p><span class="header-section-number">4</span> Descriptions of Data</p>
 </div>
 <div class="agenda-active">
-<p><span class="header-section-number">5</span> Conclusion</p>
+<p><span class="header-section-number">5</span> Levels/Scales of Measurement</p>
+</div>
+<div class="agenda-inactive agenda-post-active">
+<p><span class="header-section-number">6</span> Conclusion</p>
 </div>
 </div>
 </section>
-<section id="sec-recap" class="slide level2" data-number="5.1">
-<h2><span class="header-section-number">5.1</span> Recap</h2>
+<section id="sec-freqs-intro" class="slide level2" data-number="5.1">
+<h2><span class="header-section-number">5.1</span> Introduction</h2>
 <ul>
-<li class="fragment"><p>Using statistics with our data first starts with properly understanding and identifying our variables, and their scales of measurements</p></li>
+<li class="fragment"><p>Earlier, we gave some examples of how to <span class="fragment highlight-current-custom"><u>describe</u></span> different variables as qualitative, quantitative, discrete, continuous, etc.</p></li>
+<li class="fragment"><p>We’ll introduce some other terms to help us classify our variables, which will be <span class="fragment highlight-current-custom"><u>essential</u></span> when we treat it</p></li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Important: It cannot be understated how important it is that you can properly describe and classify your variables, as it is crucial in determining what descriptive and inferential statistics can be used.</b></li></ul>
+</section>
+<section id="sec-lvls-of-measure" class="slide level2" data-number="5.2">
+<h2><span class="header-section-number">5.2</span> Levels of Measurement</h2>
+<ul>
+<li class="fragment"><b>Nominal scale</b> variables are qualitative and categorical, with classifying <span class="fragment highlight-current-custom"><u>labels</u></span> and no defined “order”.
+<ul>
+<li class="fragment">E.g., state/country of residence, hair/eye/skin color</li>
+</ul></li>
+<li class="fragment"><b>Ordinal scale</b> variables are those that have an order, but there is not a clear <span class="fragment highlight-current-custom"><u>distance</u></span> between each interval or place in the order
+<ul>
+<li class="fragment">Thus, it sort of blurs the line between categorical and <span class="fragment highlight-current-custom"><u>continuous</u></span></li>
+<li class="fragment">E.g., place in a foot race, class rank</li>
+</ul></li>
+<li class="fragment"><b>Interval scale</b> variables do have a clear, consistent interval in-between each integer, but no absolute zero point
+<ul>
+<li class="fragment">E.g., temperature, IQ scores, ranges, etc.</li>
+</ul></li>
+<li class="fragment"><b>Ratio scale</b> is the same as interval scale, but does have a clear zero point as well.
+<ul>
+<li class="fragment">E.g., score on an exam</li>
+</ul></li>
+<li class="fragment">Generally, the different levels/scales of measurement are different levels of restrictive for analysis, in this order: Nominal (most restrictive) to Ratio (least restrictive).
+<ul>
+<li class="fragment">Of course, having mostly nominal scale data does not always spell doom, but it can involve more tricky <span class="fragment highlight-current-custom"><u>interpretation</u></span></li>
+</ul></li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: I put all the students in my class from shortest to tallest and assign them the number they are from being the shortest in the class, what scale of measurement would this data be and why?</b></li></ul>
+</section></section>
+<section>
+<section id="sec-conclusion" class="title-slide slide level1 agenda-slide center" data-number="6">
+<h1><span class="header-section-number">6</span> Conclusion</h1>
+<div class="agenda-heading">
+<p>Agenda</p>
+</div>
+<div class="agenda">
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">1</span> Overview and Introduction</p>
+</div>
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">2</span> Definitions of Statistics, Probability, and Key Terms</p>
+</div>
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">3</span> Sampling</p>
+</div>
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">4</span> Descriptions of Data</p>
+</div>
+<div class="agenda-inactive agenda-pre-active">
+<p><span class="header-section-number">5</span> Levels/Scales of Measurement</p>
+</div>
+<div class="agenda-active">
+<p><span class="header-section-number">6</span> Conclusion</p>
+</div>
+</div>
+</section>
+<section id="sec-recap" class="slide level2" data-number="6.1">
+<h2><span class="header-section-number">6.1</span> Recap</h2>
+<ul>
+<li class="fragment"><p>Using statistics with our data first starts with properly understanding and identifying our variables, describing them and their scales of measurements</p></li>
 <li class="fragment"><p>Sampling plays an important role in how representative our data is of the population of interest, which, in turn, helps establish whether our results are generalizable or not</p></li>
-<li class="fragment"><p>Probability is at the core of analyses, and helps us establish the likelihood of events occurring, which we will be revisiting later</p></li>
+<li class="fragment"><p>Probability is at the core of inferential analyses, and helps us establish the likelihood of events occurring, which we will be revisiting later</p></li>
 </ul>
 </section>
-<section id="sec-lecture-check-in" class="slide level2" data-number="5.2">
-<h2><span class="header-section-number">5.2</span> Lecture Check-in</h2>
+<section id="sec-lecture-check-in" class="slide level2" data-number="6.2">
+<h2><span class="header-section-number">6.2</span> Lecture Check-in</h2>
 <ul>
 <li class="fragment">Make sure to complete any lecture check-in tasks associated with this lecture!</li>
 </ul>
@@ -1962,7 +2043,7 @@ Quinton Quagliano, M.S., C.S.P
 <p> </p>
 </div>
 <div class="header-text" data-hide-from-titleslide="true">
-<p>Module 1 Lecture - Sampling and Data || Introduction to Statistical Methods</p>
+<p>Module 1 Lecture - Basics of Sampling and Data || Introduction to Statistical Methods</p>
 </div>
 <div class="sb-title">
 <p> </p>
