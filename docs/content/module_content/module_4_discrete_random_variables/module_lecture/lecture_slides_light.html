@@ -1603,19 +1603,37 @@ Quinton Quagliano, M.S., C.S.P
 <section id="sec-introduction" class="slide level2" data-number="1.3">
 <h2><span class="header-section-number">1.3</span> Introduction</h2>
 <ul>
-<li class="fragment">We will be expanding on what we spoke about with <span class="fragment highlight-current-custom"><u>probability</u></span> in the last lecture, but now explicitly applying those ideas to variables</li>
+<li class="fragment">We will be expanding on what we spoke about with <span class="fragment highlight-current-custom"><u>probability</u></span> in the last lecture, but now explicitly applying those ideas to variables, starting with <span class="fragment highlight-current-custom"><u>discrete</u></span> numeric variables</li>
 </ul>
 <ul><li class="fragment highlight-current-custom"><b>Discuss: Try describing discrete variables in your own words, based on what you know from Module 1</b></li></ul>
 <ul>
-<li class="fragment"><p>We previously described <span class="fragment highlight-current-custom"><u>discrete</u></span> data, or that which is numeric and “count-able”, that has no intervals between integers.</p>
+<li class="fragment">We previously described <b>discrete variable</b> data, or that which is numeric and “count-able”, that has no intervals between integers.
 <ul>
 <li class="fragment">Those will be the focus of this lecture, before we focus on <span class="fragment highlight-current-custom"><u>continuous</u></span> variables in the next lecture</li>
 </ul></li>
-<li class="fragment"><p>In this lecture, we will introduce the concept of <strong>random variables</strong>, or those that can vary in subsequent <span class="fragment highlight-current-custom"><u>experiments</u></span> (used in the sense as how it was introduced during the probability lecture)</p></li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Important: It&#39;s vital that you can distinguish between a continuous and discrete numeric variable, as it will have an impact on what tests you can do with it!</b></li></ul>
+<ul>
+<li class="fragment"><p>Discrete vs continuous</p>
+<ul>
+<li class="fragment">Examples of discrete variables:
+<ul>
+<li class="fragment">Number of days a student attends class</li>
+<li class="fragment">Number of days a patient reports being “good” in the last week</li>
+<li class="fragment">Number of times a student acts out in a school days</li>
+</ul></li>
+<li class="fragment">Examples of continuous variables:
+<ul>
+<li class="fragment">GPA</li>
+<li class="fragment">Age</li>
+<li class="fragment">Height</li>
+</ul></li>
+</ul></li>
+<li class="fragment"><p>In this lecture, we will introduce the concept of <b>random   variables</b>, or those that can vary in subsequent <span class="fragment highlight-current-custom"><u>experiments</u></span> (used in the sense as how it was introduced during the probability lecture)</p></li>
 <li class="fragment"><p>The <span class="fragment highlight-current-custom"><u>notation</u></span> of random variables is as follows:</p>
 <ul>
-<li class="fragment">Uppercase alphabetical character, e.g. <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>, <span class="math inline">\(Z\)</span>, etc. <span class="math inline">\(\rightarrow\)</span> written/verbose description of variable</li>
-<li class="fragment">Lowercase alphabetical equivalent, e.g. <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>, <span class="math inline">\(z\)</span>, etc. <span class="math inline">\(\rightarrow\)</span> the possible values <span class="math inline">\(X\)</span> can take on</li>
+<li class="fragment">Uppercase alphabetical character, e.g. <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>, <span class="math inline">\(Z\)</span>, etc. <span class="math inline">\(\rightarrow\)</span> written/verbose <span class="fragment highlight-current-custom"><u>description</u></span> of variable</li>
+<li class="fragment">Lowercase alphabetical equivalent, e.g. <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>, <span class="math inline">\(z\)</span>, etc. <span class="math inline">\(\rightarrow\)</span> the possible <span class="fragment highlight-current-custom"><u>values</u></span> <span class="math inline">\(X\)</span> can take on</li>
 </ul></li>
 <li class="fragment"><p>Example from book:</p>
 <ul>
@@ -1653,7 +1671,7 @@ Quinton Quagliano, M.S., C.S.P
 <section id="sec-intro-pdf" class="slide level2 scrollable" data-number="2.1">
 <h2><span class="header-section-number">2.1</span> Introduction</h2>
 <ul>
-<li class="fragment">A <strong>probability distribution function</strong> or PDF is a very scary way to say the list of possible <span class="math inline">\(x\)</span> values and their respective <span class="fragment highlight-current-custom"><u>probabilities</u></span>
+<li class="fragment">A <b>probability distribution function (PDF)</b> is a very scary way to say the list of possible <span class="math inline">\(x\)</span> values and their respective <span class="fragment highlight-current-custom"><u>probabilities</u></span>
 <ul>
 <li class="fragment">The <span class="fragment highlight-current-custom"><u>rules</u></span> they follow are simple:
 <ol type="1">
@@ -1741,6 +1759,7 @@ Quinton Quagliano, M.S., C.S.P
 <ul>
 <li class="fragment">In this example, If I were to randomly select a single family from this distribution, I would have a 30% chance of picking a family with 2 cars</li>
 </ul>
+<ul><li class="fragment highlight-current-custom"><b>Important: These tables should look somewhat familiar - they are similar to the relative frequency tables of variables we looked at in module 2!</b></li></ul>
 <ul><li class="fragment highlight-current-custom"><b>Discuss: On 30\% of days I bring one umbrella with me, and on 70\% of days I bring no umbrella with me. Write out a PDF table as above to demonstrate this probability distribution function</b></li></ul>
 <ul>
 <li class="fragment">There are 4 types of distributions for discrete random variables:
@@ -1781,22 +1800,28 @@ Quinton Quagliano, M.S., C.S.P
 <section id="sec-intro-mean" class="slide level2" data-number="3.1">
 <h2><span class="header-section-number">3.1</span> Introduction</h2>
 <ul>
-<li class="fragment"><p>With PDFs, we sometimes may wish to find the <strong>expected value</strong>, or the <strong>“long-term” average or mean</strong>. Thus, doing running this experiment over and over again, we’d expect to <span class="fragment highlight-current-custom"><u>converge</u></span> on this expected mean</p></li>
-<li class="fragment"><p>This is based in the <strong>Law of Large Numbers</strong> a topic alluded to several times in the previous modules</p>
+<li class="fragment">With PDFs, we sometimes may wish to find the <b>expected   value/expected long-term average</b>. Thus, doing running this experiment over and over again, we’d expect to <span class="fragment highlight-current-custom"><u>converge</u></span> on this expected mean
+<ul>
+<li class="fragment">The same thing can be done for <span class="fragment highlight-current-custom"><u>standard</u></span> deviation</li>
+</ul></li>
+<li class="fragment">This is based in the <b>law of large numbers</b> a topic alluded to several times in the previous modules
 <ul>
 <li class="fragment">Somewhat review from the <span class="fragment highlight-current-custom"><u>probability</u></span> module: this law states that relative observed frequency approaches the theoretical probability as the number of experiments or trials increases</li>
 </ul></li>
-<li class="fragment"><p>For a discrete probability function:</p></li>
 </ul>
-<p><span class="math display">\[
-\mu = \sum{(x \cdot P(x))}
-\]</span></p>
-<p><span class="math display">\[
-\sigma = \sqrt{\sum{[(x - \mu)^2 \cdot P(x)]}}
-\]</span></p>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: How did we apply the idea of the law of large numbers previously? What did it mean for samples and populations?</b></li></ul>
 <ul>
-<li class="fragment">If outcomes for the experiment are equally likely then these formulas work to find the <span class="fragment highlight-current-custom"><u>expected</u></span> mean and standard deviation for each of the outcomes</li>
+<li class="fragment">For a discrete probability function:</li>
 </ul>
+<p><span class="math display">\[
+\mu_{LT} = \sum{(x \cdot P(x))}
+\]</span></p>
+<p><span class="math display">\[
+\sigma^2_{LT} = \sum{[(x - \mu)^2 \cdot P(x)]}
+\]</span></p>
+<p><span class="math display">\[
+\sigma_{LT} = \sqrt{\sum{[(x - \mu)^2 \cdot P(x)]}}
+\]</span></p>
 <ul><li class="fragment highlight-current-custom"><b>Discuss: Why would we use the mu and sigma notation here, instead of x bar and lowercase s? Do they represent statistics or parameters?</b></li></ul>
 </section>
 <section id="sec-calc-example" class="slide level2" data-number="3.2">
@@ -1843,7 +1868,7 @@ Quinton Quagliano, M.S., C.S.P
 </div>
 </div>
 <p><span class="math display">\[
-\mu = \sum{(x * P(x))} = 2.15
+\mu_{LT} = \sum{(x * P(x))} = 2.15
 \]</span></p>
 </section>
 <section id="sec-calc-sd-example" class="slide level2" data-number="3.3">
@@ -1896,14 +1921,21 @@ Quinton Quagliano, M.S., C.S.P
 </div>
 </div>
 <p><span class="math display">\[
-\sigma = \sqrt{\sum{(x - \mu)^2 * P(x)}} = 1.1948
+\sigma_{LT} = \sqrt{\sum{(x - \mu)^2 * P(x)}} = 1.1948
 \]</span></p>
 </section>
 <section id="sec-section-conclusion" class="slide level2" data-number="3.4">
 <h2><span class="header-section-number">3.4</span> Section Conclusion</h2>
 <ul>
-<li class="fragment"><p>Probability distribution functions serve a purpose - that is - they can describe a particular <span class="fragment highlight-current-custom"><u>pattern</u></span> in the probability of outcomes in the data.</p></li>
-<li class="fragment"><p>Once we understand what pattern the variable fits, we can use this information for other <span class="fragment highlight-current-custom"><u>analyses</u></span>, as there are the 4 specialty distributions mentioned earlier: geometric, hypergeometric, poisson, and binomial</p></li>
+<li class="fragment">Probability distribution functions serve a purpose - that is - they can describe a particular <span class="fragment highlight-current-custom"><u>pattern</u></span> in the probability of outcomes in the data.
+<ul>
+<li class="fragment">However, in actual practice, we don’t <span class="fragment highlight-current-custom"><u>know</u></span> the probability distribution function of most variables (i.e., we lack an exact knowledge of the <span class="fragment highlight-current-custom"><u>population</u></span> ).</li>
+<li class="fragment">Instead, we often aim to apply “ideal” versions of a probability distribution function, in order to examine our data</li>
+</ul></li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Important: The example I showed you above is purposefully reductive; it&#39;s to demonstrated the characteristics of the PDF, not something we&#39;d actually do in an analysis</b></li></ul>
+<ul>
+<li class="fragment">Once we understand what pattern the variable fits, we can use this information for other <span class="fragment highlight-current-custom"><u>analyses</u></span>, as there are the 4 specialty distributions mentioned earlier: geometric, hypergeometric, poisson, and the <a href="#/sec-bi">Binomial Distribution</a></li>
 </ul>
 </section></section>
 <section>
@@ -1933,27 +1965,31 @@ Quinton Quagliano, M.S., C.S.P
 <section id="sec-intro-bi" class="slide level2" data-number="4.1">
 <h2><span class="header-section-number">4.1</span> Introduction</h2>
 <ul>
-<li class="fragment"><p>The binomial distribution has a certain, <span class="fragment highlight-current-custom"><u>fixed</u></span> number of trials represented as <span class="math inline">\(n\)</span></p>
+<li class="fragment">The <b>binomial distribution</b> has a certain, <span class="fragment highlight-current-custom"><u>fixed</u></span> number of subsequent trials represented as <span class="math inline">\(n\)</span>
 <ul>
 <li class="fragment">Each trial is <span class="fragment highlight-current-custom"><u>independent</u></span> and does not affect subsequent trials</li>
+<li class="fragment">Not every discrete numeric variable is well-suited to be described by the binomial distribution</li>
 </ul></li>
+</ul>
+<ul><li class="fragment highlight-current-custom"><b>Important: Don&#39;t forget that the binomial distibution is an &#39;ideal&#39; - it is useful but not necessarily representative of &#39;real&#39; data.</b></li></ul>
+<ul>
 <li class="fragment"><p>There are two possible <span class="fragment highlight-current-custom"><u>outcomes</u></span> in the binomial distribution, “success” and “failure”</p>
 <ul>
 <li class="fragment"><span class="math inline">\(P(success) = p\)</span></li>
 <li class="fragment"><span class="math inline">\(P(failure) = q\)</span></li>
 <li class="fragment"><span class="math inline">\(p + q = 1\)</span></li>
 </ul></li>
-<li class="fragment"><p>The experiment described above fits the <strong>binomial probability distribution</strong>. Where the random discrete variable <span class="math inline">\(X\)</span> represents the number of successes obtain in <span class="math inline">\(n\)</span> trials</p></li>
+<li class="fragment"><p>The experiment described above fits the <span class="fragment highlight-current-custom"><u>binomial</u></span> probability distribution. Where the random discrete variable <span class="math inline">\(X\)</span> represents the number of successes obtain in <span class="math inline">\(n\)</span> trials</p></li>
 <li class="fragment"><p>For the binomial probability distribution:</p></li>
 </ul>
 <p><span class="math display">\[
-\mu = n * p
+\mu_{LT} = n * p
 \]</span></p>
 <p><span class="math display">\[
-\sigma^2 = n * p * q
+\sigma^2_{LT} = n * p * q
 \]</span></p>
 <p><span class="math display">\[
-\sigma = \sqrt{n * p * q}
+\sigma_{LT} = \sqrt{n * p * q}
 \]</span></p>
 </section>
 <section id="sec-notation" class="slide level2" data-number="4.2">
@@ -1964,6 +2000,32 @@ X \sim B(n,p)
 <ul>
 <li class="fragment">This formula is read as “X is a random variable with a binomial distribution”, where <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span> represent the same things as before</li>
 </ul>
+<ul><li class="fragment highlight-current-custom"><b>Discuss: Why does q or probability of failures not need to be represented in this notation?</b></li></ul>
+<ul>
+<li class="fragment">Example: A child is placed in a new behavioral intervention classroom to better help the child cope with the school environment. On any given day, they have a 40% chance of having a “good” behavior day and a 60% chance of having a “bad” behavior day, measured over 3 subsequent days
+<ul>
+<li class="fragment"><span class="math inline">\(X \sim B(0.40, 3)\)</span></li>
+<li class="fragment"><span class="math inline">\(X =\)</span> Number of good behavior days (or successes!)</li>
+<li class="fragment"><span class="math inline">\(p = P(success) = 0.40\)</span></li>
+<li class="fragment"><span class="math inline">\(q = P(failure) = 0.60\)</span></li>
+<li class="fragment"><span class="math inline">\(n = 3\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="sec-calc-example-binom" class="slide level2" data-number="4.3">
+<h2><span class="header-section-number">4.3</span> Mean Calculation Example</h2>
+<p><span class="math display">\[
+\mu_{LT} = 3 * 0.60 = 1.80
+\]</span></p>
+</section>
+<section id="sec-calc-sd-example-binom" class="slide level2" data-number="4.4">
+<h2><span class="header-section-number">4.4</span> Standard Deviation Calculation Example</h2>
+<p><span class="math display">\[
+\sigma^2_{LT} = 3 * 0.40 * 0.60 = 0.72
+\]</span></p>
+<p><span class="math display">\[
+\sigma_{LT} = \sqrt{3 * 0.40 * 0.60} = 0.85
+\]</span></p>
 </section></section>
 <section>
 <section id="sec-conclusion" class="title-slide slide level1 agenda-slide center" data-number="5">
@@ -1992,7 +2054,7 @@ X \sim B(n,p)
 <section id="sec-recap" class="slide level2" data-number="5.1">
 <h2><span class="header-section-number">5.1</span> Recap</h2>
 <ul>
-<li class="fragment"><p>In this shorter lecture, we introduced the concept of discrete random variables, and how they can be represented with probability distribution functions</p></li>
+<li class="fragment"><p>In this shorter lecture, we re-introduced the concept of discrete random variables, and how they can be represented with probability distribution functions</p></li>
 <li class="fragment"><p>We played around with calculating expected mean and standard deviations for outcomes from the probability distribution function table</p></li>
 <li class="fragment"><p>We introduced the binomial distribution as a special, specific pattern for a probability distribution represented via “successes” and “failures”</p></li>
 </ul>
@@ -3223,7 +3285,7 @@ window.QuartoSupport = function () {
 'jumpToSlide': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'verticator': {"themetag":"h1","color":"","inversecolor":"","skipuncounted":false,"clickable":true,"position":"auto","offset":"3vmin","autogenerate":true,"tooltip":false,"scale":1},
-'pointer': {"key":"q","color":"blue","pointerSize":16,"alwaysVisible":false},
+'pointer': {"key":"q","color":"red","pointerSize":16,"alwaysVisible":false},
 'smaller': false,
  
         // Display controls in the bottom right corner
