@@ -1589,17 +1589,14 @@ Quinton Quagliano, M.S., C.S.P
 <li class="fragment">Recognize and understand continuous probability density functions in general.</li>
 <li class="fragment">Recognize the uniform probability distribution and apply it appropriately.</li>
 <li class="fragment">Recognize the exponential probability distribution and apply it appropriately.</li>
-</ul>
-</section>
-<section id="sec-instructor-learn-objs" class="slide level2" data-number="1.2">
-<h2><span class="header-section-number">1.2</span> Instructor Learning Objectives</h2>
-<ul>
+<li class="fragment">Be able to discriminate between discrete and continuous numeric variables</li>
 <li class="fragment">Compare and contrast the use-cases for a discrete vs. continuous distributions</li>
 <li class="fragment">Understand the relatively high prevalence of continuous random variables in research, and use this module as a foundation for understanding those characteristics</li>
+<li class="fragment">Understand the general continuous probability distributions as the foundation for the normal distribution (to be covered in module 6)</li>
 </ul>
 </section>
-<section id="sec-introduction" class="slide level2" data-number="1.3">
-<h2><span class="header-section-number">1.3</span> Introduction</h2>
+<section id="sec-introduction" class="slide level2" data-number="1.2">
+<h2><span class="header-section-number">1.2</span> Introduction</h2>
 <ul><li class="fragment highlight-current-custom"><b>Discuss: What two scales-of-measurement can be readily considered to be continuous? Hint: NOT nominal or ordinal, but...</b></li></ul>
 <ul>
 <li class="fragment">Many variables that are used in educational and social science research are <span class="fragment highlight-current-custom"><u>continuous</u></span>
@@ -1610,18 +1607,18 @@ Quinton Quagliano, M.S., C.S.P
 </ul>
 <ul><li class="fragment highlight-current-custom"><b>Important: We&#39;ll continue to use notation of uppercase letters to represent random variables and respective lowercase letters to represent possible values the random variable can take on. Same notation as with discrete variables.</b></li></ul>
 </section>
-<section id="sec-properties" class="slide level2 scrollable" data-number="1.4">
-<h2><span class="header-section-number">1.4</span> Properties of Continuous Probability Distributions</h2>
+<section id="sec-properties" class="slide level2 scrollable" data-number="1.3">
+<h2><span class="header-section-number">1.3</span> Properties of Continuous Probability Distributions</h2>
 <ul>
 <li class="fragment">Unlike <span class="fragment highlight-current-custom"><u>discrete</u></span> variables that dealt purely with counts and separate integers, continuous variables must be treated in a different way, because they have possible values in-between integers</li>
 </ul>
 <ul><li class="fragment highlight-current-custom"><b>Discuss: Try making a probability distribution function table like from the last module - but with possible GPA values as x.</b></li></ul>
 <ul>
-<li class="fragment">When working with continuous random variables, we will instead use the term <strong>probability density function (pdf)</strong> to describe the <span class="fragment highlight-current-custom"><u>curve</u></span>, or <span class="math inline">\(f(x)\)</span>, that shows the distribution graphically.</li>
+<li class="fragment">When working with continuous random variables, we will instead use the term <b>probability density function (pdf)</b> to describe the <span class="fragment highlight-current-custom"><u>curve</u></span>, or <span class="math inline">\(f(x)\)</span>, that shows the distribution graphically.</li>
 </ul>
 <ul><li class="fragment highlight-current-custom"><b>Important: For those that will later deal with programming languages like R or python, f(x) is a common shorthand for function in computer science.</b></li></ul>
 <ul>
-<li class="fragment"><p>We often aim to calculate the <strong>Area-under-the-curve (AUC)</strong> using the <strong>cumulative distribution function (cdf)</strong>.</p></li>
+<li class="fragment"><p>We often aim to calculate the <b>Area-under-the-curve (AUC)</b> using the <b>cumulative distribution function   (cdf)</b></p></li>
 <li class="fragment"><p>The cumulative distribution function follows these rules:</p>
 <ol type="1">
 <li class="fragment">Outcomes are <span class="fragment highlight-current-custom"><u>measured</u></span>, not counted like discrete variables</li>
@@ -1851,7 +1848,7 @@ Table 2: Continuous Probability Density Function Example (Histogram)
 <section id="sec-introduction-uni-dist" class="slide level2" data-number="3.1">
 <h2><span class="header-section-number">3.1</span> Introduction</h2>
 <ul>
-<li class="fragment"><p><strong>The uniform distribution</strong> starts with the assumption that all points within a range are <span class="fragment highlight-current-custom"><u>equally</u></span> likely to occur</p></li>
+<li class="fragment"><p><b>The uniform distribution</b> starts with the assumption that all points within a range are <span class="fragment highlight-current-custom"><u>equally</u></span> likely to occur</p></li>
 <li class="fragment"><p>So far, all of the examples prior have shown a uniform distribution, as indicated by the <span class="fragment highlight-current-custom"><u>straight</u></span> horizontal line, parallel to the x-axis</p></li>
 <li class="fragment"><p>It follows the notation: <span class="math inline">\(X \sim U(a,b)\)</span> where:</p>
 <ul>
@@ -1925,11 +1922,11 @@ Table 2: Continuous Probability Density Function Example (Histogram)
 <section id="sec-introduction-exp-dist" class="slide level2" data-number="4.1">
 <h2><span class="header-section-number">4.1</span> Introduction</h2>
 <ul>
-<li class="fragment">Variables that follow an exponential distribution are those with relatively low probability of <span class="fragment highlight-current-custom"><u>high</u></span> values and high probability of <span class="fragment highlight-current-custom"><u>low</u></span> values.</li>
+<li class="fragment">Variables that follow an <b>exponential distribution</b> are those with relatively low probability of <span class="fragment highlight-current-custom"><u>high</u></span> values and high probability of <span class="fragment highlight-current-custom"><u>low</u></span> values.</li>
 </ul>
 <ul><li class="fragment highlight-current-custom"><b>Important: Do not try to use the &#39;shortcut&#39; formulas for the uniform distribution above for the exponential distribution</b></li></ul>
 <ul>
-<li class="fragment">In an exponential distribution, you must also have <span class="math inline">\(m\)</span> (also sometimes represented as <span class="math inline">\(\lambda\)</span>), or the <strong>decay parameter/rate parameter</strong>.
+<li class="fragment">In an exponential distribution, you must also have <span class="math inline">\(m\)</span> (also sometimes represented as <span class="math inline">\(\lambda\)</span>), or the <b>decay parameter/rate   parameter</b>.
 <ul>
 <li class="fragment">Formula: <span class="math inline">\(m = \frac{1}{\mu}\)</span></li>
 <li class="fragment">We can also work this backwards if we are given <span class="math inline">\(m\)</span> in order to get the expect mean: <span class="math inline">\(\mu = \frac{1}{m}\)</span></li>
@@ -1946,7 +1943,7 @@ me^{-mx}\)</span> where <span class="math inline">\(e\)</span> is the scientific
 <li class="fragment"><span class="math inline">\(\mu = \frac{1}{0.75} = 1.3\bar{3}\)</span></li>
 <li class="fragment"><span class="math inline">\(f(x) = 0.75e^{-0.75x}\)</span></li>
 </ul></li>
-<li class="fragment">The <strong>cumulative distribution function (CDF)</strong> give area to the left of a determined point
+<li class="fragment">The cumulative distribution function (cdf) give area to the left of a determined point
 <ul>
 <li class="fragment">Formula: <span class="math inline">\(CDF = P(x &lt; x) = 1 - e^{-mx}\)</span></li>
 <li class="fragment">In this equation, we’ll replace <span class="math inline">\(x\)</span> with whatever x-axis value we’d like to use</li>
