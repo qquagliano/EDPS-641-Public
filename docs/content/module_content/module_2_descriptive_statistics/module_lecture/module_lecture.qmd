@@ -1,0 +1,979 @@
+---
+# SECTION: Bibliography opts
+# bibliography: "./refs/complete.bib"
+# nocite: "@*" # NOTE: Cites all items present in bibliography
+# cite-method: citeproc
+# citeproc: true
+# csl: "./refs/apa.csl"
+# link-citations: true
+# link-bibliography: true
+---
+
+```{r}
+#| lst-label: lst-r-libraries
+#| lst-cap: "R libraries"
+
+base::library(package = ggplot2)
+base::library(package = knitr) # NOTE: For document rendering
+base::library(package = quarto) # NOTE: For document framework
+knitr::write_bib(
+  x    = base::.packages(),
+  file = "./refs/r_packages.bib"
+)
+```
+
+```{r}
+#| lst-label: lst-knitr-opts
+#| lst-cap: "Knitr options"
+
+base::options(knitr.kable.NA = "-")
+```
+
+{{< pagebreak >}}
+
+# Overview and Introduction {#sec-overview}
+
+## Objectives {#sec-text-learn-objs}
+
+- Display data graphically and interpret graphs
+- Recognize, describe, and calculate the measures of location of data (quantiles
+  and percentiles)
+- Recognize, describe, and calculate the measures of center tendency
+- Recognize, describe, and calculate the measures of dispersion
+- Understand the complementary value of visual and numeric descriptions of data
+- Be able to compare and contrast the use cases for different metrics
+
+## Introduction {#sec-introduction}
+
+- Data, in it's raw form, is very {{< blank confusing >}}
+  - Especially large data sets are likely to be borderline {{< blank
+  un-interpretable >}}
+
+{{< discuss "ex1" "With the following table, try to say something meaningful
+about this data/explain it" >}}
+
+| Student | Q1 | Q2 | Q3 | Q4 | Q5 |
+|---------|----|----|----|----|----|
+| Student 1 | 1  | 0  | 1  | 1  | 0  |
+| Student 2 | 0  | 1  | 0  | 1  | 1  |
+| Student 3 | 1  | 1  | 1  | 0  | 0  |
+| Student 4 | 0  | 0  | 1  | 0  | 1  |
+| Student 5 | 1  | 1  | 0  | 1  | 1  |
+
+- Realistically, we need a way to {{< blank describe >}} our datasets in a way
+that capture the overarching trends in the values
+  - This can be done both {{< blank graphically >}} and via {{< blank
+  descriptive >}} statistics, and often times, both!
+  - Though this is a statistics class, sometimes the graphs are the most
+    understandable part of a research paper!
+
+{{< important "There is usually not only one 'right' way to graph or represent
+data - it may be advantageous to try multiple methods and see how they compare"
+>}}
+
+- The book is filled with examples and practices to get better at navigating
+these, please try some of them!
+
+# Descriptive Statistics {#sec-desc-stats}
+
+## Percentiles and Quartiles {#sec-perc-quart}
+
+- {{< glossary "Quartiles" "Points in the data that divide the data into 4 equal-sized amounts" "false" >}} are used to cut numerical data into 4 equal-sized {{< blank
+chunks >}} when the data is ordered smallest to largest
+  - $Q_1$ (first quartile) is above 1/4 or 25% of the data
+  - $Q_2$ (second quartile) is above 1/2 or 50% of the data, or the median
+  - $Q_3$ (third quartile) is above 3/4 or 75% of the data
+  - For example, if I state $Q_3 = 20$, that means that the value of 20 is above
+    75% of the data
+  - Used in [Box plots], we'll get to that in a bit
+
+{{< discuss "ex2" "If quartiles split the data into 4 equal sections, how many
+sections are in quantiles" >}}
+
+- {{< glossary "Percentiles" "Points in the data that divide the data into 100
+  equal-sized amounts" "false" >}} function the same as quartiles, but {{< blank
+  divide >}} the data into 100 equal-sized sections
+  - For example, the at the 90th percentile, 90% of scores are lower
+  - Percentiles are especially commonly used to describe roughly where {{< blank
+    individual >}} data points fall - this comes up often in standardized
+    testing
+  - The 25th percentile is equivalent to $Q_1$, 50th percentile is equivalent to
+    $Q_2$ (and thus, the median), and the 75th percentile is equivalent to $Q_3$
+  - For example, if I state that the 23rd percentile is $45$, then the value of
+    45 is above 23% of the data
+
+### A Formula for Finding the Kth Percentile {#sec-kth}
+
+- Often times, we want to know what {{< blank value >}} corresponds to a certain
+percentile in a dataset
+  - We can use the following formula to calculate this
+
+$$
+i = \frac{k}{100}*(n + 1)
+$$
+
+- Where:
+  - $i$ is the index or rank of the value when ordered smallest to largest
+  - $k$ is the $k^{th}$ percentile
+  - $n$ is the total number of data points
+
+- If $i$ ends up being between two integers, i.e., a decimal, then we {{< blank
+round >}} up and down to the nearest ranks and take the average of their
+integers
+  - It's worth mentioning this is just one of {{< blank many >}} procedures for
+  finding the $k^{th}$ percentile...
+
+- For a formula like this, it is easiest to approach it algebraically, just
+inserting the chosen values over the letters in the formula
+
+{{< discuss "ex3" "Try writing out this same equation, replacing k with 20 and
+n with 12 - could you solve it from here?" >}}
+
+### Example of Finding Kth Percentile
+
+**Dataset:** 5, 6, 7, 8, 9 (ordered smallest to largest)
+
+**Prompt:** What value corresponds to the 70th percentile?
+
+$$
+i = \frac{70}{100}*(5 + 1)
+$$
+
+$$
+i = 0.70*6
+$$
+
+$$
+i = 4.2
+$$
+
+We round $i$ up and down to the 4th and 5th ranks, which correspond to values 8
+and 9 in the dataset, their average is 8.5 $\rightarrow$ 70th percentile
+
+{{<
+question
+"If I wanted to find what value corresponds to $Q_2$ what $k$ would I use in
+this formula?"
+"10"
+"20"
+"25"
+"50"
+"d"
+>}}
+
+### A Formula for Finding the Percentile of a Value in a Data Set {#sec-perc}
+
+- We can go the {{< blank opposite >}} direction to figure out what a specific
+datapoint's percentile is
+
+$$
+\frac{x+0.5y}{n}*100
+$$
+
+- Where:
+  - $x$ is the number of data points up to and NOT including the point of
+  interest
+  - $y$ the number of occurrences of the values of interest
+  - $n$ is the total number of data points
+
+- Like the prior formula, this is just *one* procedure, you may run into others
+in the wild
+
+### Example of Finding Percentile of a Value in a Data Set
+
+**Dataset:** 5, 6, 7, 8, 9 (ordered smallest to largest)
+
+**Prompt:** What percentile is value '8' at?
+
+$$
+\frac{3+0.5(1)}{5}*100
+$$
+
+$$
+\frac{3.5}{5}*100
+$$
+
+$$
+70 \rightarrow percentile
+$$
+
+- **WAIT!** Didn't we just say that 8.5 is the 70th percentile in the last
+example?
+  - Yes, that is because these formulas are only {{< blank approximations >}},
+  and work poorly in small datasets
+  - There are several slight variations on calculating these, but the formulas
+  above is what we will use for this class
+
+## Descriptive Tables and Frequencies {#sec-desc-tables}
+
+- {{< glossary "Simple frequency" "A count of the number of cases that fall in a
+  certain category or at a certain point" "false" >}} is a count of the {{<
+  blank number >}} of cases – or frequency - that fall in the different {{<
+  blank categories >}} or that obtain certain scores.
+  - E.g., - the number of girls and boys in a sample the number of students who
+    identify themselves as African-American, Asian- American, Hispanic, or White
+    on a questionnaire; the number of people who obtain different scores on a
+    test
+
+- {{< glossary "Relative frequency" "The percent of total cases that fall in a
+  certain category or at a certain point" "false" >}} is the {{< blank
+  proportion >}} or percentage of cases for each score in the distribution
+
+- {{< glossary "Cumulative frequency" "A count of the number of cases that fall
+  below a certain score" "false" >}} is a count of the number of cases that fall
+  {{< blank below >}} a certain score. A cumulative frequency is provided for
+  all scores in the distribution
+
+- {{< glossary "Cumulative relative frequency" "The percentage of scores that
+  fall below a certain score" "false" >}} is the {{< blank proportion >}} or
+  percentage of cases that fall below a certain score.
+
+![](./imgs/freq.png)
+
+{{< discuss "ex4" "Based on your reading of the above table, what is the
+cumulative frequency at score '11'?" >}}
+
+## Measures of Central Tendency {#sec-central-tendency}
+
+- {{< glossary "Measures of central tendency" "statistics that summarize the
+  typical, central, or average scores in a distribution" "false" >}} of a {{<
+  blank distribution >}} are statistics that {{< blank summarize >}} scores that
+  are typical, central or average in the distribution.
+  - The most {{< blank common >}} measures of central tendency in the social
+    sciences are the mode, the median, and the mean.
+
+- The {{< glossary "mode" "The most commonly occurring value in a variable"
+  "false" >}} is the most commonly {{< blank occurring >}} value in a
+  variable/dataset
+  - Mode is often just spelled out, and not given a special notation
+  - There is not a very useful formula for finding the mode, but realistically
+    all you need to do use [Bar Graphs] and find the {{< blank tallest >}} bar
+    (for the highest frequency)
+
+- Example of finding mode of a sample dataset:
+  - I have 5 students with the following sexes: $\{F, M, F, F, M\}$
+  - I have 3 female students, and 2 male students, thus the **sample mode of the sex
+    variable is 'Female'**, as that is the most common value in that variable
+
+- The {{< glossary "median" "The value in the data in which half of values in
+  the data fall below it, when ordered from smallest to largest" "false" >}} is
+  the value at the 50th percentile, second quartile ($Q_2$), or, put simply, the
+  value that {{< blank divides >}} the data into two equal halves when ordered
+  from smallest to largest
+  - In the case that there is no actual exact middle value when ordered smallest
+    to largest, we'd {{< blank average >}} the two middle-most values
+  - Sample median {{< blank statistic >}} notation: $X_m$
+  - Population median {{< blank parameter >}} notation: $M$
+  - The best strategy for finding median is to order the values and then cross
+    values off from both ends until you end up with one uncrossed value
+  - To find the *location* of the median, one can do: $\frac{n + 1}{2}$, where:
+    - $n$: number of observations/people
+
+- Example of finding median of a sample dataset:
+  - I have the following test scores: $\{23, 61, 35, 89, 74\}$
+  - First, we have to order the data smallest to largest: $\{23, 35, 61, 74, 89\}$
+  - If I cross off each side of the data: $\{\cancel{23, 35}, 61, \cancel{74, 89}\}$
+  - Thus, my **sample median of test scores is 61** or $X_{M,TestScore} = 61$
+  - Using the location formula: $\frac{5 + 1}{2} = 3 \rightarrow$ the 3rd number
+    in the order is the median
+
+- The {{< glossary "mean" "The arithmetic average of the data" "false" >}} is
+  the arithmetic average of the data
+  - Sample mean {{< blank statistic >}} notation: $\bar{x}$ (x-bar)
+  - Population mean {{< blank parameter >}} notation: $\mu$ (mu)
+  - The sample mean is calculated with:
+
+$$
+\bar{x} = \frac{x_1 + x_2 + x_3 + .... + x_n}{n}
+$$
+
+- Example of finding mean of a sample dataset
+  - I have the following GPAs: $\{1.00, 1.00, 2.50, 3.00, 4.00\}$
+  - Using the formula: $\frac{1 + 1 + 2.50 + 3.00 + 4.00}{n} =
+    \frac{11.50}{5} = 2.3$
+  - Thus, **my sample mean of GPAs is 2.3** or $\bar{x}_{GPA} = 2.3$
+
+{{< important "Something worth noting is that the median is less prone to be
+affected by outliers than the mean, making it useful in certain circumstances." >}}
+
+{{<
+question
+"I have data 1,2,2,2,3,4,5. Datapoint 2 is the most commonly occurring value,
+thus it is the [BLANK]"
+"Mode"
+"Median"
+"Mean"
+"None of the above"
+"a"
+>}}
+
+{{< discuss "ex5" "Find the mean, median, and mode of the following data: 1, 1,
+2, 3, 5, 6, 8, 9, 10" >}}
+
+## The Law of Large Numbers and the Mean {#sec-the-law-of-large-numbers}
+
+- As a general rule, as the sample size ($n$) grows, $\bar{x}$ and $\mu$
+converge - this is true of most statistic - parameter relationships
+  - This is related to the central limit theorem, to be discussed slightly later
+  - However, this also explains why bigger samples are often treated as {{<
+  blank better >}} in a lot of scientific research - because the sample
+  statistics better approximate the parameters
+
+{{< discuss "ex6" "Review: Try explaining, from Module 1, why a more
+representative statistic is a good thing for our research?" >}}
+
+## Measures of Dispersion {#sec-dispersion}
+
+- {{< glossary "Measures of dispersion" "statistics that summarize how data is
+  spread out across a distribution" "false" >}} are statistics that summarize
+  how data is {{< blank spread >}} out across a distribution
+  - The most {{< blank common >}} measures of dispersion we should be concerned
+    with are standard deviation, variance, range, and interquartile range.
+
+- Each number in a dataset has a {{< glossary "deviation" "How far away a point
+  is away from the mean of the data" "false" >}}, or how {{< blank far >}} away
+  it is from the mean
+  - This is calculated simply as the {{< blank difference >}} between the value
+    and the sample mean of the data
+  - $x - \bar{x}$ or
+  - $x_i - \bar{x}$
+
+- Example of calculating deviation of a single point:
+  - We have dataset with $\bar{x} = 5$, and we are interested in the individual
+    point of $10$
+  - Using the deviation formula: $10 - 5 = 5$, thus the deviation of point 10 is
+    5
+
+- To calculate the standard deviation, we first will calculate the {{< glossary
+  "variance" "The average squared deviation scores from the mean" "false" >}},
+  which is just the {{< blank squared >}} standard deviation
+  - Sample variance statistic: $s^2$
+  - Population variance parameter: $\sigma^2$
+  - The variance sample statistic and population parameter formulas are,
+    respectively:
+
+$$
+s^2 = \frac{\sum{(x-\bar{x})^2}}{n-1}
+$$
+
+$$
+\sigma^2 = \frac{\sum{(x-\mu)^2}}{n}
+$$
+
+{{< important "The reason we must use variance to calculate standard deviation
+relates to the need to square in order to avoid getting 0 from summing the
+deviations" >}}
+
+- By far, the most important and most used way to describe the {{< blank spread >}}
+  of all the data is the {{< glossary "standard deviation" "A measure of the average distance away from the mean that a point is in a distribution" "false" >}}
+  - A measure of the average {{< blank distance >}} away from the mean that a point is in a distribution
+  - It is used instead of variance because it removes the "square" from
+    interpretation
+  - Sample standard deviation statistic: $s$
+  - Population standard deviation parameter: $\sigma$ (sigma)
+  - The standard deviation sample statistic and population parameter formulas are,
+    respectively:
+
+$$
+s = \sqrt{\frac{\sum{(x-\bar{x})^2}}{n-1}}
+$$
+
+$$
+\sigma = \sqrt{\frac{\sum{(x-\mu)^2}}{n}}
+$$
+
+{{< important "Realistically, we tend to only directly use the sample statistics
+calculations" >}}
+
+{{< discuss "ex7" "Look back at the previous equations; which of the measures of
+central tendency sees the greatest use in these formulas?" >}}
+
+- The {{< glossary "range" "The difference between the largest and smallest
+  values in the data" "false" >}} is the {{< blank difference >}} between the
+  largest and smallest values in the data
+
+- Example of calculating range in a sample:
+  - Data: $\{4, 2, 6, 8, 20\}$
+  - Subtracting smallest and largest values: $20 - 2 = 18$, **18 is the range of
+    the sample**
+
+- The {{< glossary "interquartile range (IQR)" "is the 75th percentile (upper
+  quartile) minus the 25th percentile (lower quartile). It is a measure of
+  spread. It is the width of the interval that contains the middle 50 percent of
+  the data. " "false" >}} is the 75th percentile (upper quartile, $Q_3$) minus
+  the 25th percentile (lower quartile, $Q_1$). It is the width of the interval
+  that contains the {{< blank middle >}} 50% of the data.
+  - In formula it could be represented as: $Q_3 - Q_1 = IQR$
+
+## Calculating Measures of Dispersion {#sec-calu-measure-dispersion}
+
+### Calculating Variance and Standard Deviation {#sec-var-std-dev}
+
+While not necessary with computers and calculators, it can be useful to work
+out statistics "by hand" for learning how they work. For example:
+
+**Dataset:** 1, 2, 3, 4, 5
+
+**Size of sample:** $n = 5$
+
+**Sample Mean:**
+
+$$
+\bar{x} = \frac{x_1 + x_2 + x_3 + .... + x_n}{n}
+$$
+
+$$
+3 = \frac{1 + 2 + 3 + 4 + 5}{5}
+$$
+
+**Sample Variance:**
+
+$$
+s^2 = \frac{\sum{(x-\bar{x})^2}}{n-1}
+$$
+
+Hint: whenever you see a $\sum$ sign, follow this tabular procedure
+
+| x | x - xbar | (x-xbar)^2|
+|---|----------|-----------|
+| 1 | 1 - 3    | -2^2 |
+| 2 | 2 - 3    | -1^2 |
+| 3 | 3 - 3    | 0^2 |
+| 4 | 4 - 3    | 1^2 |
+| 5 | 5 - 3    | 2^2 |
+|   | Sum      | 10         |
+
+$$
+2.5 = \frac{10}{5-1}
+$$
+
+**Sample Standard Deviation:**
+
+$$
+s = \sqrt{s^2}
+$$
+
+$$
+1.58 = \sqrt{2.5}
+$$
+
+### Describing Points and Values with Standard Deviations (Z-scores) {#sec-desc-points}
+
+- Much like describing a specific value with a percentile, we may want to
+describe how far away from the {{< blank mean >}} a certain point is, and we can
+do so using the standard deviation
+
+- We can do this with what are called {{< glossary "z-score" "A statistics of
+  how far away a specified point is away from the mean of the data, in terms of
+  standard deviation" "false" >}} with the following formula for sample:
+
+$$
+z = \frac{x - \bar{x}}{s}
+$$
+
+- Where:
+  $x$ is a individual data value of interest
+  $s$ is the standard deviation
+
+**By hand (pulling from last example):**
+
+$$
+-0.63 = \frac{2 - 3}{1.58}
+$$
+
+- We could then say that the value of 2 is -0.63 standard deviations away from
+  the mean of 3
+
+{{< discuss "ex8" "Try working out the z-score of 5 given that same dataset" >}}
+
+- Z-scores are often used in conjunction with [Percentiles and Quartiles], to
+  describe a position of an individual in a broader dataset
+
+## Aside on Outliers {#sec-aside-on-outliers}
+
+- An {{< glossary "outlier" "A point which is especially far away from the mean,
+  usually by having an especially large z-score" "false" >}}, also known as an
+  **extreme value**, is a data point that falls {{< blank far >}} from the
+  others, somehow breaking from the pattern of the data
+  - While more commonly applied to numeric data, it could sometimes be used to
+    describe a single member of a qualitative {{< blank label >}}
+  - It is characteristic for this point to have an extreme z-score, i.e., be
+    many standard deviations away from the {{< blank mean >}}
+
+{{< important "'Outlier' can be a frustratingly loose term in statistics,
+because there is not one always accepted answer for just how far a point needs
+to be removed to be an outlier. Make sure to read carefully to see how any one
+given author defines it in an individual example or study." >}}
+
+- Many graphical methods naturally {{< blank detect >}} outliers in the data
+  - In plots, you are mainly just looking for visual {{< blank anomalies >}}, or
+    breaks in the visual pattern
+
+## Descriptions of Distributions {#sec-id}
+
+- There are several {{< blank characteristics >}} that are not well described as
+  either [Measures of Dispersion] or [Measures of Central Tendency], but still
+  helpful in understanding the layout of a continuous distribution
+
+- Usually, we use [The Normal Distribution] as an "ideal", and describe
+  variables' distribution in how it {{< blank relates >}} to the normal
+  distribution
+  - This is how we will describe [Skewness], [Kurtosis], and [Modality]
+
+- There are several different ways to describe these {{< blank characteristics >}}
+  with numeric statistics, but for now, we'll just focus on how they appear
+  graphically in a histogram
+
+### Skewness {#sec-skew .fragment}
+
+- {{< glossary "Skewness" "A description of how a distribution departs from
+  symmetry or has a 'tail'" "false" >}} is a description of how a distribution
+  departs from {{< blank symmetry >}} or has a 'tail'
+  - A {{< glossary "positive/right skew" "When a distribution has most values
+    clustered towards the low end, and a tail out to the right side of the
+    frequency histogram" "false" >}}: when a distribution has most values
+    clustered towards the {{< blank low >}} end, and a tail out to the right
+    side of the frequency histogram
+  - A {{< glossary "negative/left skew" "When a distribution has most values
+    clustered towards the high end, and a tail out to the left side of the
+    frequency histogram" "false" >}}: when a distribution has most values
+    clustered towards the {{< blank high >}} end, and a tail out to the left
+    side of the frequency histogram
+
+{{< important "As a helpful mnemonic, the direction of the skew is the direction
+of the 'tail', not the 'hump'" >}}
+
+![](./imgs/skew.png)
+
+### Kurtosis {#sec-kurtosis .fragment}
+
+- {{< glossary "Kurtosis" "A description of how 'peaked' a distribution is"
+  "false" >}} is a description of how 'peaked' a distribution is
+  - A {{< glossary "leptokurtic" "When a distribution has scores clustered
+    towards the center" "false" >}} distribution has too many scores
+    concentrated in the center and not {{< blank enough >}} in the tails.
+    (peaked)
+  - A {{< glossary "platykurtic" "When a distribution has scores clustered in
+    the tails" "false" >}} distribution has too few scores in the center and too
+    many in the {{< blank tails >}}. (flat)
+  - [The Normal Distribution] is said to be {{< blank mesokurtic >}}
+
+![](./imgs/kurtosis.png)
+
+### Modality {#sec-modality .fragment}
+
+- {{< glossary "Modality" "A description of how many 'peaks' a distribution has"
+  "false" >}} a description of how many {{< blank peaks >}} a distribution has
+  - A distribution is {{< glossary "unimodal" "When a distribution only has one
+    peak" "false" >}} when is has only one peak, and {{< glossary "bimodal"
+    "When a distribution has two peaks" "false" >}} when it has two peaks
+
+![](./imgs/bimodal.png)
+
+{{< discuss "ex9" "Take a guess at what a distribution with three peaks would be
+called" >}}
+
+### The Normal Distribution {#sec-normal-dist .fragment}
+
+{{< important "The normal distribution, is an 'ideal' and used theoretically. In
+practice, collected raw data will never be perfectly normal. There are also
+other ideal distributions such as the exponential and uniform distributions,
+that are also useful in certain circumstances." >}}
+
+![](./imgs/emp_normal.png)
+
+- The {{< glossary "normal distribution" "A distribution of a continuous
+  variable that is unimodal, symmetrical, bell-shaped, and the mean, median, and
+  mode are equal" "false" >}} is a distribution of a {{< blank continuous >}}
+  variable that is unimodal, symmetrical, mesokurtic, bell-shaped, and the mean, median, and
+  mode are equal
+  - Follows the {{< glossary "empirical rule" "A way to understand the percent
+    of values at a certain number of standard deviation in a normal
+    distribution" "false" >}}
+  - We'll revisit this in it's own module later on
+
+{{< discuss "ex10" "Reading the distribution chart above, at what number of
+standard deviations are 84 percent of values beneath it?" >}}
+
+## Sampling Variability of Statistics {#sec-sampling-variability-of-stat}
+
+- As mentioned prior, different {{< blank samples >}} from the same population
+  of interest will not be exactly the same, described as {{< glossary "sampling
+  variation" "The natural difference in statistics from sample to sample"
+  "false" >}}
+  - Thus, their data, means, standard deviations will all be somewhat different
+    every time we take a new sample
+  - If we were to take many {{< blank representative >}} samples, we would see
+    slight variation across all of them
+  - Put together, they are all just different {{< blank estimates >}} of their
+    parameters (but the parameter is what we are after!)
+  - Review:
+    - $\bar{x}$ estimates $\mu$
+    - $X_M$ estimates $M$
+    - $s$ estimates $\sigma$
+
+# Descriptive Plots {#sec-desc-plots}
+
+## Introduction {#sec-introduction-stem}
+
+- In this first section, we looked at primarily statistics and numeric
+  representations, now we'll look at some graphs used often to show {{< blank
+  frequencies >}} of certain values in the data
+
+{{<
+question
+"Review: Which of the following is NOT quantitative data?"
+"Hair color"
+"Age (in years)"
+"Height (in cms)"
+"Total test score (in number of points)"
+"a"
+>}}
+
+## Stem-and-Leaf Plots {#sec-stem-and-leaf}
+
+- **Stem-and-leaf graphs**, also known as **stemplots**, are technically a {{<
+blank tabular >}} method to represent data - but function to visually inspect
+the distribution of the data.
+
+- Stemplots a valid choice for representing {{< blank numeric >}}, quantitative
+data for a single variable
+  - However it works {{< blank best >}} if the range of values is reasonably
+  restricted, and with the same decimal structure
+  - Continuous data {{< blank may >}} work, but discrete data can be somewhat
+  easier
+  - E.g., Test scores ranging from 0 - 100 $\rightarrow$ {{< blank good >}}!
+  - E.g., Reaction time ranging from 0.50 secs - 420 seconds $\rightarrow$ {{<
+  blank bad >}}!
+
+- Stemplots contain a **leaf** which contains the **final significant digit**
+(in practice this is usually just the {{< blank last >}} digit)
+  - Then, the {{< blank stem >}} is everything *but*, the digits of the leaf
+  - Each number entry in a leaf represents a different value in the data
+  - So technically, the number of digits that are leaves in the {{< blank number
+    >}} of points in the data
+
+- Practically, stemplots are {{< blank useful >}} showing distribution, skew,
+and frequency of values
+  - Especially common in {{< blank psychometrics >}}
+  - However, I do find they are {{< blank harder >}} to interpret for
+  non-statistical audiences
+
+- Example of test scores 0 - 100: 2, 3, 5, 6, 9, 11, 14, 15, 16, 20, 21, 23, 27,
+30, 32, 38, 41, 44, 46, 53, 55, 59, 60, 62, 67, 74, 79, 81, 85, 90
+
+| Stem | Leaf      |
+|------|-----------|
+|  0   | 2 3 5 6 9 |
+|  1   | 1 4 5 6 |
+|  2   | 0 1 3 7 |
+|  3   | 0 2 8 |
+|  4   | 1 4 6 |
+|  5   | 3 5 9 |
+|  6   | 0 2 7 |
+|  7   | 4 9 |
+|  8   | 1 5 |
+|  9   | 0 |
+
+{{< discuss "ex11" "Try to explain why a stem-and-leaf-plot would NOT work for
+qualitative, nominal data" >}}
+
+- As you'll see in the following line and bar graphs, one difference is that
+stemplots don't actually aggregate or summaries the data at all
+  - One nice thing about these plots is that they actually leave the numbers
+  somewhat {{< blank intact >}}, so you can see the entire dataset at a glance
+
+## Line Graphs {#sec-line-graphs}
+
+- **Line graphs** are a broad family of plots that always have some dotted data
+points {{< blank connected >}} by a continuous line
+  - For our purpose, they are another way to visualize {{< blank frequency >}}
+  of data points
+
+- Unlike stemplots, they could technically be used for qualitative data (but I
+wouldn't recommend that use)
+  - Otherwise, the same rules for {{< blank application >}} apply from the
+  stemplots
+
+- In the line plot:
+  - The height, or **y-axis**, represents the {{< blank frequency >}} of a
+  certain value
+  - The place on the **x-axis** represents what value's frequency is {{< blank
+  represented >}} by the y-axis
+
+```{r}
+#| label: fig-line
+#| fig-cap: "Frequency of Quiz Grades (0-10)"
+
+# Example data: quiz grades from 0 to 10
+quiz_grades <- c(0, 1, 2, 3, 4, 5, 5, 6, 7, 7, 7, 8, 9, 9, 10)
+
+# Convert quiz grades into a data frame
+grades_df <- data.frame(grade = quiz_grades)
+
+# Create the frequency table of grades
+grade_freq <- as.data.frame(table(grades_df$grade))
+colnames(grade_freq) <- c("grade", "frequency")
+
+# Plot the frequency line graph
+ggplot(grade_freq, aes(x = as.numeric(grade), y = frequency)) +
+  geom_line(group = 1, color = "blue", size = 1) + # Line plot
+  geom_point(color = "red", size = 3) + # Points on the line
+  labs(
+    title = "",
+    x = "Quiz Grade",
+    y = "Frequency"
+  ) +
+  theme_minimal() +
+  scale_x_continuous(breaks = 0:10) # Show ticks for each grade
+```
+
+{{< discuss "ex12" "Consider the above plot, do you feel there is anything
+confusing about interpreting it?" >}}
+
+## Bar Graphs {#sec-bar-graphs}
+
+- {{< glossary "Bar graphs" "Show frequencies of values of categorical/nominal
+  variables" "false" >}} help show {{< blank frequencies >}} of values of
+  categorical/nominal variables
+
+```{r}
+#| label: fig-bar
+#| fig-cap: "Frequency of Students by Class"
+
+# Example data: Student classifications
+student_classes <- c(
+  "Freshman", "Sophomore", "Junior", "Senior",
+  "Freshman", "Junior", "Senior", "Senior",
+  "Sophomore", "Junior", "Freshman", "Freshman",
+  "Sophomore", "Senior", "Junior"
+)
+
+# Convert student classes into a data frame
+student_df <- data.frame(class = student_classes)
+
+# Create a frequency table of student classes
+class_freq <- as.data.frame(table(student_df$class))
+colnames(class_freq) <- c("Class", "Frequency")
+
+# Plot the bar graph
+ggplot(class_freq, aes(x = Class, y = Frequency, fill = Class)) +
+  geom_bar(stat = "identity") + # Bar chart with precomputed frequencies
+  labs(
+    title = "",
+    x = "Class",
+    y = "Frequency"
+  ) +
+  theme_minimal() +
+  scale_fill_brewer(palette = "Set3") # Optional color palette
+```
+
+```{r}
+#| label: fig-bar-split
+#| fig-cap: "Frequency of Students by Class and Sex"
+
+# Example data: Student classes and their corresponding genders
+student_data <- data.frame(
+  class = c(
+    "Freshman", "Sophomore", "Junior", "Senior",
+    "Freshman", "Junior", "Senior", "Senior",
+    "Sophomore", "Junior", "Freshman", "Freshman",
+    "Sophomore", "Senior", "Junior"
+  ),
+  gender = c(
+    "Male", "Female", "Male", "Female",
+    "Female", "Male", "Male", "Female",
+    "Female", "Female", "Male", "Male",
+    "Female", "Male", "Female"
+  )
+)
+
+# Create a frequency table of student classes and genders
+class_gender_freq <- as.data.frame(table(student_data$class, student_data$gender))
+colnames(class_gender_freq) <- c("Class", "Sex", "Frequency")
+
+# Plot the side-by-side bar graph
+ggplot(class_gender_freq, aes(x = Class, y = Frequency, fill = Sex)) +
+  geom_bar(stat = "identity", position = "dodge") + # Side-by-side bars
+  labs(
+    title = "",
+    x = "Class",
+    y = "Frequency"
+  ) +
+  theme_minimal() +
+  scale_fill_brewer(palette = "Set3") # Optional color palette
+```
+
+{{< discuss "ex13" "Come up with 2 additional examples of variable that could be
+well-represented with a bar chart" >}}
+
+## Frequency Histograms {#sec-histograms .fragment}
+
+- A {{< glossary "frequency histogram" "A graphical representation of a
+  continuous variable using bin width ranges to count frequencies falling
+  withing certain ranges" "false" >}}, at first glance, looks much like a {{<
+  blank bar >}} plot, as described prior.
+
+- However, rather than use individual discrete points or labels, histograms will
+  {{< blank group >}} values by a defined {{< glossary "bin width" "The range of
+  each 'bar' in a frequency histogram" "false" >}}, and count the frequencies of
+  values within that bin
+  - All the intervals will be the same {{< blank width >}}, and we choose that
+    width somewhat arbitrarily
+  - But, its worth noting that the bin interval can have a {{< blank major >}}
+    impact on the overarching interpretation
+
+{{< important "Smaller bin size is not always better! Especially in data that is
+more spread out." >}}
+
+```{r}
+#| label: fig-hist-good
+#| fig-cap: "Example of a Histogram (Bin width = 2)"
+
+# Generate a normal distribution with 1000 samples
+data <- data.frame(value = rnorm(1000, mean = 50, sd = 10)) # Normal distribution
+
+# Histogram with more reasonable binwidth (revealing the normal distribution)
+ggplot(data, aes(x = value)) +
+  geom_histogram(binwidth = 2, color = "black", fill = "skyblue") + # Smaller binwidth
+  labs(x = "Value", y = "Frequency") +
+  theme_minimal()
+```
+
+## Frequency Polygons {#sec-freqs}
+
+{{< important "Frequency polygons look remarkably similar to line graphs, but
+start from a different perspective on understanding frequency." >}}
+
+- **Frequency polygons** can be though of as a line plot that that travels
+through the {{< blank midpoint >}} of histogram bars
+  - So frequency polygons still use those same {{< blank bin >}} widths as with
+  histograms, but don't show that on the graph itself (unless overlaid)
+  - This makes them more appropriate for dealing with continuous data
+
+```{r}
+#| label: fig-freq-poly
+#| fig-cap: "Frequency polygon"
+
+ggplot(data, aes(x = value)) +
+  geom_freqpoly(binwidth = 1, color = "red", size = 1) + # Frequency polygon
+  labs(x = "Value", y = "Density") +
+  theme_minimal()
+```
+
+## Box Plots {#sec-box-plots}
+
+- {{< glossary "Boxplots" "A graphical representation of a continuous variable
+  that shows the median, 25th percentile, and 75th percentile" "false" >}} are
+  useful for representing information about the quartiles, percentiles, and {{<
+  blank median >}} all in a single plot
+  - Also called **box-and-whisker** plots (may be the preferred name for the
+    cat-lovers like myself)
+
+- The {{< blank centerline >}} of a box plot represents a median, edges of the
+  box represent $Q_1$ and $Q_3$ (i.e., the box is the IQR), the whiskers
+  *usually* extend to the farthest values
+
+```{r}
+#| label: fig-boxplot
+#| fig-cap: "Boxplot example"
+
+data <- data.frame(
+  category = rep(c("A", "B", "C"), each = 20),
+  value = c(rnorm(20, mean = 5), rnorm(20, mean = 7), rnorm(20, mean = 6))
+)
+
+ggplot(data, aes(x = category, y = value)) +
+  geom_boxplot() +
+  labs(x = "Category", y = "Value")
+```
+
+## Practicing Choosing Descriptives and Plots {#sec-practice-choosing}
+
+- Not all plots and descriptive statistics provide the {{< blank same >}}
+  information - try the following questions for practice
+
+{{<
+question
+"I want to graphically examine the median and IQR of SAT scores in a local
+school district, how could I do this?"
+"Boxplot"
+"Frequency histogram"
+"Kurtosis"
+"Arithmetic Mean"
+"a"
+>}}
+
+{{<
+question
+"I want to know the numeric value most commonly appearing in a dataset, how
+could I find this?"
+"Mean"
+"Median"
+"Boxplot"
+"Mode"
+"d"
+>}}
+
+{{<
+question
+"I want visually compare my variable of student wellbeing ratings (continuous)
+against a normal distribution, how could I best examine this?"
+"Boxplot"
+"Bar plot"
+"Histogram"
+"Mean"
+"c"
+>}}
+
+## Aside about Lying in Statistics {#sec-lying}
+
+- With all of these different methods (any many more!) for {{< blank visually >}}
+representing data, we run into an issue: accidental or purposeful misleading
+with graphs
+  - *"There are three kinds of lies: lies, damned lies, and statistics"* - Mark
+  Twain (kind of, its complicated who exactly came up with this)
+  - While often times taken out of context, this statement does ring true
+  sometimes - we owe it to our readers to be careful
+
+{{< important "One of the best ways to ensure that data is represented fairly is
+to try to represent it via multiple different methods - these different methods
+will help us see slightly different dimensions and information about the
+distribution." >}}
+
+- Aim for *consistency and clarity in graphing*, avoiding {{< blank uneven >}}
+axis points, confusingly similar colors, and making sure enough information is
+included to understand the scale of the plot.
+  - Easy tip: see if you can show the plot to someone not knowledgeable in the
+  work and see if it makes sense to them
+
+# Conclusion {#sec-conclusion}
+
+## Recap {#sec-recap}
+
+- Understanding our data first starts with describing it, and we can accomplish
+that both through informative statistics and graph
+
+- Measures of central tendency and dispersion can succinctly describe the center
+of data, and how spread out it is, respectively. They can be a useful way to
+quickly describe data in numbers.
+
+- The various graphs show slightly different information, and multiple options
+may be used simultaneously to more thoroughly show the characteristics of
+the data
+
+- The statistics we calculate on our sample are meant to accurately estimate the
+parameters of the population distribution, but that only works if our sample is
+representative and our data unbiased!
+
+- Outliers and discussion on skew/kurtosis will return later when we are talking
+  about their impact on inferential statistics, but don't worry too much about
+  that yet!
+
+::: {.content-visible when-format="revealjs"}
+
+## Lecture Check-in {#sec-lecture-check-in}
+
+- Make sure to complete any lecture check-in tasks associated with this lecture!
+
+:::
