@@ -1,7 +1,0 @@
-This is makeindex, version 2.18 [TeX Live 2026] (kpathsea + Thai support).
-Scanning style file ./module_lecture.ist...........................done (27 attributes redefined, 0 ignored).
-Scanning input file module_lecture.glo....done (34 entries accepted, 0 rejected).
-Sorting entries....done (178 comparisons).
-Generating output file module_lecture.gls....done (89 lines written, 0 warnings).
-Output written in module_lecture.gls.
-Transcript written in module_lecture.glg.
